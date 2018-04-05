@@ -1,0 +1,38 @@
+{
+  "name": "goobi-viewer",
+  "version": "3.4.0",
+  "description": "The Goobi viewer is a web application that allows digitised material to be displayed on the computer screen.",
+  "author": "intranda GmbH",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intranda/goobi-viewer-core"
+  },
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jsdoc": "^2.2.0",
+    "ink-docstrap": "^1.3.0",
+    "jasmine-core": "^3.1.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "less-plugin-autoprefix": "^1.5.1",
+    "jsdoc": "^3.4.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.conf"
+  }
+}

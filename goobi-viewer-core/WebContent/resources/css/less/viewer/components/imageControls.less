@@ -1,0 +1,197 @@
+/* ==============================================================
+   Image Controls
+   ==============================================================*/
+/* CONTROLS */
+/* BLOCK */
+.image-controls {
+	padding: 15px 0;
+    .mx-clearfloats;
+    /* ELEMENT */
+    [data-toggle="mobile-image-controls"] {
+    	display: none;
+    	padding: 15px 0;
+    	font-size: 21px;
+    	text-align: center;
+    	width: 100%;
+    }
+    &__actions {
+	    ul {}
+	    li {}
+	    a {}
+	    span {}
+    }
+}
+/* BLOCK */
+.image-control {
+    margin-right: 5px;
+    font-size: 1.5rem;
+    /* ELEMENT */
+    &.inactive {
+        a, span {
+            opacity: 0.4;
+        }
+        [class^="control-icon-"], 
+        [class*=" control-icon-"] {
+            cursor: default;
+        }
+    }
+    a, span {
+    	position: relative;
+        display: block;
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0;
+        text-align: center;
+        color: @gray;
+        border: 1px solid @gray;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    [class^="control-icon-"], 
+    [class*=" control-icon-"] {
+        display: inline-block;
+        border: 0;
+        margin: 1px 0 0 1px;
+        padding: 0;
+        font-size: 29px;
+        cursor: pointer;
+    }
+    .labeltext {
+    	display: none;
+    }
+    /* ELEMENT */
+    &__start {}
+    &__page-browse,
+    &__select {
+    	font-family: Arial, Helvetica, sans-serif !important;
+    }
+    &__page-browse {
+        font-size: 1rem;
+        a, span {}
+    }
+    &__back {}
+    &__select-text {
+    	span {
+	    	font-family: @fontFamily;
+	    	font-size: 14px;
+    		border: none;
+	    	cursor: text;
+    	}
+    }
+    &__select {
+        .form-control__select {
+            max-width: 100px;
+            height: 32px;
+            padding: 0;
+            border: 1px solid @gray;
+            background: none;
+            select {
+                background: none;
+            }
+        }
+    }
+    &__forward {}
+    &__end {}
+    &__double-page-view {}
+    &__single-page-view {}
+    &__switch-pages {}
+    &__rotate-left {}
+    &__rotate-right {}
+    &__reset {}
+    &__fullscreen {}
+    &__zoom-slider {
+        width: 100px;
+        .zoom-slider {
+            height: 16px;
+            margin-top: 8px;
+            border: 1px solid @gray;
+        }
+        .zoom-slider-handle {
+            position: relative;
+            top: -9px;
+            width: 15px;
+            min-width: inherit;
+            height: 32px;
+            line-height: inherit;
+            border: none;
+            background-color: @gray;
+        }
+        
+    }
+    &__pdf,
+    &__fulltext {
+    	a {
+    		line-height: 26px;
+    		border: none;
+    	}
+    }
+    &__fulltext {}
+    &__add-to-bookshelf {
+		[data-bookshelf-type="add"] {
+		    line-height: 26px;
+		    color: @gray;
+		    background-image: none;
+		    .fa-bookmark-o {
+		        display: inline-block;
+		    }
+		    .fa-bookmark {
+		        display: none;
+		        color: @gray;
+		    }
+		    &.added, &:hover {
+		        .fa-bookmark-o {
+		            display: none;
+		        }
+		        .fa-bookmark {
+		            display: inline-block;
+		        }
+		    }
+		}
+	}
+}
+
+/* BREAKPOINT FOR LARGE DESKTOPS */
+@media screen and (max-width: @largeBreakpoint) {} 
+
+
+/* BREAKPOINT FOR DESKTOP */
+@media screen and (max-width: 1024px) {
+	li.image-control__page-browse {
+		display: none;
+	}
+}
+
+@media screen and (max-width: @mediumBreakpoint) {}
+
+/* BREAKPOINT FOR TABLETS */
+@media screen and (max-width: @smallBreakpoint) {
+    li.image-control__double-page-view,
+    li.image-control__single-page-view,
+    li.image-control__switch-pages,
+    li.image-control__rotate-left,
+    li.image-control__rotate-right,
+    li.image-control__reset {
+        display: none;
+    }
+}
+
+/* BREAKPOINT FOR SMARTPHONES */
+@media screen and (max-width: @xSmallBreakpoint) {
+	li.image-control__start,
+	li.image-control__back,
+	li.image-control__select,
+	li.image-control__forward,
+	li.image-control__end,
+	li.image-control__fullscreen {
+		display: inline-block;
+	    float: left;
+	}
+    li.image-control__zoom-slider,
+    li.image-control__pdf,
+    li.image-control&__add-to-bookshelf {
+        display: none;
+    }
+}

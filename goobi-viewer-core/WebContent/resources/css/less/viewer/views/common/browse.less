@@ -1,0 +1,98 @@
+/* ==============================================================
+   Browse
+   style declarations for browse.xhtml
+   ==============================================================*/
+/* BROWSE */
+/* BLOCK */
+.collections {
+	/* ELEMENT */
+	&__wrapper {
+		position: relative;
+		div[class*="col-xs"],
+		div[class*="col-sm"] {
+            padding: 0;
+        }
+	}
+}
+.collection {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: 1px solid @middlegray;
+    border-top: none;
+	/* ELEMENT */
+	.row {
+		margin: 0;
+	}
+	&__item {}
+	&__structure,
+	&__title,
+	&__description-toggle,
+	&__rss {
+		a {
+			display: block;
+			padding: 10px 0;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	}
+	&__description-toggle,
+	&__rss {
+		a {
+			display: inline-block;
+			padding: 10px;
+			text-align: center;
+		}
+	}
+	&__structure {}
+	&__title {
+	   div.col-xs-12 {
+	       padding-left: 15px;
+	   }
+	}
+	&__top-element {
+		font-weight: bold;
+	}
+	&__description-toggle,
+	&__rss {
+		width: 50%;
+		padding-right: 15px;
+		text-align: right;
+	}
+	&__description-toggle {
+	   padding: 0;
+	}
+	&__rss {}
+	&__description {
+		padding: 5px 15px;
+	}
+	/* MODIFICATION */
+	&__item--level-0 {
+	    border-top: 1px solid @middlegray;
+	}
+}
+
+/* BREAKPOINT FOR LARGE DESKTOPS */
+@media screen and (max-width: @largeBreakpoint) {}
+
+/* BREAKPOINT FOR DESKTOP */
+@media screen and (max-width: @mediumBreakpoint) {}
+
+/* BREAKPOINT FOR TABLETS */
+@media screen and (max-width: @smallBreakpoint) {}
+
+/* BREAKPOINT FOR SMARTPHONES */
+@media screen and (max-width: @xSmallBreakpoint) {
+    /* BROWSE */
+    .collection__structure a, 
+    .collection__title a, 
+    .collection__description-toggle a, 
+    .collection__rss a {
+        padding: 10px 0;
+    }
+    .collection__description img {
+		display: block;
+	    max-width: 100%;
+	    height: auto;
+	}
+}

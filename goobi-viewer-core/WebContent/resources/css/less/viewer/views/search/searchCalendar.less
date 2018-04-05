@@ -1,0 +1,146 @@
+/* ==============================================================
+   Search Calendar
+   style declarations for searchCalendar.xhtml 
+   ==============================================================*/
+/* BLOCK */
+.search-calendar {
+    /* ELEMENT */
+    .btn {
+        margin: 0 0 0 5px;
+    }
+    &__title {
+        h2 {}
+    }
+    &__toggle {
+        &.btn {
+            margin: 0 0 21px 0;
+        }
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+    &__input {
+        padding: 21px;
+        border-top: 1px solid @middlegray;
+        background-color: @lightgray;
+        input {
+            box-shadow: none;
+        }
+        .form-horizontal {}
+        .form-group {}
+        .col-sm-4 {}
+        .col-sm-8 {}
+        .control-label {}
+        .form-control {}
+    }
+    &__reset {
+        text-align: right;
+        .btn {}
+    }
+    &__months {
+        margin-bottom: 21px;
+        padding: 21px 0;
+        border-top: 1px solid @middlegray;
+        border-bottom: 1px solid @middlegray;
+    }
+    &__month {
+        min-height: 270px;
+        margin-bottom: 15px;
+    }
+    &__month-title {
+        padding: 5px;
+        font-style: italic;
+    }
+    &__month-days,
+    &__month-week {
+        border-bottom: 1px solid @middlegray;
+    }
+    &__month-days span,
+    &__month-day,
+    &__month-day-empty {
+        float: left;
+        width: calc(100% / 7);
+    }
+    &__month-days {
+        span {
+            display: block;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    &__month-week {}
+    &__month-day {
+        text-align: center;
+        color: @middlegray;
+        a, 
+        span,
+        button {
+            display: block;
+            padding: 5px 10px;
+        }
+        a,
+        button {
+        	width: 100%;
+        	color: @blue;
+        	text-decoration: none;
+            background-color: @lightgray;
+        	&:hover,
+        	&:focus,
+        	&:active {
+        		text-decoration: none;
+        		color: @white;
+        		background-color: @blue;
+        	}
+        }
+        .popover-title {
+        	line-height: normal;
+        	color: @black;
+        }
+        .popover-content {
+        	a {
+        		background-color: transparent;
+        		&:hover,
+        		&:active,
+        		&:focus {
+        			color: @black;
+        			background-color: transparent;
+        		}
+        	}
+        }
+    }
+    &__month-day-empty {
+        min-height: 1px;
+    }
+    &__action {}
+    &__incomplete {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .label {
+            padding: 7px 15px;
+            font-size: .9rem;
+        } 
+    }
+    /* MODIFICATION */
+    &__month-day {
+        &.active {
+            background-color: @middlegray;
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+/* BREAKPOINT FOR LARGE DESKTOPS */
+@media screen and (max-width: @largeBreakpoint) {} 
+
+/* BREAKPOINT FOR DESKTOP */
+@media screen and (max-width: @mediumBreakpoint) {}
+
+/* BREAKPOINT FOR TABLETS */
+@media screen and (max-width: @smallBreakpoint) {}
+
+/* BREAKPOINT FOR SMARTPHONES */
+@media screen and (max-width: @xSmallBreakpoint) {}

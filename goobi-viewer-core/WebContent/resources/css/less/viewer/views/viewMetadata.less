@@ -1,0 +1,160 @@
+/* ==============================================================
+   View Metadata
+   style declarations for viewMetadata.xhtml 
+   ==============================================================*/
+/* METADATA */
+#metadataElementWrapper {
+	position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 1.3125rem;
+    .metadata-element-box {
+        .metadata-element {
+            .dl-horizontal {
+            	margin: 0;
+                dt {
+                    width: 30%;
+                    text-align: left;
+
+                }
+                dd {
+                    margin-left: 30%;
+                    .metadata-value {
+                        display: block;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        &:last-child {
+                        	margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+        &.level-0 {}
+        &.level-1 {
+        	padding-left: 20px;
+        }
+        &.level-2 {
+        	padding-left: 30px;
+        }
+        &.level-3 {
+        	padding-left: 40px;
+        }
+        &.level-4 {
+        	padding-left: 50px;
+        }
+        &.level-5 {
+        	padding-left: 60px;
+        }
+        &.level-6 {
+        	padding-left: 70px;
+        }
+        &.level-7 {
+        	padding-left: 80px;
+        }
+        &.level-8 {
+        	padding-left: 90px;
+        }
+        &.level-9 {
+        	padding-left: 100px;
+        }
+    }
+    .metadata-event-box {
+        .metadata-event {
+            .dl-horizontal {
+            	margin: 0;
+                dt {
+                    width: 30%;
+                    text-align: left;
+
+                }
+                dd {
+                    margin-left: 30%;
+                    .metadata-value {
+                        display: block;
+                        margin-bottom: 0.5rem;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        &:last-child {
+                        	margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .glyphicon {
+    	margin-right: 5px;
+    }
+}
+
+/* DOWNLOADS */
+#viewMetadataDownloads {
+    margin-bottom: 1.3125rem;
+    ul {
+        li {
+            display: inline-block;
+            margin-bottom: 4px;
+            a {}
+            .btn {}
+            /* BLOCK */
+            &.dl-links {
+                /* ELEMENT */
+                &__mets {}
+                &__mets-all {}
+                &__marcxml {}
+                &__dc {}
+                &__ese {}
+                &__dfg {}
+                &__opac {}
+                &__pdf {}
+                &__epub {}
+            }
+        }
+    }
+}
+
+
+/* BREAKPOINT FOR LARGE DESKTOPS */
+@media screen and (max-width: @largeBreakpoint) {} 
+
+/* BREAKPOINT FOR DESKTOP */
+@media screen and (max-width: @mediumBreakpoint) {}
+
+/* BREAKPOINT FOR TABLETS */
+@media screen and (max-width: @smallBreakpoint) {
+    #metadataElementWrapper {
+        .metadata-element-box {
+            .metadata-element {
+                .dl-horizontal {
+                    dt {
+                        width: 100%;
+                    }
+                    dd {
+                        width: 100%;
+                        margin: 0;
+                        .metadata-value {}
+                    }
+                }
+            }
+        }
+        .metadata-event-box {
+            .metadata-event {
+                .dl-horizontal {
+                    dt {
+                        width: 100%;
+                    }
+                    dd {
+                        width: 100%;
+                        margin: 0;
+                        .metadata-value {}
+                    }
+                }
+            }
+        }
+        .glyphicon {}
+    }
+}
+
+/* BREAKPOINT FOR SMARTPHONES */
+@media screen and (max-width: @xSmallBreakpoint) {}
