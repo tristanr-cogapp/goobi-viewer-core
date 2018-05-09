@@ -59,6 +59,7 @@ de.intranda.digiverso.presentation.servlets.rest.metadata
 de.intranda.digiverso.presentation.servlets.rest.ner
 de.intranda.digiverso.presentation.servlets.rest.rss
 de.intranda.digiverso.presentation.servlets.rest.search
+de.intranda.digiverso.presentation.servlets.rest.security
 de.intranda.digiverso.presentation.servlets.rest.services
 de.intranda.digiverso.presentation.servlets.rest.utils
 de.intranda.digiverso.presentation.servlets.utils
