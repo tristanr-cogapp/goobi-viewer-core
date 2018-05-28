@@ -34,6 +34,7 @@ de.intranda.digiverso.presentation.model.rss
 de.intranda.digiverso.presentation.model.search
 de.intranda.digiverso.presentation.model.security
 de.intranda.digiverso.presentation.model.security.user
+de.intranda.digiverso.presentation.model.sitemap
 de.intranda.digiverso.presentation.model.toc
 de.intranda.digiverso.presentation.model.toc.export.pdf
 de.intranda.digiverso.presentation.model.toc.metadata
