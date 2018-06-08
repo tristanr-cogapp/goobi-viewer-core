@@ -671,15 +671,13 @@ public final class SearchHelper {
      * <li>Then search in field "TITLE" and check with contains</li>
      *
      * @param suggest the search string
-     * @param currentCollections Optional collections to which all suggestions have to belong.
      * @param currentFacets
      * @throws IndexUnreachableException
      * @should return autosuggestions correctly
      * @should filter by collection correctly
      * @should filter by facet correctly
      */
-    public static List<String> searchAutosuggestion(String suggest, List<FacetItem> currentCollections, List<FacetItem> currentFacets)
-            throws IndexUnreachableException {
+    public static List<String> searchAutosuggestion(String suggest, List<FacetItem> currentFacets) throws IndexUnreachableException {
         List<String> ret = new ArrayList<>();
 
         if (!suggest.contains(" ")) {
@@ -687,15 +685,6 @@ public final class SearchHelper {
                 suggest = suggest.toLowerCase();
                 StringBuilder sbQuery = new StringBuilder();
                 sbQuery.append(SolrConstants.DEFAULT).append(':').append(ClientUtils.escapeQueryChars(suggest)).append('*');
-                if (currentCollections != null && !currentCollections.isEmpty()) {
-                    for (FacetItem facetItem : currentCollections) {
-                        if (sbQuery.length() > 0) {
-                            sbQuery.append(" AND ");
-                        }
-                        sbQuery.append(facetItem.getQueryEscapedLink());
-                        logger.trace("Added collection facet: {}", facetItem.getQueryEscapedLink());
-                    }
-                }
                 if (currentFacets != null && !currentFacets.isEmpty()) {
                     for (FacetItem facetItem : currentFacets) {
                         if (sbQuery.length() > 0) {

@@ -59,7 +59,7 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     @Test
     public void parseFacetString_shouldFillListCorrectly() throws Exception {
         List<FacetItem> facetItems = new ArrayList<>();
-        SearchFacets.parseFacetString("DC:a;;DC:b;;MD_TITLE:word;;", facetItems, true);
+        SearchFacets.parseFacetString("DC:a;;DC:b;;MD_TITLE:word;;", facetItems);
         Assert.assertEquals(3, facetItems.size());
         Assert.assertEquals("DC", facetItems.get(0).getField());
         Assert.assertEquals("a", facetItems.get(0).getValue());
@@ -76,9 +76,9 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     @Test
     public void parseFacetString_shouldEmptyListBeforeFilling() throws Exception {
         List<FacetItem> facetItems = new ArrayList<>();
-        SearchFacets.parseFacetString("DC:a;;", facetItems, true);
+        SearchFacets.parseFacetString("DC:a;;", facetItems);
         Assert.assertEquals(1, facetItems.size());
-        SearchFacets.parseFacetString("DC:b;;MD_TITLE:word;;", facetItems, true);
+        SearchFacets.parseFacetString("DC:b;;MD_TITLE:word;;", facetItems);
         Assert.assertEquals(2, facetItems.size());
         Assert.assertEquals("DC", facetItems.get(0).getField());
         Assert.assertEquals("b", facetItems.get(0).getValue());
@@ -93,7 +93,7 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     @Test
     public void parseFacetString_shouldAddDCFieldPrefixIfNoFieldNameIsGiven() throws Exception {
         List<FacetItem> facetItems = new ArrayList<>();
-        SearchFacets.parseFacetString("collection", facetItems, true);
+        SearchFacets.parseFacetString("collection", facetItems);
         Assert.assertEquals(1, facetItems.size());
         Assert.assertEquals(SolrConstants.DC, facetItems.get(0).getField());
         Assert.assertEquals("collection", facetItems.get(0).getValue());
@@ -107,15 +107,9 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     public void parseFacetString_shouldSetHierarchicalStatusCorrectly() throws Exception {
         {
             List<FacetItem> facetItems = new ArrayList<>();
-            SearchFacets.parseFacetString("DC:a;;", facetItems, true);
+            SearchFacets.parseFacetString("DC:a;;", facetItems);
             Assert.assertEquals(1, facetItems.size());
             Assert.assertTrue(facetItems.get(0).isHierarchial());
-        }
-        {
-            List<FacetItem> facetItems = new ArrayList<>();
-            SearchFacets.parseFacetString("DC:a;;", facetItems, false);
-            Assert.assertEquals(1, facetItems.size());
-            Assert.assertFalse(facetItems.get(0).isHierarchial());
         }
     }
 
@@ -184,21 +178,6 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     }
 
     /**
-     * @see SearchFacets#removeHierarchicalFacetAction(String,String)
-     * @verifies remove facet correctly
-     */
-    @Test
-    public void removeHierarchicalFacetAction_shouldRemoveFacetCorrectly() throws Exception {
-        SearchFacets facets = new SearchFacets();
-        facets.setCurrentHierarchicalFacetString("DC:a;;DC:aa;;");
-        Assert.assertEquals(2, facets.getCurrentHierarchicalFacets().size());
-        facets.removeHierarchicalFacetAction("DC:a", null);
-        Assert.assertEquals(1, facets.getCurrentHierarchicalFacets().size());
-        // Make sure only "DC:a" is removed but not facets starting with "DC:a"
-        Assert.assertEquals("DC:aa;;", facets.getCurrentCollection());
-    }
-
-    /**
      * @see SearchFacets#setCurrentFacetString(String)
      * @verifies create FacetItems from all links
      */
@@ -234,8 +213,8 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     @Test
     public void generateFacetFilterQuery_shouldGenerateQueryCorrectly() throws Exception {
         SearchFacets facets = new SearchFacets();
-        facets.setCurrentFacetString("FIELD1:a;;FIELD2:b;;FIELD3:[c TO d]");
-        Assert.assertEquals("FIELD1:a AND FIELD2:b AND FIELD3:[c TO d]", facets.generateFacetFilterQuery());
+        facets.setCurrentFacetString("FIELD1:a;;FIELD2:b;;YEAR:[c TO d]");
+        Assert.assertEquals("FIELD1:a AND FIELD2:b AND YEAR:[c TO d]", facets.generateFacetFilterQuery());
     }
 
     /**
@@ -246,19 +225,6 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
     public void generateFacetFilterQuery_shouldReturnNullIfFacetListIsEmpty() throws Exception {
         SearchFacets facets = new SearchFacets();
         Assert.assertNull(facets.generateFacetFilterQuery());
-    }
-
-    /**
-     * @see SearchFacets#generateHierarchicalFacetFilterQuery(int)
-     * @verifies generate query correctly
-     */
-    @Test
-    public void generateHierarchicalFacetFilterQuery_shouldGenerateQueryCorrectly() throws Exception {
-        SearchFacets facets = new SearchFacets();
-        facets.setCurrentHierarchicalFacetString("DC:a;;DC:aa;;");
-        Assert.assertEquals("(FACET_DC:\"a\" OR FACET_DC:a.*) AND (FACET_DC:\"aa\" OR FACET_DC:aa.*)",
-                facets.generateHierarchicalFacetFilterQuery(0));
-        Assert.assertEquals("(FACET_DC:\"a\" OR FACET_DC:a.*) OR (FACET_DC:\"aa\" OR FACET_DC:aa.*)", facets.generateHierarchicalFacetFilterQuery(1));
     }
 
     /**
@@ -344,13 +310,12 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
         facetItems.add(new FacetItem(SolrConstants._CALENDAR_YEAR + ":10", false));
         facetItems.add(new FacetItem(SolrConstants._CALENDAR_YEAR + ":2018", false));
         facets.getAvailableFacets().put(SolrConstants._CALENDAR_YEAR, facetItems);
-        
+
         facets.populateAbsoluteMinMaxValuesForField(SolrConstants._CALENDAR_YEAR);
         Assert.assertEquals("-20", facets.getAbsoluteMinRangeValue(SolrConstants._CALENDAR_YEAR));
         Assert.assertEquals("2018", facets.getAbsoluteMaxRangeValue(SolrConstants._CALENDAR_YEAR));
 
     }
-
 
     /**
      * @see SearchFacets#populateAbsoluteMinMaxValuesForField(String)
@@ -365,11 +330,11 @@ public class SearchFacetsTest extends AbstractSolrEnabledTest {
         facetItems.add(new FacetItem(SolrConstants._CALENDAR_YEAR + ":-10", false));
         facetItems.add(new FacetItem(SolrConstants._CALENDAR_YEAR + ":10", false));
         facets.getAvailableFacets().put(SolrConstants._CALENDAR_YEAR, facetItems);
-        
+
         facets.populateAbsoluteMinMaxValuesForField(SolrConstants._CALENDAR_YEAR);
         List<Integer> values = facets.getValueRange(SolrConstants._CALENDAR_YEAR);
         Assert.assertNotNull(values);
         Assert.assertEquals(4, values.size());
-        Assert.assertArrayEquals(new Integer[]{-20,  -10, 10, 2018}, values.toArray());
+        Assert.assertArrayEquals(new Integer[] { -20, -10, 10, 2018 }, values.toArray());
     }
 }

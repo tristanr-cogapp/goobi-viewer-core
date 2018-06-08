@@ -46,12 +46,8 @@ public class SearchFacets {
 
     /** Available regular facets for the current search result. */
     private final Map<String, List<FacetItem>> availableFacets = new LinkedHashMap<>();
-    /** Available hierarchical facets for the current search result . */
-    private final Map<String, List<FacetItem>> availableHierarchicalFacets = new LinkedHashMap<>();
     /** Currently applied facets. */
     private final List<FacetItem> currentFacets = new ArrayList<>();
-    /** List representation of all active collection facets. */
-    protected final List<FacetItem> currentHierarchicalFacets = new ArrayList<>();
 
     private final Map<String, Boolean> drillDownExpanded = new HashMap<>();
 
@@ -65,7 +61,6 @@ public class SearchFacets {
 
     public void resetAvailableFacets() {
         availableFacets.clear();
-        availableHierarchicalFacets.clear();
         drillDownExpanded.clear();
     }
 
@@ -107,10 +102,13 @@ public class SearchFacets {
      * @should return null if facet list is empty
      */
     String generateHierarchicalFacetFilterQuery(int advancedSearchGroupOperator) {
-        if (!currentHierarchicalFacets.isEmpty()) {
+        if (!currentFacets.isEmpty()) {
             StringBuilder sbQuery = new StringBuilder();
             int count = 0;
-            for (FacetItem facetItem : currentHierarchicalFacets) {
+            for (FacetItem facetItem : currentFacets) {
+                if (!facetItem.isHierarchial()) {
+                    continue;
+                }
                 if (count > 0) {
                     if (advancedSearchGroupOperator == 1) {
                         sbQuery.append(" OR ");
@@ -152,6 +150,9 @@ public class SearchFacets {
                 sbQuery.append(')');
             }
             for (FacetItem facetItem : currentFacets) {
+                if (facetItem.isHierarchial()) {
+                    continue;
+                }
                 if (sbQuery.length() > 0) {
                     sbQuery.append(" AND ");
                 }
@@ -199,24 +200,6 @@ public class SearchFacets {
     }
 
     /**
-     * Returns a list of FacetItem objects in <code>currentFacets</code> where the field name matches the given field name.
-     *
-     * @param field The field name to match.
-     * @return
-     */
-    public List<FacetItem> getCurrentHierarchicalFacetsForField(String field) {
-        List<FacetItem> ret = new ArrayList<>();
-
-        for (FacetItem facet : currentHierarchicalFacets) {
-            if (facet.getField().equals(field)) {
-                ret.add(facet);
-            }
-        }
-
-        return ret;
-    }
-
-    /**
      * Checks whether the given facet is currently in use.
      *
      * @param facet The facet to check.
@@ -224,11 +207,6 @@ public class SearchFacets {
      */
     public boolean isFacetCurrentlyUsed(FacetItem facet) {
         for (FacetItem fi : getCurrentFacetsForField(facet.getField())) {
-            if (fi.getLink().equals(facet.getLink())) {
-                return true;
-            }
-        }
-        for (FacetItem fi : getCurrentHierarchicalFacetsForField(facet.getField())) {
             if (fi.getLink().equals(facet.getLink())) {
                 return true;
             }
@@ -244,11 +222,16 @@ public class SearchFacets {
         if (availableFacets.get(field) != null) {
             return availableFacets.get(field).size();
         }
-        if (availableHierarchicalFacets.get(field) != null) {
-            return availableHierarchicalFacets.get(field).size();
-        }
 
         return 0;
+    }
+
+    /**
+     *
+     * @return Size of <code>currentFacets</code>.
+     */
+    public int getCurrentFacetsSizeForField(String field) {
+        return getCurrentFacetsForField(field).size();
     }
 
     /**
@@ -266,9 +249,6 @@ public class SearchFacets {
      */
     public List<FacetItem> getLimitedFacetListForField(String field) {
         List<FacetItem> facetItems = availableFacets.get(field);
-        if (facetItems == null) {
-            facetItems = availableHierarchicalFacets.get(field);
-        }
         if (facetItems != null) {
             // Remove currently used facets
             facetItems.removeAll(currentFacets);
@@ -333,9 +313,6 @@ public class SearchFacets {
      */
     public boolean isDisplayDrillDownExpandLink(String field) {
         List<FacetItem> facetItems = availableFacets.get(field);
-        if (facetItems == null) {
-            facetItems = availableHierarchicalFacets.get(field);
-        }
         int expandSize = DataManager.getInstance().getConfiguration().getInitialDrillDownElementNumber(field);
         if (facetItems != null && !isDrillDownExpanded(field) && expandSize > 0 && facetItems.size() > expandSize) {
             return true;
@@ -387,28 +364,17 @@ public class SearchFacets {
     /**
      * @return the currentCollection
      */
+    @Deprecated
     public String getCurrentHierarchicalFacetString() {
-        String ret = generateFacetPrefix(currentHierarchicalFacets, true);
-        if (StringUtils.isEmpty(ret)) {
-            ret = "-";
-        }
-        try {
-            return URLEncoder.encode(ret, SearchBean.URL_ENCODING);
-        } catch (UnsupportedEncodingException e) {
-            return ret;
-        }
+        return "-";
     }
 
     /**
      * @return the currentCollection
      */
+    @Deprecated
     public String getCurrentCollection() {
-        String ret = generateFacetPrefix(currentHierarchicalFacets, true);
-        if (StringUtils.isEmpty(ret)) {
-            ret = "-";
-        }
-
-        return ret;
+        return "-";
     }
 
     /**
@@ -420,7 +386,7 @@ public class SearchFacets {
      */
     public void setCurrentFacetString(String currentFacetString) {
         logger.trace("setCurrentFacetString: {}", currentFacetString);
-        parseFacetString(currentFacetString, currentFacets, false);
+        parseFacetString(currentFacetString, currentFacets);
     }
 
     /**
@@ -429,10 +395,8 @@ public class SearchFacets {
      *
      * @param currentFacetString
      */
+    @Deprecated
     public void setCurrentHierarchicalFacetString(String currentHierarchicalFacetString) {
-        logger.trace("setCurrentHierarchicalFacetString: {}", currentHierarchicalFacetString);
-        parseFacetString(currentHierarchicalFacetString, currentHierarchicalFacets, true);
-        // do not mirror the values into the advanced query items here
     }
 
     /**
@@ -452,7 +416,7 @@ public class SearchFacets {
      * @should add DC field prefix if no field name is given
      * @should set hierarchical status correctly
      */
-    static void parseFacetString(String facetString, List<FacetItem> facetItems, boolean hiearchical) {
+    static void parseFacetString(String facetString, List<FacetItem> facetItems) {
         if (facetItems == null) {
             facetItems = new ArrayList<>();
         } else {
@@ -470,10 +434,21 @@ public class SearchFacets {
                     if (!facetLink.contains(":")) {
                         facetLink = new StringBuilder(SolrConstants.DC).append(':').append(facetLink).toString();
                     }
-                    facetItems.add(new FacetItem(facetLink, hiearchical));
+                    facetItems.add(new FacetItem(facetLink, isFieldHierarchical(facetLink.substring(0, facetLink.indexOf(":")))));
                 }
             }
         }
+    }
+
+    /**
+     * 
+     * @param field
+     * @return true if field is hierarchical; false otherwise
+     */
+    static boolean isFieldHierarchical(String field) {
+        logger.trace("isFieldHierarchical: {} ? {}", field,
+                DataManager.getInstance().getConfiguration().getHierarchicalDrillDownFields().contains(field));
+        return DataManager.getInstance().getConfiguration().getHierarchicalDrillDownFields().contains(field);
     }
 
     /**
@@ -666,6 +641,7 @@ public class SearchFacets {
     /**
      * 
      */
+    @Deprecated
     public void resetCurrentCollection() {
         logger.trace("resetCurrentCollection");
         setCurrentHierarchicalFacetString("-");
@@ -689,12 +665,9 @@ public class SearchFacets {
      *
      * @return
      */
+    @Deprecated
     public String getCurrentHierarchicalFacetPrefix() {
-        try {
-            return URLEncoder.encode(generateFacetPrefix(currentHierarchicalFacets, true), SearchBean.URL_ENCODING);
-        } catch (UnsupportedEncodingException e) {
-            return generateFacetPrefix(currentHierarchicalFacets, true);
-        }
+        return "";
     }
 
     /**
@@ -720,25 +693,6 @@ public class SearchFacets {
         }
 
         return sb.toString();
-    }
-
-    /**
-     * 
-     * @param facetQuery
-     * @return
-     * @should remove facet correctly
-     */
-    public String removeHierarchicalFacetAction(String facetQuery, String ret) {
-        // facetQuery = facetQuery.replace("/", SLASH_REPLACEMENT).replace("\\", BACKSLASH_REPLACEMENT);
-        logger.trace("removeHierarchicalFacetAction: {}", facetQuery);
-        String currentCollection = generateFacetPrefix(currentHierarchicalFacets, false);
-        logger.trace("currentCollection: {}", currentCollection);
-        if (currentCollection.contains(facetQuery)) {
-            currentCollection = currentCollection.replaceAll("(" + facetQuery + ")(?=;|(?=/))", "").replace(";;;;", ";;");
-            setCurrentHierarchicalFacetString(currentCollection);
-        }
-
-        return ret;
     }
 
     /**
@@ -792,8 +746,6 @@ public class SearchFacets {
         for (String field : DataManager.getInstance().getConfiguration().getAllDrillDownFields()) {
             if (availableFacets.containsKey(field)) {
                 ret.put(field, availableFacets.get(field));
-            } else if (availableHierarchicalFacets.containsKey(field)) {
-                ret.put(field, availableHierarchicalFacets.get(field));
             }
         }
 
@@ -808,24 +760,10 @@ public class SearchFacets {
     }
 
     /**
-     * @return the availableHierarchicalFacets
-     */
-    public Map<String, List<FacetItem>> getAvailableHierarchicalFacets() {
-        return availableHierarchicalFacets;
-    }
-
-    /**
      * @return the currentFacets
      */
     public List<FacetItem> getCurrentFacets() {
         return currentFacets;
-    }
-
-    /**
-     * @return the currentHierarchicalFacets
-     */
-    public List<FacetItem> getCurrentHierarchicalFacets() {
-        return currentHierarchicalFacets;
     }
 
     /**
