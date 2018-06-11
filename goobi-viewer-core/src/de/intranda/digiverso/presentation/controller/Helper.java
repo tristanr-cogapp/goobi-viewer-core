@@ -97,8 +97,6 @@ import de.intranda.digiverso.presentation.managedbeans.utils.BeanUtils;
 import de.intranda.digiverso.presentation.messages.Messages;
 import de.intranda.digiverso.presentation.messages.ViewerResourceBundle;
 import de.intranda.digiverso.presentation.model.overviewpage.OverviewPage;
-import de.intranda.digiverso.presentation.model.security.AccessConditionUtils;
-import de.intranda.digiverso.presentation.model.security.IPrivilegeHolder;
 import de.intranda.digiverso.presentation.modules.IModule;
 
 /**
@@ -652,10 +650,11 @@ public class Helper {
     }
 
     /**
+     * Builds full-text document REST URL.
      * 
      * @param dataRepository
      * @param filePath
-     * @return
+     * @return Full REST URL
      * @should build url correctly
      */
     public static String buildFullTextUrl(String dataRepository, String filePath) {
@@ -901,7 +900,7 @@ public class Helper {
     }
 
     /**
-     * Loads full-text via the REST service. ALTO is preferred, with a plain text fallback.
+     * Loads plain full-text via the REST service. ALTO is preferred (and converted to plain text, with a plain text fallback.
      * 
      * @param pi
      * @param dataRepository
@@ -917,45 +916,96 @@ public class Helper {
      * @should load fulltext from alto correctly
      * @should load fulltext from plain text correctly
      */
-    public static String loadFulltext(String pi, String dataRepository, String altoFilePath, String fulltextFilePath, HttpServletRequest request)
+    public static String loadFulltext(String dataRepository, String altoFilePath, String fulltextFilePath, HttpServletRequest request)
             throws AccessDeniedException, FileNotFoundException, IOException, IndexUnreachableException, DAOException {
-        String ret = null;
-
         if (altoFilePath != null) {
-            if (!AccessConditionUtils.checkAccessPermissionByIdentifierAndFilePathWithSessionMap(request, altoFilePath,
-                    IPrivilegeHolder.PRIV_VIEW_FULLTEXT)) {
-                logger.debug("Access denied for ALTO file {}", altoFilePath);
-                throw new AccessDeniedException("fulltextAccessDenied");
-            }
-
             // ALTO file
-            String url = Helper.buildFullTextUrl(dataRepository, altoFilePath);
-            try {
-                String alto = Helper.getWebContentGET(url);
-                ret = ALTOTools.getFullText(alto);
-            } catch (HTTPException e) {
-                logger.error("Could not retrieve file from {}", url);
-                logger.error(e.getMessage());
+            String alto = loadFulltext(dataRepository, altoFilePath, request);
+            if (alto != null) {
+                return ALTOTools.getFullText(alto);
+
+            }
+        }
+        if (fulltextFilePath != null) {
+            // Plain full-text file
+            String fulltext = loadFulltext(dataRepository, fulltextFilePath, request);
+            if (fulltext != null) {
+                return fulltext;
             }
         }
 
-        if (ret == null && fulltextFilePath != null) {
-            // Plain full-text file
-            if (!AccessConditionUtils.checkAccessPermissionByIdentifierAndFilePathWithSessionMap(request, fulltextFilePath,
-                    IPrivilegeHolder.PRIV_VIEW_FULLTEXT)) {
-                logger.debug("Access denied for ALTO file {}", altoFilePath);
+        return null;
+    }
+
+    /**
+     * Loads given text file path as a string, if the client has full-text access permission.
+     * 
+     * @param pi
+     * @param dataRepository
+     * @param filePath File path consisting of three party (datafolder/pi/filename); There must be two separators in the path!
+     * @param request
+     * @return
+     * @throws AccessDeniedException
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws IndexUnreachableException
+     * @throws DAOException
+     * @should return file content correctly
+     */
+    public static String loadFulltext(String dataRepository, String filePath, HttpServletRequest request)
+            throws AccessDeniedException, FileNotFoundException, IOException, IndexUnreachableException, DAOException {
+        if (filePath == null) {
+            return null;
+        }
+
+        String url = Helper.buildFullTextUrl(dataRepository, filePath);
+        try {
+            return Helper.getWebContentGET(url);
+        } catch (HTTPException e) {
+            logger.error("Could not retrieve file from {}", url);
+            logger.error(e.getMessage());
+            if (e.getCode() == 403) {
+                logger.debug("Access denied for text file {}", filePath);
                 throw new AccessDeniedException("fulltextAccessDenied");
             }
-            String url = Helper.buildFullTextUrl(dataRepository, fulltextFilePath);
-            try {
-                ret = Helper.getWebContentGET(url);
-            } catch (HTTPException e) {
-                logger.error("Could not retrieve file from {}", url);
-                logger.error(e.getMessage());
+        }
+
+        return null;
+    }
+
+    /**
+     * 
+     * @param pi
+     * @param language
+     * @return
+     * @throws AccessDeniedException
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public static String loadTei(String pi, String language) throws AccessDeniedException, FileNotFoundException, IOException {
+        logger.trace("loadTei: {}/{}", pi, language);
+        if (pi == null) {
+            return null;
+        }
+
+        String url = new StringBuilder(DataManager.getInstance().getConfiguration().getContentRestApiUrl()).append("tei/")
+                .append(pi)
+                .append('/')
+                .append(language)
+                .append('/')
+                .toString();
+        try {
+            return Helper.getWebContentGET(url);
+        } catch (HTTPException e) {
+            logger.error("Could not retrieve file from {}", url);
+            logger.error(e.getMessage());
+            if (e.getCode() == 403) {
+                logger.debug("Access denied for TEI file {}/{}", pi, language);
+                throw new AccessDeniedException("fulltextAccessDenied");
             }
         }
 
-        return ret;
+        return null;
     }
 
     public static String encodeUrl(String string) {
@@ -988,17 +1038,17 @@ public class Helper {
         //            return string;
         //        }
     }
-    
+
     /**
      * Finds the first String matching a regex within another string and return it as an {@link Optional}
      * 
-     * @param text      The String in which to search
-     * @param regex     The regex to search for
-     * @return  An optional containing the first String within the {@code text} matched by {@code regex}, or an empty optional if no match was found
+     * @param text The String in which to search
+     * @param regex The regex to search for
+     * @return An optional containing the first String within the {@code text} matched by {@code regex}, or an empty optional if no match was found
      */
     public static Optional<String> findFirstMatch(String text, String regex, int group) {
         Matcher matcher = Pattern.compile(regex).matcher(text);
-        if(matcher.find()) {
+        if (matcher.find()) {
             return Optional.of(matcher.group(group));
         } else {
             return Optional.empty();

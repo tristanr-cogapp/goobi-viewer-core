@@ -313,7 +313,7 @@ public class ViewerResourceBundle extends ResourceBundle {
         if (bundle.containsKey(key)) {
             return bundle.getString(key);
         }
-        
+
         // Remove trailing _DD (collection names for drill-down)
         if (key.endsWith(SolrConstants._DRILLDOWN_SUFFIX)) {
             String newKey = key.replace(SolrConstants._DRILLDOWN_SUFFIX, "");
