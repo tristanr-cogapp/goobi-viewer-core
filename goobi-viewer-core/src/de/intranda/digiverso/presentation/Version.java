@@ -6,7 +6,7 @@
 			*/
 			public class Version {
 			public final static String VERSION = "Goobi viewer-3.2";
-			public final static String BUILDVERSION = "5d4b3a1";
+			public final static String BUILDVERSION = "367e115";
 			public final static String BUILDDATE = "20180619";
 			}
 		
