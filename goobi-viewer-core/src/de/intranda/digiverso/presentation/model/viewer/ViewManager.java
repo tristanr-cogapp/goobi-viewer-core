@@ -2025,6 +2025,12 @@ public class ViewManager implements Serializable {
     public String getTopDocumentTitle() {
         return getDocumentTitle(this.topDocument);
     }
+    
+//    public List<List<String>> getCurrentUGCCoords() throws ModuleMissingException {
+//        if(DataManager.getInstance().isModuleLoaded("viewer-module-crowdsourcing")) {            
+//            CrowdsourcingModule module = DataManager.getInstance().getModule("viewer-module-crowdsourcing");
+//        }
+//    }
 
     public String getDocumentTitle(StructElement document) {
         StringBuilder sb = new StringBuilder();
