@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: Source: viewImage/viewImage.js</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
-
-<body>
-
-<div id="main">
-
-    <h1 class="page-title">Source: viewImage/viewImage.js</h1>
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
+/**
  * This file is part of the Goobi viewer - a content presentation and management application for digitized objects. Visit these websites for more information. -
  * http://www.intranda.com - http://digiverso.com This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be
  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along with this program. If not, see &lt;http://www.gnu.org/licenses/>. Module which initializes the viewerJS
+ * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>. Module which initializes the viewerJS
  * module.
  * 
  * @version 3.2.0
@@ -46,7 +18,7 @@ var viewImage = ( function() {
     var _footerImage = null;
     var _canvasScale;
     var _container;
-    var _defaults = {  
+    var _defaults = {
         global: {
             divId: "map",
             zoomSlider: ".zoom-slider",
@@ -76,7 +48,7 @@ var viewImage = ( function() {
         image: {},
         getOverlayGroup: function( name ) {
             var allGroups = _defaults.global.overlayGroups;
-            for ( var int = 0; int &lt; allGroups.length; int++ ) {
+            for ( var int = 0; int < allGroups.length; int++ ) {
                 var group = allGroups[ int ];
                 if ( group.name === name ) {
                     return group;
@@ -86,7 +58,7 @@ var viewImage = ( function() {
         getCoordinates: function( name ) {
             var coodinatesArray = _defaults.image.highlightCoords;
             if ( coodinatesArray ) {
-                for ( var int = 0; int &lt; coodinatesArray.length; int++ ) {
+                for ( var int = 0; int < coodinatesArray.length; int++ ) {
                     var coords = coodinatesArray[ int ];
                     if ( coords.name === name ) {
                         return coords;
@@ -113,13 +85,13 @@ var viewImage = ( function() {
             _container = $( "#" + _defaults.global.divId );
             
             var sources = _defaults.image.tileSource;
-            if(typeof sources === 'string' &amp;&amp; sources.startsWith("[")) {
+            if(typeof sources === 'string' && sources.startsWith("[")) {
             	sources = JSON.parse(sources);
             } else if(!$.isArray(sources)) {
             	sources = [sources];
             }
             var promises = [];
-            for ( var i=0; i&lt;sources.length; i++) {
+            for ( var i=0; i<sources.length; i++) {
             	var source = sources[i];
             	// returns the OpenSeadragon.TileSource if it can be created,
 				// otherweise
@@ -131,7 +103,7 @@ var viewImage = ( function() {
             	var minWidth = Number.MAX_VALUE;  
             	var minHeight = Number.MAX_VALUE;
             	var minAspectRatio = Number.MAX_VALUE;
-            	for ( var j=0; j&lt;tileSources.length; j++) {
+            	for ( var j=0; j<tileSources.length; j++) {
             		var tileSource = tileSources[j];
             		minWidth = Math.min(minWidth, tileSource.width);
             		minHeight = Math.min(minHeight, tileSource.height);
@@ -141,7 +113,7 @@ var viewImage = ( function() {
             	    console.log("Min aspect ratio = " + minAspectRatio);            	    
 	            }
             	var x = 0;
-            	for ( var i=0; i&lt;tileSources.length; i++) {
+            	for ( var i=0; i<tileSources.length; i++) {
 	        		var tileSource = tileSources[i];
 	        		tileSources[i] = {
 	        				tileSource: tileSource,
@@ -247,7 +219,7 @@ var viewImage = ( function() {
             return _defaults;
         },
         loadFooter: function() {
-            if ( _defaults.image.baseFooterUrl &amp;&amp; _defaults.global.footerHeight > 0 ) {                
+            if ( _defaults.image.baseFooterUrl && _defaults.global.footerHeight > 0 ) {                
                 _footerImage = new Image();
                 _footerImage.src = _defaults.image.baseFooterUrl.replace( "{width}", Math.round( _container.width() ) ).replace( "{height}", Math.round( _defaults.global.footerHeight ) );                
                 _footerImage.src = _defaults.image.baseFooterUrl.replace( "/full/max/", "/full/!" + Math.round( _container.width() ) + "," +  Math.round( _defaults.global.footerHeight ) + "/");                
@@ -438,7 +410,7 @@ var viewImage = ( function() {
 		                viewImage.setImageSizes(imageInfo, _defaults.global.imageSizes);       
 		                viewImage.setTileSizes(imageInfo, _defaults.global.tileSizes);                
 		                var tileSource;
-		                if(imageInfo.tiles &amp;&amp; imageInfo.tiles.length > 0) {
+		                if(imageInfo.tiles && imageInfo.tiles.length > 0) {
 		                    tileSource = new OpenSeadragon.IIIFTileSource(imageInfo);                    
 		                } else {                
 		                    console.log("tiles? ", imageInfo.tiles);
@@ -684,7 +656,7 @@ if(!String.prototype.endsWith) {
 }
 if(!Array.prototype.find) {
     Array.prototype.find = function(comparator) {
-        for ( var int = 0; int &lt; this.length; int++ ) {
+        for ( var int = 0; int < this.length; int++ ) {
             var element = this[int];
             if(comparator(element)) {
                 return element;
@@ -697,26 +669,3 @@ if(!Number.isNaN) {
         return number !== number;
     }
 }
-</code></pre>
-        </article>
-    </section>
-
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="module-viewImage.html">viewImage</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawLine.html">drawLine</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li><li><a href="viewImage.module_zoomSlider.html">zoomSlider</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Statistics">Statistics</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jun 28 2018 12:18:09 GMT+0000 (UTC)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-</body>
-</html>

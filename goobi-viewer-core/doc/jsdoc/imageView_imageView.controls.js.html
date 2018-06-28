@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: imageView/imageView.controls.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: imageView/imageView.controls.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This file is part of the Goobi viewer - a content presentation and management
+ * application for digitized objects.
+ * 
+ * Visit these websites for more information. - http://www.intranda.com -
+ * http://digiverso.com
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU General Public License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this
+ * program. If not, see &lt;http://www.gnu.org/licenses/>.
+ * 
+ * Module which handles the image controls of the image view.
+ * 
+ * @version 3.2.0
+ * @module viewImage.controls
+ * @requires jQuery
+ */
+var ImageView = ( function( imageView ) {
+    'use strict';
+    
+    var _debug = false;
+//    var _currentZoom;
+//    var _zoomedOut = true;
+//    var _panning = false;
+//    var _fadeout = null;
+      
+    imageView.Controls = function(config, image) {
+            if ( _debug ) {
+                console.log( '##############################' );
+                console.log( 'imageView.controls.init' );
+                console.log( '##############################' );
+            }
+            this.config = config;
+            this.image = image;
+            var controls = this;
+            
+            if(imageView.Controls.Persistence) {
+                this.persistence = new imageView.Controls.Persistence(config, image)
+//                imageView.controls.persistence.init(config);
+            }
+            if(_debug) {                
+                console.log("Setting viewer location to", config.image.location);
+            }
+            if( image.observables ) {
+                // set location after viewport update
+                image.observables.redrawRequired
+                .sample(image.observables.viewportUpdate)
+                .subscribe(function(event) {
+                    controls.setLocation(event)
+                    controls.setPanning( false );
+                });
+                
+                // zoom home if min zoom reached
+                image.observables.viewerZoom.subscribe( function( event ) {
+                    if ( _debug ) {
+                        console.log( "zoom to " + image.viewer.viewport.getZoom( true ) );
+                    }
+                    if ( !controls.isPanning() ) {
+                        var currentZoom = image.viewer.viewport.getZoom();                   
+                        if ( currentZoom &lt;= image.viewer.viewport.minZoomLevel ) {
+                            if ( _debug ) {
+                                console.log( "Zoomed out: Panning home" );
+                            }
+                            
+                            controls.setPanning(true);
+                            controls.goHome( true );
+                            controls.setPanning(false);
+                        }
+                    }
+                } );
+            }
+            
+            // fade out fullscreen controls
+            if ( $( '#fullscreenTemplate' ).length > 0 ) {
+                $( '#fullscreenTemplate' ).on( 'mousemove', function() {  
+                    controls.fullscreenControlsFadeout();
+                } )
+                
+                $('#fullscreenMap').on('touchmove', function() {
+                	controls.fullscreenControlsFadeout();
+                }).on('touchend', function() {
+                	controls.fullscreenControlsFadeout();
+                });
+            }
+        }
+        imageView.Controls.prototype.getLocation = function() {
+            return {
+                x: this.getCenter().x,
+                y: this.getCenter().y,
+                zoom: this.getZoom()/this.getCurrentRotationZooming(),
+                rotation: this.getRotation(),
+            }
+        },
+        imageView.Controls.prototype.getCenter = function() {
+            if ( _debug ) {
+                console.log( "image center is " + this.image.viewer.viewport.getCenter( true ) );
+            }
+            return this.image.viewer.viewport.getCenter( true );
+        }
+        imageView.Controls.prototype.setCenter = function( center ) {
+            
+            if ( _debug ) {
+                console.log( "Setting image center to " );
+                console.log( center );
+            }
+            
+            this.image.viewer.viewport.panTo( center, true );
+            
+        },
+        imageView.Controls.prototype.getZoom = function() {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.getZoom' );
+            }
+            return this.image.viewer.viewport.getZoom( true );
+        }
+        imageView.Controls.prototype.zoomTo = function( zoomTo ) {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.myZoomTo: zoomTo - ' + zoomTo );
+            }
+            
+            var zoomBy = parseFloat( zoomTo ) / this.image.viewer.viewport.getZoom();
+            
+            if ( _debug ) {
+                console.log( 'osViewer.controls.myZoomTo: zoomBy - ' + zoomBy );
+            }
+            
+            this.image.viewer.viewport.zoomBy( zoomBy, this.image.viewer.viewport.getCenter( false ), true );
+        }
+        imageView.Controls.prototypesetFullScreen = function( enable ) {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.setFullScreen: enable - ' + enable );
+            }
+            
+            this.image.viewer.setFullScreen( enable );
+        }
+        imageView.Controls.prototype.goHome = function( immediate ) {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.panHome - zoom : ' + this.image.viewer.viewport.getHomeZoom() );
+            }
+            this.image.viewer.viewport.goHome( immediate );
+            this.zoomedOut = true;
+        }
+        imageView.Controls.prototype.reset = function( resetRotation ) {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.goHome: bool - ' + resetRotation );
+            }
+            
+            // osViewer.viewer.viewport.goHome( true );
+            this.goHome( true );
+            this.image.viewer.viewport.zoomTo( this.image.viewer.viewport.getHomeZoom(), null, true );
+            if ( resetRotation ) {
+                this.rotateTo( 0 );
+            }
+        }
+        imageView.Controls.prototype.zoomIn = function() {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.zoomIn: zoomSpeed - ' + this.config.global.zoomSpeed );
+            }
+            
+            this.image.viewer.viewport.zoomBy( this.config.global.zoomSpeed, this.image.viewer.viewport.getCenter( false ), false );
+        }
+        imageView.Controls.prototype.zoomOut = function() {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.zoomOut: zoomSpeed - ' + this.config.global.zoomSpeed );
+            }
+            
+            this.image.viewer.viewport.zoomBy( 1 / this.config.global.zoomSpeed, this.image.viewer.viewport.getCenter( false ), false );
+        }
+//        imageView.Controls.prototype.getHomeZoom: function( rotated ) {
+//            if ( rotated &amp;&amp; this.image.getCanvasSize().x / osViewer.getCanvasSize().y &lt;= osViewer.getImageSize().x / osViewer.getImageSize().y ) {
+//                osViewer.viewer.viewport.homeFillsViewer = true;
+//            }
+//            var zoom = osViewer.viewer.viewport.getHomeZoom();
+//            osViewer.viewer.viewport.homeFillsViewer = false;
+//            return zoom;
+//        },
+        imageView.Controls.prototype.rotateRight = function() {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.rotateRight' );
+            }
+            
+            var newRotation = this.image.viewer.viewport.getRotation() + 90;
+            this.rotateTo( newRotation );
+        }
+        imageView.Controls.prototype.rotateLeft = function() {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.rotateLeft' );
+            }
+            
+            var newRotation = this.image.viewer.viewport.getRotation() - 90;
+            this.rotateTo( newRotation );
+        },
+        imageView.Controls.prototype.getRotation = function() {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.getRotation' );
+            }
+            
+            return this.image.viewer.viewport.getRotation();
+        }
+        imageView.Controls.prototype.setRotation = function( rotation ) {
+            if ( _debug ) {
+                console.log( 'osViewer.controls.setRotation: rotation - ' + rotation );
+            }
+            
+            return this.rotateTo( rotation );
+        }
+        imageView.Controls.prototype.rotateTo = function( newRotation ) {
+            if ( newRotation &lt; 0 ) {
+                newRotation = newRotation + 360;
+            }
+            newRotation = newRotation % 360;
+            if ( _debug ) {
+                console.log( 'osViewer.controls.rotateTo: newRotation - ' + newRotation );
+            }
+                        
+            this.panning = true;        
+            this.currentZoom = null;
+            this.image.viewer.viewport.setRotation( newRotation );
+            this.panning = false;
+
+        }
+        imageView.Controls.prototype.getCurrentRotationZooming = function() {
+            var sizes = this.image.getSizes();
+            if(sizes &amp;&amp; sizes.rotated()) {
+                return 1/sizes.ratio(sizes.originalImageSize);
+            } else {
+                return 1;
+            }
+        }
+        imageView.Controls.prototype.setPanning = function(panning) {
+            this.panning = panning;
+        }
+        imageView.Controls.prototype.isPanning = function() {
+            return this.panning;
+        }
+        imageView.Controls.prototype.fullscreenControlsFadeout = function() {
+            if ( _debug ) {
+                console.log( '---------- osViewer.controls.fullscreenControlsFadeout() ----------' );
+            }
+            
+            if ( this.fadeout ) {
+                clearTimeout( this.fadeout );
+                this.showFullscreenControls();
+            }
+            
+            this.fadeout = setTimeout( this.hideFullscreenControls, 3000 );
+        },
+        imageView.Controls.prototype.hideFullscreenControls = function() {
+            if ( _debug ) {
+                console.log( '---------- osViewer.controls.hideFullscreenControls() ----------' );
+            }
+            
+            $( '#fullscreenRotateControlsWrapper, #fullscreenZoomSliderWrapper, #fullscreenExitWrapper, #fullscreenPrevWrapper, #fullscreenNextWrapper' ).stop().fadeOut( 'slow' );
+        }
+        imageView.Controls.prototype.showFullscreenControls = function() {
+            if ( _debug ) {
+                console.log( '---------- osViewer.controls.showFullscreenControls() ----------' );
+            }
+            
+            $( '#fullscreenRotateControlsWrapper, #fullscreenZoomSliderWrapper, #fullscreenExitWrapper, #fullscreenPrevWrapper, #fullscreenNextWrapper' ).show();
+        }
+        // set correct location, zooming and rotation once viewport has been updated after
+        // redraw
+        imageView.Controls.prototype.setLocation = function(event) {
+            if(_debug) {                    
+                console.log("Viewer changed from " + event.osState + " event");
+                console.log("target location: ", event.targetLocation);
+                console.log("Home zoom = ", this.image.viewer.viewport.getHomeZoom());
+            }
+             this.image.viewer.viewport.minZoomLevel = this.image.viewer.viewport.getHomeZoom() * this.config.global.minZoomLevel;
+             var targetZoom = event.targetLocation.zoom;
+             var targetLocation = new OpenSeadragon.Point(event.targetLocation.x, event.targetLocation.y);
+             var zoomDiff = targetZoom * this.image.viewer.viewport.getHomeZoom() - (this.image.viewer.viewport.minZoomLevel);
+    // console.log("zoomDiff: " + targetZoom + " * " + osViewer.viewer.viewport.getHomeZoom()
+    // + " - " + osViewer.viewer.viewport.minZoomLevel + " = ", zoomDiff);
+    // console.log("zoomDiff: " + targetZoom + " - " + osViewer.viewer.viewport.minZoomLevel +
+    // "/" + osViewer.controls.getCurrentRotationZooming() + " = ", zoomDiff);
+             var zoomedOut = zoomDiff &lt; 0.001 || !targetZoom;
+             if(zoomedOut) {
+                 if(_debug) {                         
+                     console.log("Zooming home")
+                 }
+                 this.goHome( true );
+             } else {
+                 if(_debug) {                         
+                     console.log( "Zooming to " + targetZoom + " * " + this.getCurrentRotationZooming() );
+                     console.log("panning to ", targetLocation);
+                 }
+                 this.image.viewer.viewport.zoomTo( targetZoom * this.getCurrentRotationZooming(), null, true);
+                 this.setCenter( targetLocation);
+             }
+             if(event.osState === "open" &amp;&amp; event.targetLocation.rotation !== 0) {
+                this.rotateTo(event.targetLocation.rotation);
+             }
+        }
+
+    return imageView;
+    
+} )( ImageView );
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ImageView">ImageView</a></li><li><a href="global.html#Statistics">Statistics</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jun 28 2018 13:30:33 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

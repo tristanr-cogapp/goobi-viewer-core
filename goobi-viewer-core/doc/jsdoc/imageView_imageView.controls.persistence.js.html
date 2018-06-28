@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: viewImage/viewImage.controls.persistence.js</title>
+    <title>JSDoc: Source: imageView/imageView.controls.persistence.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: viewImage/viewImage.controls.persistence.js</h1>
+    <h1 class="page-title">Source: imageView/imageView.controls.persistence.js</h1>
 
     
 
@@ -50,21 +50,20 @@
  * @module viewImage.controls.persistence
  * @requires jQuery
  */
-var viewImage = ( function( osViewer ) {
+var ImageView = ( function( imageView ) {
     'use strict';
     
     var _debug = false; 
     
-    osViewer.controls.persistence = {
+    imageView.Controls.Persistence = function(config, image) {
         
-        init: function( config ) {
             if ( typeof ( Storage ) !== 'undefined' ) {
                 
                 /**
                  * Set Location from local storage
                  */
                 var location = null;
-                var currentPersistenceId = osViewer.getConfig().global.persistenceId;
+                var currentPersistenceId = config.global.persistenceId;
                 if ( config.global.persistZoom || config.global.persistRotation ) {
                     try {
                         var location = JSON.parse( localStorage.imageLocation );
@@ -103,8 +102,8 @@ var viewImage = ( function( osViewer ) {
                      * save current location to local storage before navigating away
                      */
                     window.onbeforeunload = function() {
-                        var loc = osViewer.controls.getLocation();
-                        loc.persistenceId = osViewer.getConfig().global.persistenceId;
+                        var loc = image.controls.getLocation();
+                        loc.persistenceId = config.global.persistenceId;
                         localStorage.imageLocation = JSON.stringify( loc );
                         if ( _debug ) {
                             console.log( "storing zoom " + localStorage.imageLocation );
@@ -113,7 +112,6 @@ var viewImage = ( function( osViewer ) {
                 }
             }
         }
-    }
 
     function _isValid( location ) {
         return _isNumber( location.x ) &amp;&amp; _isNumber( location.y ) &amp;&amp; _isNumber( location.zoom ) &amp;&amp; _isNumber( location.rotation );
@@ -123,9 +121,9 @@ var viewImage = ( function( osViewer ) {
         return typeof x === "number" &amp;&amp; !Number.isNaN( x );
     }
     
-    return osViewer;
+    return imageView;
     
-} )( viewImage || {}, jQuery );
+} )( ImageView );
 </code></pre>
         </article>
     </section>
@@ -136,13 +134,13 @@ var viewImage = ( function( osViewer ) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="module-viewImage.html">viewImage</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawLine.html">drawLine</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li><li><a href="viewImage.module_zoomSlider.html">zoomSlider</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Statistics">Statistics</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ImageView">ImageView</a></li><li><a href="global.html#Statistics">Statistics</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jun 28 2018 12:18:09 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jun 28 2018 13:30:33 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>
