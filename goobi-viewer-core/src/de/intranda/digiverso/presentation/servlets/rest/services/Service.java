@@ -21,6 +21,8 @@ import java.net.URISyntaxException;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import de.intranda.digiverso.presentation.exceptions.ViewerConfigurationException;
+
 /**
  * Interface for any services linked to in a rest response
  * 
@@ -31,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public interface Service {
     
     @JsonProperty("@context")
-    public URI getContext() throws URISyntaxException;
+    public URI getContext() throws URISyntaxException, ViewerConfigurationException;
     
 
 }
