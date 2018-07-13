@@ -82,6 +82,7 @@ var viewerJS = (function(viewer) {
 
 			// render bookshelf dropdown list
 			_renderDropdownList();
+			_renderMiradorLink();
 
 			// toggle bookshelf dropdown
 			$('[data-bookshelf-type="dropdown"]').off().on('click', function(event) {
@@ -99,7 +100,6 @@ var viewerJS = (function(viewer) {
 				}).fail(function(error) {
 					console.error('ERROR - _getAllSessionElements: ', error.responseText);
 				});
-
 			});
 
 			// set element count of list to counter
@@ -125,6 +125,7 @@ var viewerJS = (function(viewer) {
 								_setSessionElement(_defaults.root, currPi).then(function() {
 									_setSessionElementCount();
 									_renderDropdownList();
+									_renderMiradorLink();
 								});
 							} else {
 								return false;
@@ -134,6 +135,7 @@ var viewerJS = (function(viewer) {
 							_setSessionElement(_defaults.root, currPi).then(function() {
 								_setSessionElementCount();
 								_renderDropdownList();
+								_renderMiradorLink();
 							});
 						}
 					} else {
@@ -141,6 +143,7 @@ var viewerJS = (function(viewer) {
 						_deleteSessionElement(_defaults.root, currPi).then(function() {
 							_setSessionElementCount();
 							_renderDropdownList();
+							_renderMiradorLink();
 						});
 					}
 				}).fail(function(error) {
@@ -184,6 +187,28 @@ var viewerJS = (function(viewer) {
 		}));
 
 		return promise;
+	}
+	/**
+	 * Method to get the number of objects in session.
+	 * 
+	 * @method _getSessionElementCount
+	 * @param {String} root The application root path.
+	 * @returns {Object} An JSON-Object which contains all session elements.
+	 */
+	function _getSessionElementCount(root) {
+		if (_debug) {
+			console.log('---------- _getSessionElementCount() ----------');
+			console.log('_getSessionElementCount: root - ', root);
+		}
+
+		var promise = Q($.ajax({
+			url : root + '/rest/bookshelves/session/count/',
+			type : "GET",
+			dataType : "JSON",
+			async : true
+		}));
+
+		return promise
 	}
 	/**
 	 * Method to check if element is in list (user not logged in).
@@ -313,7 +338,7 @@ var viewerJS = (function(viewer) {
 
 		_getAllSessionElements(_defaults.root).then(function(elements) {
 			// DOM-Elements
-			var dropdownListReset = $('&lt;button>').addClass('btn-clean').attr('type', 'button').attr('data-bookshelf-type', 'reset').text(_defaults.msg.resetBookshelves);
+			var dropdownListReset = $('&lt;button>').addClass('btn-clean').attr('type', 'button').attr('data-bookshelf-type', 'reset').html('&lt;span>' + _defaults.msg.resetBookshelves + '&lt;/span>&lt;i class="fa fa-trash-o" aria-hidden="true">&lt;/i>');
 			var dropdownList = $('&lt;ul />').addClass('list');
 			var dropdownListItem = null;
 			var dropdownListItemRow = null;
@@ -342,7 +367,7 @@ var viewerJS = (function(viewer) {
 					dropdownListItemName = $('&lt;h4 />');
 					dropdownListItemNameLink = $('&lt;a />').attr('href', _defaults.root + item.url).text(item.name);
 					dropdownListItemDelete = $('&lt;button />').addClass('btn-clean').attr('type', 'button').attr('data-bookshelf-type', 'delete')
-						.attr('data-pi', item.pi);
+						.attr('data-pi', item.pi).html('&lt;i class="fa fa-ban" aria-hidden="true">&lt;/i>');
 
 					// build bookshelf item
 					dropdownListItemName.append(dropdownListItemNameLink);
@@ -374,6 +399,7 @@ var viewerJS = (function(viewer) {
 					_setSessionElementCount();
 					_setAddActiveState();
 					_renderDropdownList();
+					_renderMiradorLink();
 				});
 			});
 
@@ -385,6 +411,7 @@ var viewerJS = (function(viewer) {
 						_setSessionElementCount();
 						_setAddActiveState();
 						_renderDropdownList();
+						_renderMiradorLink();
 					});
 				} else {
 					return false;
@@ -393,6 +420,27 @@ var viewerJS = (function(viewer) {
 
 		}).fail(function(error) {
 			console.error('ERROR - _getAllSessionElements: ', error.responseText);
+		});
+	}
+	/**
+	 * Method to render the element list in bookshelf dropdown (user not logged in).
+	 * 
+	 * @method _renderMiradorLink
+	 */
+	function _renderMiradorLink() {
+		if (_debug) {
+			console.log('---------- _renderMiradorLink() ----------');
+		}
+
+		_getSessionElementCount(_defaults.root).then(function(elements) {
+			if ( elements > 1 ) {
+				$( '.bookshelf-navigation__dropdown-list-mirador' ).removeClass( 'hidden' );
+			}
+			else {
+				$( '.bookshelf-navigation__dropdown-list-mirador' ).addClass( 'hidden' );
+			}
+		}).fail(function(error) {
+			console.error('ERROR - _getSessionElementCount: ', error.responseText);
 		});
 	}
 	/**
@@ -433,9 +481,7 @@ var viewerJS = (function(viewer) {
 // es enthalten ist
 // /rest/bookshelves/session/contains/{pi}/{logid}/{page}
 // gibt "true" zurück, wenn die Merkliste ein Item mit der angegebenen pi, logid und
-// Seitennummer enthält; sonst "false"
-// /rest/bookshelves/session/count
-// Gibt die Zahl der in der Merkliste enthaltenen Items zurück.</code></pre>
+// Seitennummer enthält; sonst "false"</code></pre>
         </article>
     </section>
 
@@ -445,13 +491,13 @@ var viewerJS = (function(viewer) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ImageView">ImageView</a></li><li><a href="global.html#Statistics">Statistics</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_mirador.html">mirador</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ImageView">ImageView</a></li><li><a href="global.html#Statistics">Statistics</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 19:15:50 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 13 2018 13:09:54 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>

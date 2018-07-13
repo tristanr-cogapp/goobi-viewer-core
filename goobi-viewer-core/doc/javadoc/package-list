@@ -12,7 +12,6 @@ de.intranda.digiverso.presentation.managedbeans
 de.intranda.digiverso.presentation.managedbeans.tabledata
 de.intranda.digiverso.presentation.managedbeans.utils
 de.intranda.digiverso.presentation.messages
-de.intranda.digiverso.presentation.model
 de.intranda.digiverso.presentation.model.annotation
 de.intranda.digiverso.presentation.model.bookshelf
 de.intranda.digiverso.presentation.model.calendar
