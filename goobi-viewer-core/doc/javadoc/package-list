@@ -40,6 +40,7 @@ de.intranda.digiverso.presentation.model.toc.metadata
 de.intranda.digiverso.presentation.model.transkribus
 de.intranda.digiverso.presentation.model.urlresolution
 de.intranda.digiverso.presentation.model.viewer
+de.intranda.digiverso.presentation.model.viewer.object
 de.intranda.digiverso.presentation.model.viewer.pageloader
 de.intranda.digiverso.presentation.modules
 de.intranda.digiverso.presentation.servlets
@@ -57,6 +58,7 @@ de.intranda.digiverso.presentation.servlets.rest.iiif.presentation
 de.intranda.digiverso.presentation.servlets.rest.media
 de.intranda.digiverso.presentation.servlets.rest.metadata
 de.intranda.digiverso.presentation.servlets.rest.ner
+de.intranda.digiverso.presentation.servlets.rest.object
 de.intranda.digiverso.presentation.servlets.rest.rss
 de.intranda.digiverso.presentation.servlets.rest.search
 de.intranda.digiverso.presentation.servlets.rest.security

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: imageView/imageView.overlay.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: imageView/imageView.overlay.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var ImageView = ( function(imageView) {
+    'use strict';
+    
+    if(!imageView) {
+        throw "Image view must exist";
+    }    
+    
+    /**
+     * rect must be in openSeadragon image coordinates (0 &lt;= x &lt;= 1 / 0 &lt;= y &lt;= height/width)
+     */
+    imageView.Overlay = function(rect, viewer, style) {
+            
+        // OpenSeadragon viewer
+        this.viewer = viewer;
+        // OpenSeadragon rect
+        this.rect = rect;
+        // object containing properties borderWidth and borderColor
+        this.style = style;
+            
+    }
+    
+    imageView.Overlay.prototype.getRotation = function() {
+        return this.viewer.viewport.getRotation();
+    }
+    
+    imageView.Overlay.prototype.remove = function() {
+        if(this.eventHandler) {            
+            this.viewer.removeHandler( 'update-viewport', this.eventHandler, this );
+            this.viewer.forceRedraw();
+        }
+    }
+
+    imageView.Overlay.prototype.draw = function() {
+        _drawRect({userData: this});
+        this.eventHandler = function(event) {
+            _drawRect(event)
+        }
+//        this.viewer.removeHandler( 'update-viewport', _drawRect, this );
+        this.viewer.addHandler( 'update-viewport', this.eventHandler, this );
+    }
+    
+    imageView.Overlay.prototype.contains = function(point, extra, pointInCanvas) {
+        var rect = pointInCanvas ? imageView.convertCoordinatesFromImageToCanvas(this.rect, this.viewer) : this.rect;
+        return _isInside(rect, point, extra);
+    }
+    
+    imageView.Overlay.prototype.getHitArea = function(point, extra, pointInCanvas) {
+        var rect = pointInCanvas ? imageView.convertCoordinatesFromImageToCanvas(this.rect, this.viewer) : this.rect;
+        if(_isInside(rect, point, extra)) {
+            var area = _findCorner(rect, point, extra);
+            if(!area) {
+                area = _findEdge(rect, point, extra);
+            }
+//            if(!area &amp;&amp; _isInside(rect, point, 0)){
+//                area = imageView.Overlay.HitAreas.CENTER;
+//            }
+        }
+        return area;
+    }
+    
+    imageView.Overlay.convertStringToRect = function(string) {
+        var parts = string.split(",");
+        if(parts &amp;&amp; parts.length == 4) {            
+            var rect = new OpenSeadragon.Rect(parseFloat(parts[0]), parseFloat(parts[1]), parseFloat(parts[2]), parseFloat(parts[3]));
+            return rect;
+        } else {
+            throw "Cannot convert string '" + string + "' to Rectangle";
+        }
+    }
+    
+    imageView.Overlay.convertRectToString = function(rect, decimalPlaces) {
+        if(!decimalPlaces) {
+            decimalPlaces = 0;
+        }
+        return rect.x.toFixed(decimalPlaces) + "," +  rect.y.toFixed(decimalPlaces) + "," +  rect.width.toFixed(decimalPlaces) + "," +  rect.height.toFixed(decimalPlaces);
+    }
+    
+    imageView.Overlay.drawPoint = function(point, viewer, color, radius) {
+        _drawPoint({userData: [point, viewer, color, radius] });
+//        var eventHandler = function(event) {
+//            _drawPoint(event)
+//        }
+//        this.viewer.removeHandler( 'update-viewport', _drawRect, this );
+//        viewer.addHandler( 'update-viewport', eventHandler, [point, viewer, color, radius] );
+    }
+    
+    imageView.Overlay.HitAreas = {
+            TOP: "t",
+            BOTTOM: "b",
+            RIGHT: "r",
+            LEFT: "l",
+            TOPLEFT: "tl",
+            TOPRIGHT: "tr",
+            BOTTOMLEFT: "bl",
+            BOTTOMRIGHT: "br",
+            CENTER: "c",
+            isCorner: function( area ) {
+                return area === this.TOPRIGHT || area === this.TOPLEFT || area === this.BOTTOMLEFT || area === this.BOTTOMRIGHT;
+            },
+            isEdge: function( area ) {
+                return area === this.TOP || area === this.BOTTOM || area === this.LEFT || area === this.RIGHT;
+            },
+            getCursor: function( area ) {
+                var rotated = false;//draw.viewer.viewport.getRotation() % 180 === 90;
+                if ( area === this.TOPLEFT || area === this.BOTTOMRIGHT ) {
+                    return rotated ? "nesw-resize" : "nwse-resize";
+                }
+                else if ( area === this.TOPRIGHT || area === this.BOTTOMLEFT ) {
+                    return rotated ? "nwse-resize" : "nesw-resize";
+                }
+                else if ( area === this.TOP || area === this.BOTTOM ) {
+                    return rotated ? "ew-resize" : "ns-resize";
+                }
+                else if ( area === this.RIGHT || area === this.LEFT ) {
+                    return rotated ? "ns-resize" : "ew-resize";
+                }
+                else if ( area === this.CENTER ) {
+                    return "move";
+                }
+                else {
+                    return DEFAULT_CURSOR;
+                }
+            }
+        }
+    
+    function _drawRect(event) {
+        var overlay = event.userData;
+        var context = overlay.viewer.drawer.context;
+        var rect = ImageView.convertCoordinatesFromImageToCanvas(overlay.rect, overlay.viewer).times(window.devicePixelRatio);
+        context.beginPath();        
+        context.lineWidth = overlay.style.borderWidth;
+        context.strokeStyle = overlay.style.borderColor;
+        context.rect(rect.x, rect.y, rect.width, rect.height);
+        context.stroke();
+    }
+    
+    
+    
+    function _drawPoint(event) {
+        var point = event.userData[0].times(window.devicePixelRatio);
+        var viewer = event.userData[1];
+        var color = event.userData[2];
+        var radius = event.userData[3];
+        var context = viewer.drawer.context;
+//        console.log("draw on canvas ", viewer.drawer.context)
+//        var point_canvas = ImageView.convertPointFromImageToCanvas(point, viewer);
+        context.beginPath();
+        if(color) {
+            context.fillStyle = color;
+        }
+        context.arc(point.x, point.y, radius, 0, 2*Math.PI, true);
+        context.fill();
+    }
+    
+    function _isInside( rect, point, extra ) {
+//        console.log("point = " + point.x.toFixed(3) + "/" + point.y.toFixed(3));
+//        console.log("rect ul = " + rect.getTopLeft().x.toFixed(3) + "/" + rect.getTopLeft().y.toFixed(3));
+        return point.x > (rect.getTopLeft().x - extra) &amp;&amp; point.x &lt; ( rect.getBottomRight().x + extra ) &amp;&amp; 
+        point.y > (rect.getTopLeft().y - extra)  &amp;&amp; point.y &lt; ( rect.getBottomRight().y + extra );
+    }
+
+    /*
+     * Determine the side of the rectangle rect the point lies on or closest at &lt;=maxDist
+     * distance
+     */
+    function _findEdge( rect, point, maxDist ) {
+        var distanceToLeft = _distToSegment( point, rect.getTopLeft(), rect.getBottomLeft() );
+        var distanceToBottom = _distToSegment( point, rect.getBottomLeft(), rect.getBottomRight() );
+        var distanceToRight = _distToSegment( point, rect.getTopRight(), rect.getBottomRight() );
+        var distanceToTop = _distToSegment( point, rect.getTopLeft(), rect.getTopRight() );
+        
+        var minDistance = Math.min( distanceToLeft, Math.min( distanceToRight, Math.min( distanceToTop, distanceToBottom ) ) );
+        if ( minDistance &lt;= maxDist ) {
+            if ( distanceToLeft === minDistance ) {
+                return imageView.Overlay.HitAreas.LEFT;
+            }
+            if ( distanceToRight === minDistance ) {
+                return imageView.Overlay.HitAreas.RIGHT;
+            }
+            if ( distanceToTop === minDistance ) {
+                return imageView.Overlay.HitAreas.TOP;
+            }
+            if ( distanceToBottom === minDistance ) {
+                return imageView.Overlay.HitAreas.BOTTOM;
+            }
+        }
+        return "";
+    }
+
+    /*
+     * Determine the cornder of the rectangle rect the point lies on or closest at
+     * &lt;=maxDist distance
+     */
+    function _findCorner( rect, point, maxDist ) {
+        var distanceToTopLeft = _dist( point, rect.getTopLeft() );
+        var distanceToBottomLeft = _dist( point, rect.getBottomLeft() );
+        var distanceToTopRight = _dist( point, rect.getTopRight() );
+        var distanceToBottomRight = _dist( point, rect.getBottomRight() );
+        
+        var minDistance = Math.min( distanceToTopLeft, Math.min( distanceToTopRight, Math.min( distanceToBottomLeft, distanceToBottomRight ) ) );
+        if ( minDistance &lt;= maxDist ) {
+            if ( distanceToTopLeft === minDistance ) {
+                return imageView.Overlay.HitAreas.TOPLEFT;
+            }
+            if ( distanceToTopRight === minDistance ) {
+                return imageView.Overlay.HitAreas.TOPRIGHT;
+            }
+            if ( distanceToBottomLeft === minDistance ) {
+                return imageView.Overlay.HitAreas.BOTTOMLEFT;
+            }
+            if ( distanceToBottomRight === minDistance ) {
+                return imageView.Overlay.HitAreas.BOTTOMRIGHT;
+            }
+        }
+        return "";
+    }
+
+    function _sqr( x ) {
+        return x * x
+    }
+    function _dist2( v, w ) {
+        return _sqr( v.x - w.x ) + _sqr( v.y - w.y )
+    }
+    function _dist( v, w ) {
+        return Math.sqrt( _dist2( v, w ) )
+    }
+    function _distToSegmentSquared( p, v, w ) {
+        var l2 = _dist2( v, w );
+        if ( l2 == 0 )
+            return _dist2( p, v );
+        var t = ( ( p.x - v.x ) * ( w.x - v.x ) + ( p.y - v.y ) * ( w.y - v.y ) ) / l2;
+        if ( t &lt; 0 )
+            return _dist2( p, v );
+        if ( t > 1 )
+            return _dist2( p, w );
+        return _dist2( p, {
+            x: v.x + t * ( w.x - v.x ),
+            y: v.y + t * ( w.y - v.y )
+        } );
+    }
+    function _distToSegment( point, lineP1, lineP2 ) {
+        return Math.sqrt( _distToSegmentSquared( point, lineP1, lineP2 ) );
+    }
+
+
+
+    
+
+
+    
+return imageView;
+
+})( ImageView );</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_mirador.html">mirador</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ImageView">ImageView</a></li><li><a href="global.html#Statistics">Statistics</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 13 2018 13:37:52 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
