@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Goobi viewer Core - Javascript Unit tests written in Jasmine</title>
+    <style type="text/css">html,body{font-family:Arial,sans-serif;font-size:1rem;margin:0;padding:0;}body{padding:10px 40px;}h1{margin-bottom:0;}h2{margin-top:0;margin-bottom:0;color:#999;}table{width:100%;margin-top:20px;margin-bottom:20px;table-layout:fixed;}tr.header{background:#ddd;font-weight:bold;border-bottom:none;}td{padding:7px;border-top:none;border-left:1px black solid;border-bottom:1px black solid;border-right:none;word-break:break-all;word-wrap:break-word;}tr.pass td{color:#003b07;background:#86e191;}tr.skip td{color:#7d3a00;background:#ffd24a;}tr.fail td{color:#5e0e00;background:#ff9c8a;}tr:first-child td{border-top:1px black solid;}td:last-child{border-right:1px black solid;}tr.overview{font-weight:bold;color:#777;}tr.overview td{padding-bottom:0px;border-bottom:none;}tr.system-out td{color:#777;}tr.system-errors td{color:#f00;}hr{height:2px;margin:30px 0;background:#000;border:none;}section{margin-top:40px;}h3{margin:6px 0;}.overview{color:#333;font-weight:bold;}.system-out{margin:0.4rem 0;}.system-errors{color:#a94442}.spec{padding:0.8rem;margin:0.3rem 0;}.spec--pass{color:#3c763d;background-color:#dff0d8;border:1px solid #d6e9c6;}.spec--skip{color:#8a6d3b;background-color:#fcf8e3;border:1px solid #faebcc;}.spec--fail{color:#a94442;background-color:#f2dede;border:1px solid #ebccd1;}.spec--group{color:#636363;background-color:#f0f0f0;border:1px solid #e6e6e6;margin:0;}.spec--group:not(:first-of-type){margin:20px 0 0 0;}.spec__title{display:inline;}.spec__suite{display:inline;}.spec__descrip{font-weight:normal;}.spec__status{float:right;}.spec__log{padding-left: 2.3rem;}.hidden{display:none;}body.compact .spec p{margin-top:0;margin-bottom:0.5rem;}body.compact .spec,body.compact tr,body.compact .overview,body.compact .system-out,body.compact .system-errors{font-size:0.85rem;}body.compact .spec{padding:0.3rem 0.5rem;}body.compact section{margin-top:30px;}</style>
+  </head>
+  <body class="compact">
+    <h1>Goobi viewer Core</h1>
+    <h2>Javascript Unit tests written in Jasmine</h2>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr class="overview">
+        <td colspan="3" title="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/62.0.3202.94 Chrome/62.0.3202.94 Safari/537.36">Browser: Chromium 62.0.3202 (Ubuntu 0.0.0)</td>
+      </tr>
+      <tr class="overview">
+        <td colspan="3">Timestamp: 2018-7-20 19:53:55</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          54 tests / 
+          0 errors / 
+          0 failures / 
+          0 skipped / 
+          runtime: 2.617s
+        </td>
+      </tr>
+      <tr class="header">
+        <td>Status</td>
+        <td>Spec</td>
+        <td>Suite / Results</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.019s</td>
+        <td> is called on mouse move</td>
+        <td>ImageView Controls Tests &raquo; ImageView Controls: fullscreenControlsFadeout</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.629s</td>
+        <td>fails for a iiif image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.366s</td>
+        <td>returns the json object behind the url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>fails for a string other than a url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>fails for a json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.124s</td>
+        <td>fails for an image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns the resolved json object is it is a stringified object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns the inserted object if it already is a json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>fails for an image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.003s</td>
+        <td>fails for a iiif image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.13s</td>
+        <td>returns a json object from image info url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns true if object is an uri and represents a json object </td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isJsonURI </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>returns true if object is an uri and leads to an image </td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isURI </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns true of parameter is a stringified json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isStringifiedJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns true if parameter is a json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 1.021s</td>
+        <td> zooms and rotates the image using config settings</td>
+        <td>ImageView zoom/rotation persistence Tests</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.023s</td>
+        <td> stores current zoom and rotation</td>
+        <td>ImageView zoom/rotation persistence Tests</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>rounds to the nearest 10^(-14)</td>
+        <td>OpenSeadragon related tests  &raquo; Coordinate calculations </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns false for a different string</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns true for the beginning of the string</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.003s</td>
+        <td> returns true for the same string</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns false for a substring not at the beginning</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns false for any number other than NaN</td>
+        <td>Browser compability  &raquo; Number isNaN</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns tue for NaN</td>
+        <td>Browser compability  &raquo; Number isNaN</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td> returns false anything other than a number</td>
+        <td>Browser compability  &raquo; Number isNaN</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.028s</td>
+        <td>opens an image from a static image url </td>
+        <td>imageView tests &raquo; Open image </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Publication types</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.006s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Publication types</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most edited works</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most edited works</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Number of pages</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Number of pages</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most imported works trend</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most imported works trend</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>does not execute jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Crowdsourcing progress</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Crowdsourcing progress</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>reads the correct value from object array</td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>reads the correct value from single object </td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>reads the correct value from single string </td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>reads the correct value from string array</td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>is defined </td>
+        <td>cmsJS.stackedCollections</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.134s</td>
+        <td>should take an URL and return an object.</td>
+        <td>ViewerJS Helper Tests &raquo; ViewerJS Helper: getRemoteData</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should take a string and a number to truncate the string to the given length.</td>
+        <td>ViewerJS Helper Tests &raquo; ViewerJS Helper: truncateString</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>is defined </td>
+        <td>Cms.tagList </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.036s</td>
+        <td>adds an item with the content of inputfield on value change </td>
+        <td>Cms.tagList  &raquo; add item </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.012s</td>
+        <td>does not add an item that is already part of the list </td>
+        <td>Cms.tagList  &raquo; add item </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.007s</td>
+        <td>gets the value of a tag </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.005s</td>
+        <td>gets a tag item by its value </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.009s</td>
+        <td>lists all tag jquery items </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.007s</td>
+        <td>lists all tag strings </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.019s</td>
+        <td>removes an item from the list</td>
+        <td>Cms.tagList  &raquo; delete item </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.008s</td>
+        <td>writes content of input field into tag list</td>
+        <td>Cms.tagList  &raquo; init </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.007s</td>
+        <td>initializes the correct html elements</td>
+        <td>Cms.tagList  &raquo; init </td>
+      </tr>
+      <tr class="system-out">
+        <td colspan="3"><strong>System output:</strong><br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'osconfig ', Object{tileSources: [Object{tileSource: ..., width: ..., x: ..., y: ...}], id: 'map', prefixUrl: 'undefined/javascript/openseadragon/images/', immediateRender: false, visibilityRatio: 0.2, sequenceMode: false, degrees: 0, zoomPerClick: 1, showRotationControl: true, showNavigationControl: false, minZoomLevel: undefined, maxZoomLevel: NaN, zoomPerScroll: 1.25, mouseNavEnabled: true, homeButton: undefined, rotateLeftButton: undefined, rotateRightButton: undefined, timeout: 600000, blendTime: 0.5, alwaysBlend: false, imageLoaderLimit: 2, loadTilesWithAjax: true, ajaxHeaders: Object{token: undefined}, viewportMargins: Object{top: 0, left: 0, right: 0, bottom: 0}}
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'TEST: viewerJS.helper.getRemoteData - ', Object{@context: 'http://iiif.io/api/image/2/context.json', @id: 'https://viewer-demo01.intranda.com:443/viewer/rest/image/-/file%3AU002FU002FU002FoptU002FdigiversoU002FviewerU002Fcms_mediaU002Fiiif-test.png', protocol: 'http://iiif.io/api/image', width: 1000, height: 1000, sizes: [Object{width: ..., height: ...}, Object{width: ..., height: ...}, Object{width: ..., height: ...}, Object{width: ..., height: ...}, Object{width: ..., height: ...}], tiles: [Object{width: ..., height: ..., scaleFactors: ...}], profile: ['http://iiif.io/api/image/2/level2.json', Object{formats: ..., qualities: ..., supports: ..., maxWidth: ..., maxHeight: ...}], service: Object{@context: 'http://iiif.io/api/annex/services/physdim/1/context.json', profile: 'http://iiif.io/api/annex/services/physdim', physicalScale: 0.01, physicalUnits: 'in', resolution: 100}}
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Tag value ', 0
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Tag value ', 1
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Tag value ', 2
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Tag ', <li id="tagList_0_item"><span class="tag label">tag1<span class="tag-terminator"></span></span></li>
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Tag ', <li id="tagList_1_item"><span class="tag label">tag2<span class="tag-terminator"></span></span></li>
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Tag ', <li id="tagList_2_item"><span class="tag label">tag3<span class="tag-terminator"></span></span></li>
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Found element tagList_0_item'
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Found element tagList_1_item'
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Found element tagList_2_item'
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'Found input element tagListForm_inputField'
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'osconfig ', Object{tileSources: [Object{tileSource: ..., width: ..., x: ..., y: ...}], id: 'map', prefixUrl: 'undefined/javascript/openseadragon/images/', immediateRender: false, visibilityRatio: 0.2, sequenceMode: false, degrees: 0, zoomPerClick: 1, showRotationControl: true, showNavigationControl: false, minZoomLevel: undefined, maxZoomLevel: NaN, zoomPerScroll: 1.25, mouseNavEnabled: true, homeButton: undefined, rotateLeftButton: undefined, rotateRightButton: undefined, timeout: 600000, blendTime: 0.5, alwaysBlend: false, imageLoaderLimit: 2, loadTilesWithAjax: true, ajaxHeaders: Object{token: undefined}, viewportMargins: Object{top: 0, left: 0, right: 0, bottom: 0}}
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'osconfig ', Object{tileSources: [Object{tileSource: ..., width: ..., x: ..., y: ...}], id: 'map', prefixUrl: 'undefined/javascript/openseadragon/images/', immediateRender: false, visibilityRatio: 0.2, sequenceMode: false, degrees: 0, zoomPerClick: 1, showRotationControl: true, showNavigationControl: false, minZoomLevel: undefined, maxZoomLevel: NaN, zoomPerScroll: 1.25, mouseNavEnabled: true, homeButton: undefined, rotateLeftButton: undefined, rotateRightButton: undefined, timeout: 600000, blendTime: 0.5, alwaysBlend: false, imageLoaderLimit: 2, loadTilesWithAjax: true, ajaxHeaders: Object{token: undefined}, viewportMargins: Object{top: 0, left: 0, right: 0, bottom: 0}}
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'TEST: viewerJS.helper.getRemoteData - ', Object{@context: 'http://iiif.io/api/image/2/context.json', @id: 'https://viewer-demo01.intranda.com:443/viewer/rest/image/-/file%3AU002FU002FU002FoptU002FdigiversoU002FviewerU002Fcms_mediaU002Fiiif-test.png', protocol: 'http://iiif.io/api/image', width: 1000, height: 1000, sizes: [Object{width: ..., height: ...}, Object{width: ..., height: ...}, Object{width: ..., height: ...}, Object{width: ..., height: ...}, Object{width: ..., height: ...}], tiles: [Object{width: ..., height: ..., scaleFactors: ...}], profile: ['http://iiif.io/api/image/2/level2.json', Object{formats: ..., qualities: ..., supports: ..., maxWidth: ..., maxHeight: ...}], service: Object{@context: 'http://iiif.io/api/annex/services/physdim/1/context.json', profile: 'http://iiif.io/api/annex/services/physdim', physicalScale: 0.01, physicalUnits: 'in', resolution: 100}}
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Tag ', <li id="tagList_0_item"><span class="tag label">tag1<span class="tag-terminator"></span></span></li>
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Tag ', <li id="tagList_1_item"><span class="tag label">tag2<span class="tag-terminator"></span></span></li>
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Tag ', <li id="tagList_2_item"><span class="tag label">tag3<span class="tag-terminator"></span></span></li>
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Tag value ', 0
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Tag value ', 1
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Tag value ', 2
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Found element tagList_0_item'
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Found element tagList_1_item'
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Found element tagList_2_item'
+<br />Chromium 62.0.3202 (Ubuntu 0.0.0) LOG: 'Found input element tagListForm_inputField'
+</td>
+      </tr>
+    </table>
+    <hr/>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr class="overview">
+        <td colspan="3" title="Mozilla/5.0 (X11; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0">Browser: Firefox 61.0.0 (Linux 0.0.0)</td>
+      </tr>
+      <tr class="overview">
+        <td colspan="3">Timestamp: 2018-7-20 19:53:55</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          54 tests / 
+          0 errors / 
+          0 failures / 
+          0 skipped / 
+          runtime: 2.968s
+        </td>
+      </tr>
+      <tr class="header">
+        <td>Status</td>
+        <td>Spec</td>
+        <td>Suite / Results</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.006s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most edited works</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.039s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most edited works</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.004s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Crowdsourcing progress</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>does not execute jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Crowdsourcing progress</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Number of pages</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.006s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Number of pages</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.011s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most imported works trend</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.009s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Most imported works trend</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.007s</td>
+        <td>executes jqplot</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Publication types</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.034s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module &raquo; Publication types</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.003s</td>
+        <td>is defined</td>
+        <td>Statistics tests &raquo; General statistics module</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.009s</td>
+        <td> is called on mouse move</td>
+        <td>ImageView Controls Tests &raquo; ImageView Controls: fullscreenControlsFadeout</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>is defined </td>
+        <td>cmsJS.stackedCollections</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.004s</td>
+        <td>reads the correct value from object array</td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td>reads the correct value from single object </td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>reads the correct value from string array</td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>reads the correct value from single string </td>
+        <td>cmsJS.stackedCollections &raquo; readIIIFPresentationStringValue </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.496s</td>
+        <td>should take an URL and return an object.</td>
+        <td>ViewerJS Helper Tests &raquo; ViewerJS Helper: getRemoteData</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should take a string and a number to truncate the string to the given length.</td>
+        <td>ViewerJS Helper Tests &raquo; ViewerJS Helper: truncateString</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.038s</td>
+        <td>removes an item from the list</td>
+        <td>Cms.tagList  &raquo; delete item </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.015s</td>
+        <td>gets a tag item by its value </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.014s</td>
+        <td>lists all tag strings </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.013s</td>
+        <td>lists all tag jquery items </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.026s</td>
+        <td>gets the value of a tag </td>
+        <td>Cms.tagList  &raquo; list items </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.033s</td>
+        <td>initializes the correct html elements</td>
+        <td>Cms.tagList  &raquo; init </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.014s</td>
+        <td>writes content of input field into tag list</td>
+        <td>Cms.tagList  &raquo; init </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.014s</td>
+        <td>is defined </td>
+        <td>Cms.tagList </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.026s</td>
+        <td>does not add an item that is already part of the list </td>
+        <td>Cms.tagList  &raquo; add item </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.04s</td>
+        <td>adds an item with the content of inputfield on value change </td>
+        <td>Cms.tagList  &raquo; add item </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.017s</td>
+        <td> returns false for a substring not at the beginning</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td> returns false for a different string</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td> returns true for the beginning of the string</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.009s</td>
+        <td> returns true for the same string</td>
+        <td>Browser compability  &raquo; String startsWith</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns false anything other than a number</td>
+        <td>Browser compability  &raquo; Number isNaN</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td> returns tue for NaN</td>
+        <td>Browser compability  &raquo; Number isNaN</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.002s</td>
+        <td> returns false for any number other than NaN</td>
+        <td>Browser compability  &raquo; Number isNaN</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>rounds to the nearest 10^(-14)</td>
+        <td>OpenSeadragon related tests  &raquo; Coordinate calculations </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.013s</td>
+        <td>returns true if object is an uri and leads to an image </td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isURI </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.003s</td>
+        <td>returns true of parameter is a stringified json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isStringifiedJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns true if parameter is a json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.228s</td>
+        <td>fails for a string other than a url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.139s</td>
+        <td>fails for an image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.015s</td>
+        <td>fails for a json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.148s</td>
+        <td>fails for a iiif image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.383s</td>
+        <td>returns the json object behind the url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test loadIfJsonURL </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.008s</td>
+        <td>returns the resolved json object is it is a stringified object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.004s</td>
+        <td>returns the inserted object if it already is a json object</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.011s</td>
+        <td>fails for a iiif image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.145s</td>
+        <td>returns a json object from image info url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.013s</td>
+        <td>fails for an image url</td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test resolveAsJson</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>returns true if object is an uri and represents a json object </td>
+        <td>ImageView.TileSourceResolver Tests  &raquo; Test isJsonURI </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.856s</td>
+        <td> zooms and rotates the image using config settings</td>
+        <td>ImageView zoom/rotation persistence Tests</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.058s</td>
+        <td> stores current zoom and rotation</td>
+        <td>ImageView zoom/rotation persistence Tests</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.04s</td>
+        <td>opens an image from a static image url </td>
+        <td>imageView tests &raquo; Open image </td>
+      </tr>
+      <tr class="system-out">
+        <td colspan="3"><strong>System output:</strong><br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'osconfig ', Object{tileSources: [Object{tileSource: ..., width: ..., x: ..., y: ...}], id: 'map', prefixUrl: 'undefined/javascript/openseadragon/images/', immediateRender: false, visibilityRatio: 0.2, sequenceMode: false, degrees: 0, zoomPerClick: 1, showRotationControl: true, showNavigationControl: false, minZoomLevel: undefined, maxZoomLevel: NaN, zoomPerScroll: 1.25, mouseNavEnabled: true, homeButton: undefined, rotateLeftButton: undefined, rotateRightButton: undefined, timeout: 600000, blendTime: 0.5, alwaysBlend: false, imageLoaderLimit: 2, loadTilesWithAjax: true, ajaxHeaders: Object{token: undefined}, viewportMargins: Object{top: 0, left: 0, right: 0, bottom: 0}}
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'osconfig ', Object{tileSources: [Object{tileSource: ..., width: ..., x: ..., y: ...}], id: 'map', prefixUrl: 'undefined/javascript/openseadragon/images/', immediateRender: false, visibilityRatio: 0.2, sequenceMode: false, degrees: 0, zoomPerClick: 1, showRotationControl: true, showNavigationControl: false, minZoomLevel: undefined, maxZoomLevel: NaN, zoomPerScroll: 1.25, mouseNavEnabled: true, homeButton: undefined, rotateLeftButton: undefined, rotateRightButton: undefined, timeout: 600000, blendTime: 0.5, alwaysBlend: false, imageLoaderLimit: 2, loadTilesWithAjax: true, ajaxHeaders: Object{token: undefined}, viewportMargins: Object{top: 0, left: 0, right: 0, bottom: 0}}
+<br />Firefox 61.0.0 (Linux 0.0.0) LOG: 'osconfig ', Object{tileSources: [Object{tileSource: ..., width: ..., x: ..., y: ...}], id: 'map', prefixUrl: 'undefined/javascript/openseadragon/images/', immediateRender: false, visibilityRatio: 0.2, sequenceMode: false, degrees: 0, zoomPerClick: 1, showRotationControl: true, showNavigationControl: false, minZoomLevel: undefined, maxZoomLevel: NaN, zoomPerScroll: 1.25, mouseNavEnabled: true, homeButton: undefined, rotateLeftButton: undefined, rotateRightButton: undefined, timeout: 600000, blendTime: 0.5, alwaysBlend: false, imageLoaderLimit: 2, loadTilesWithAjax: true, ajaxHeaders: Object{token: undefined}, viewportMargins: Object{top: 0, left: 0, right: 0, bottom: 0}}
+</td>
+      </tr>
+    </table>
+    <hr/>
+  </body>
+</html>
