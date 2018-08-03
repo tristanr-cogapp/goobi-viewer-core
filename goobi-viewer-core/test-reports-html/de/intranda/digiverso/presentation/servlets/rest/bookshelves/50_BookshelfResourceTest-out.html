@@ -4,346 +4,346 @@
 <title>Standard Output from BookshelfResourceTest</title>
 </head>
 <body>
-<pre>[EL Info]: 2018-08-02 17:54:04.466--ServerSession(812566406)--EclipseLink, version: Eclipse Persistence Services - 2.7.2.v20180622-f627448
-[EL Info]: connection: 2018-08-02 17:54:04.475--ServerSession(812566406)--/file:/tmp/viewer/_intranda_viewer_test login successful
-[EL Warning]: 2018-08-02 17:54:04.477--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+<pre>[EL Info]: 2018-08-03 09:59:15.669--ServerSession(465275898)--EclipseLink, version: Eclipse Persistence Services - 2.7.2.v20180622-f627448
+[EL Info]: connection: 2018-08-03 09:59:15.693--ServerSession(465275898)--/file:/tmp/viewer/_intranda_viewer_test login successful
+[EL Warning]: 2018-08-03 09:59:15.696--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "COMMENTS" already exists; SQL statement:
 CREATE TABLE comments (comment_id BIGINT IDENTITY NOT NULL, date_created TIMESTAMP NOT NULL, date_updated TIMESTAMP, page INTEGER NOT NULL, pi VARCHAR NOT NULL, text LONGTEXT, parent_id BIGINT, owner_id BIGINT NOT NULL, PRIMARY KEY (comment_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE comments (comment_id BIGINT IDENTITY NOT NULL, date_created TIMESTAMP NOT NULL, date_updated TIMESTAMP, page INTEGER NOT NULL, pi VARCHAR NOT NULL, text LONGTEXT, parent_id BIGINT, owner_id BIGINT NOT NULL, PRIMARY KEY (comment_id))
 Query: DataModifyQuery(sql="CREATE TABLE comments (comment_id BIGINT IDENTITY NOT NULL, date_created TIMESTAMP NOT NULL, date_updated TIMESTAMP, page INTEGER NOT NULL, pi VARCHAR NOT NULL, text LONGTEXT, parent_id BIGINT, owner_id BIGINT NOT NULL, PRIMARY KEY (comment_id))")
-[EL Warning]: 2018-08-02 17:54:04.478--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.697--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "BOOKSHELVES" already exists; SQL statement:
 CREATE TABLE bookshelves (bookshelf_id BIGINT IDENTITY NOT NULL, description LONGTEXT, public BOOLEAN, name VARCHAR NOT NULL, owner_id BIGINT NOT NULL, PRIMARY KEY (bookshelf_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE bookshelves (bookshelf_id BIGINT IDENTITY NOT NULL, description LONGTEXT, public BOOLEAN, name VARCHAR NOT NULL, owner_id BIGINT NOT NULL, PRIMARY KEY (bookshelf_id))
 Query: DataModifyQuery(sql="CREATE TABLE bookshelves (bookshelf_id BIGINT IDENTITY NOT NULL, description LONGTEXT, public BOOLEAN, name VARCHAR NOT NULL, owner_id BIGINT NOT NULL, PRIMARY KEY (bookshelf_id))")
-[EL Warning]: 2018-08-02 17:54:04.479--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.698--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "BOOKSHELF_ITEMS" already exists; SQL statement:
 CREATE TABLE bookshelf_items (bookshelf_item_id BIGINT IDENTITY NOT NULL, date_added TIMESTAMP, description VARCHAR, logid VARCHAR, main_title VARCHAR, name VARCHAR, page_order INTEGER, pi VARCHAR, urn VARCHAR, bookshelf_id BIGINT NOT NULL, PRIMARY KEY (bookshelf_item_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE bookshelf_items (bookshelf_item_id BIGINT IDENTITY NOT NULL, date_added TIMESTAMP, description VARCHAR, logid VARCHAR, main_title VARCHAR, name VARCHAR, page_order INTEGER, pi VARCHAR, urn VARCHAR, bookshelf_id BIGINT NOT NULL, PRIMARY KEY (bookshelf_item_id))
 Query: DataModifyQuery(sql="CREATE TABLE bookshelf_items (bookshelf_item_id BIGINT IDENTITY NOT NULL, date_added TIMESTAMP, description VARCHAR, logid VARCHAR, main_title VARCHAR, name VARCHAR, page_order INTEGER, pi VARCHAR, urn VARCHAR, bookshelf_id BIGINT NOT NULL, PRIMARY KEY (bookshelf_item_id))")
-[EL Warning]: 2018-08-02 17:54:04.48--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.701--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_CONTENT_ITEMS" already exists; SQL statement:
 CREATE TABLE cms_content_items (cms_content_item_id BIGINT IDENTITY NOT NULL, allowed_tags VARCHAR, base_collection VARCHAR, collection_base_levels INTEGER, collection_display_parents BOOLEAN, collection_field VARCHAR, collection_open_expanded BOOLEAN, component VARCHAR, elements_per_page INTEGER, glossary VARCHAR, html_fragment LONGTEXT, item_id VARCHAR, item_label VARCHAR, mandatory BOOLEAN NOT NULL, important_count INTEGER, tile_count INTEGER, page_classification VARCHAR, search_prefix VARCHAR, solr_query LONGTEXT, solr_sort_fields VARCHAR, toc_pi VARCHAR, type VARCHAR NOT NULL, owner_page_language_version_id BIGINT, media_item_id BIGINT, PRIMARY KEY (cms_content_item_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_content_items (cms_content_item_id BIGINT IDENTITY NOT NULL, allowed_tags VARCHAR, base_collection VARCHAR, collection_base_levels INTEGER, collection_display_parents BOOLEAN, collection_field VARCHAR, collection_open_expanded BOOLEAN, component VARCHAR, elements_per_page INTEGER, glossary VARCHAR, html_fragment LONGTEXT, item_id VARCHAR, item_label VARCHAR, mandatory BOOLEAN NOT NULL, important_count INTEGER, tile_count INTEGER, page_classification VARCHAR, search_prefix VARCHAR, solr_query LONGTEXT, solr_sort_fields VARCHAR, toc_pi VARCHAR, type VARCHAR NOT NULL, owner_page_language_version_id BIGINT, media_item_id BIGINT, PRIMARY KEY (cms_content_item_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_content_items (cms_content_item_id BIGINT IDENTITY NOT NULL, allowed_tags VARCHAR, base_collection VARCHAR, collection_base_levels INTEGER, collection_display_parents BOOLEAN, collection_field VARCHAR, collection_open_expanded BOOLEAN, component VARCHAR, elements_per_page INTEGER, glossary VARCHAR, html_fragment LONGTEXT, item_id VARCHAR, item_label VARCHAR, mandatory BOOLEAN NOT NULL, important_count INTEGER, tile_count INTEGER, page_classification VARCHAR, search_prefix VARCHAR, solr_query LONGTEXT, solr_sort_fields VARCHAR, toc_pi VARCHAR, type VARCHAR NOT NULL, owner_page_language_version_id BIGINT, media_item_id BIGINT, PRIMARY KEY (cms_content_item_id))")
-[EL Warning]: 2018-08-02 17:54:04.482--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.703--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_MEDIA_ITEMS" already exists; SQL statement:
 CREATE TABLE cms_media_items (cms_media_item_id BIGINT IDENTITY NOT NULL, collection BOOLEAN, collection_field VARCHAR, collection_name VARCHAR, display_order INTEGER, display_size INTEGER, file_name VARCHAR NOT NULL, link_url LONGVARBINARY, priority INTEGER, PRIMARY KEY (cms_media_item_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_media_items (cms_media_item_id BIGINT IDENTITY NOT NULL, collection BOOLEAN, collection_field VARCHAR, collection_name VARCHAR, display_order INTEGER, display_size INTEGER, file_name VARCHAR NOT NULL, link_url LONGVARBINARY, priority INTEGER, PRIMARY KEY (cms_media_item_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_media_items (cms_media_item_id BIGINT IDENTITY NOT NULL, collection BOOLEAN, collection_field VARCHAR, collection_name VARCHAR, display_order INTEGER, display_size INTEGER, file_name VARCHAR NOT NULL, link_url LONGVARBINARY, priority INTEGER, PRIMARY KEY (cms_media_item_id))")
-[EL Warning]: 2018-08-02 17:54:04.484--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.706--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_NAVIGATION_ITEMS" already exists; SQL statement:
 CREATE TABLE cms_navigation_items (cms_navigation_item_id BIGINT IDENTITY NOT NULL, absolute_link BOOLEAN, display_rule INTEGER, item_label VARCHAR NOT NULL, item_order INTEGER NOT NULL, page_url VARCHAR NOT NULL, parent_item_id BIGINT, cms_page_id BIGINT, PRIMARY KEY (cms_navigation_item_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_navigation_items (cms_navigation_item_id BIGINT IDENTITY NOT NULL, absolute_link BOOLEAN, display_rule INTEGER, item_label VARCHAR NOT NULL, item_order INTEGER NOT NULL, page_url VARCHAR NOT NULL, parent_item_id BIGINT, cms_page_id BIGINT, PRIMARY KEY (cms_navigation_item_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_navigation_items (cms_navigation_item_id BIGINT IDENTITY NOT NULL, absolute_link BOOLEAN, display_rule INTEGER, item_label VARCHAR NOT NULL, item_order INTEGER NOT NULL, page_url VARCHAR NOT NULL, parent_item_id BIGINT, cms_page_id BIGINT, PRIMARY KEY (cms_navigation_item_id))")
-[EL Warning]: 2018-08-02 17:54:04.486--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.709--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_PAGES" already exists; SQL statement:
 CREATE TABLE cms_pages (cms_page_id BIGINT IDENTITY NOT NULL, date_created TIMESTAMP NOT NULL, date_updated TIMESTAMP, may_contain_url_parameters BOOLEAN, page_sorting BIGINT, parent_page VARCHAR, persistent_url VARCHAR, published BOOLEAN NOT NULL, related_pi VARCHAR, static_page VARCHAR, subtheme_discriminator VARCHAR, template_id VARCHAR NOT NULL, use_default_sidebar BOOLEAN NOT NULL, PRIMARY KEY (cms_page_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_pages (cms_page_id BIGINT IDENTITY NOT NULL, date_created TIMESTAMP NOT NULL, date_updated TIMESTAMP, may_contain_url_parameters BOOLEAN, page_sorting BIGINT, parent_page VARCHAR, persistent_url VARCHAR, published BOOLEAN NOT NULL, related_pi VARCHAR, static_page VARCHAR, subtheme_discriminator VARCHAR, template_id VARCHAR NOT NULL, use_default_sidebar BOOLEAN NOT NULL, PRIMARY KEY (cms_page_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_pages (cms_page_id BIGINT IDENTITY NOT NULL, date_created TIMESTAMP NOT NULL, date_updated TIMESTAMP, may_contain_url_parameters BOOLEAN, page_sorting BIGINT, parent_page VARCHAR, persistent_url VARCHAR, published BOOLEAN NOT NULL, related_pi VARCHAR, static_page VARCHAR, subtheme_discriminator VARCHAR, template_id VARCHAR NOT NULL, use_default_sidebar BOOLEAN NOT NULL, PRIMARY KEY (cms_page_id))")
-[EL Warning]: 2018-08-02 17:54:04.488--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.711--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_STATIC_PAGES" already exists; SQL statement:
 CREATE TABLE cms_static_pages (static_page_id BIGINT IDENTITY NOT NULL, cms_page_Id BIGINT, static_page_name VARCHAR NOT NULL, PRIMARY KEY (static_page_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_static_pages (static_page_id BIGINT IDENTITY NOT NULL, cms_page_Id BIGINT, static_page_name VARCHAR NOT NULL, PRIMARY KEY (static_page_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_static_pages (static_page_id BIGINT IDENTITY NOT NULL, cms_page_Id BIGINT, static_page_name VARCHAR NOT NULL, PRIMARY KEY (static_page_id))")
-[EL Warning]: 2018-08-02 17:54:04.49--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.713--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_PAGE_LANGUAGE_VERSIONS" already exists; SQL statement:
 CREATE TABLE cms_page_language_versions (cms_page_language_version_id BIGINT IDENTITY NOT NULL, language VARCHAR NOT NULL, menu_title VARCHAR NOT NULL, status VARCHAR NOT NULL, title VARCHAR NOT NULL, owner_page_id BIGINT, PRIMARY KEY (cms_page_language_version_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_page_language_versions (cms_page_language_version_id BIGINT IDENTITY NOT NULL, language VARCHAR NOT NULL, menu_title VARCHAR NOT NULL, status VARCHAR NOT NULL, title VARCHAR NOT NULL, owner_page_id BIGINT, PRIMARY KEY (cms_page_language_version_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_page_language_versions (cms_page_language_version_id BIGINT IDENTITY NOT NULL, language VARCHAR NOT NULL, menu_title VARCHAR NOT NULL, status VARCHAR NOT NULL, title VARCHAR NOT NULL, owner_page_id BIGINT, PRIMARY KEY (cms_page_language_version_id))")
-[EL Warning]: 2018-08-02 17:54:04.492--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.715--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_SIDEBAR_ELEMENTS" already exists; SQL statement:
 CREATE TABLE cms_sidebar_elements (cms_sidebar_element_id BIGINT IDENTITY NOT NULL, widget_type VARCHAR(31), css_class VARCHAR, geo_locations LONGTEXT, inner_html LONGTEXT, linked_pages VARCHAR, sort_order INTEGER, type VARCHAR NOT NULL, value VARCHAR, widget_mode VARCHAR NOT NULL, widget_title VARCHAR, owner_page_id BIGINT NOT NULL, additional_query VARCHAR, descending_order BOOLEAN, result_display_limit INTEGER, search_field VARCHAR, PRIMARY KEY (cms_sidebar_element_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_sidebar_elements (cms_sidebar_element_id BIGINT IDENTITY NOT NULL, widget_type VARCHAR(31), css_class VARCHAR, geo_locations LONGTEXT, inner_html LONGTEXT, linked_pages VARCHAR, sort_order INTEGER, type VARCHAR NOT NULL, value VARCHAR, widget_mode VARCHAR NOT NULL, widget_title VARCHAR, owner_page_id BIGINT NOT NULL, additional_query VARCHAR, descending_order BOOLEAN, result_display_limit INTEGER, search_field VARCHAR, PRIMARY KEY (cms_sidebar_element_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_sidebar_elements (cms_sidebar_element_id BIGINT IDENTITY NOT NULL, widget_type VARCHAR(31), css_class VARCHAR, geo_locations LONGTEXT, inner_html LONGTEXT, linked_pages VARCHAR, sort_order INTEGER, type VARCHAR NOT NULL, value VARCHAR, widget_mode VARCHAR NOT NULL, widget_title VARCHAR, owner_page_id BIGINT NOT NULL, additional_query VARCHAR, descending_order BOOLEAN, result_display_limit INTEGER, search_field VARCHAR, PRIMARY KEY (cms_sidebar_element_id))")
-[EL Warning]: 2018-08-02 17:54:04.494--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.717--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_COLLECTIONS" already exists; SQL statement:
 CREATE TABLE cms_collections (cms_collection_id BIGINT IDENTITY NOT NULL, collection_url VARCHAR, representative_work_pi VARCHAR, solr_field VARCHAR, solr_value VARCHAR, media_item_id BIGINT, PRIMARY KEY (cms_collection_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_collections (cms_collection_id BIGINT IDENTITY NOT NULL, collection_url VARCHAR, representative_work_pi VARCHAR, solr_field VARCHAR, solr_value VARCHAR, media_item_id BIGINT, PRIMARY KEY (cms_collection_id))
 Query: DataModifyQuery(sql="CREATE TABLE cms_collections (cms_collection_id BIGINT IDENTITY NOT NULL, collection_url VARCHAR, representative_work_pi VARCHAR, solr_field VARCHAR, solr_value VARCHAR, media_item_id BIGINT, PRIMARY KEY (cms_collection_id))")
-[EL Warning]: 2018-08-02 17:54:04.496--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.718--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "TRANSLATIONS" already exists; SQL statement:
 CREATE TABLE translations (translation_id BIGINT IDENTITY NOT NULL, language VARCHAR, tag LONGTEXT, value VARCHAR, translation_owner_id BIGINT, PRIMARY KEY (translation_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE translations (translation_id BIGINT IDENTITY NOT NULL, language VARCHAR, tag LONGTEXT, value VARCHAR, translation_owner_id BIGINT, PRIMARY KEY (translation_id))
 Query: DataModifyQuery(sql="CREATE TABLE translations (translation_id BIGINT IDENTITY NOT NULL, language VARCHAR, tag LONGTEXT, value VARCHAR, translation_owner_id BIGINT, PRIMARY KEY (translation_id))")
-[EL Warning]: 2018-08-02 17:54:04.496--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.719--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "DOWNLOAD_JOBS" already exists; SQL statement:
 CREATE TABLE download_jobs (download_job_id BIGINT IDENTITY NOT NULL, type VARCHAR(31), description LONGTEXT, identifier VARCHAR NOT NULL, last_requested TIMESTAMP NOT NULL, logid VARCHAR, message VARCHAR, pi VARCHAR NOT NULL, status VARCHAR NOT NULL, ttl BIGINT NOT NULL, PRIMARY KEY (download_job_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE download_jobs (download_job_id BIGINT IDENTITY NOT NULL, type VARCHAR(31), description LONGTEXT, identifier VARCHAR NOT NULL, last_requested TIMESTAMP NOT NULL, logid VARCHAR, message VARCHAR, pi VARCHAR NOT NULL, status VARCHAR NOT NULL, ttl BIGINT NOT NULL, PRIMARY KEY (download_job_id))
 Query: DataModifyQuery(sql="CREATE TABLE download_jobs (download_job_id BIGINT IDENTITY NOT NULL, type VARCHAR(31), description LONGTEXT, identifier VARCHAR NOT NULL, last_requested TIMESTAMP NOT NULL, logid VARCHAR, message VARCHAR, pi VARCHAR NOT NULL, status VARCHAR NOT NULL, ttl BIGINT NOT NULL, PRIMARY KEY (download_job_id))")
-[EL Warning]: 2018-08-02 17:54:04.497--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.72--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "OVERVIEW_PAGES" already exists; SQL statement:
 CREATE TABLE overview_pages (overview_page_id BIGINT IDENTITY NOT NULL, config_xml LONGTEXT, date_updated DATETIME default '1970-01-01 00:00:00', description LONGTEXT, pi VARCHAR NOT NULL, publication_text LONGTEXT, PRIMARY KEY (overview_page_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE overview_pages (overview_page_id BIGINT IDENTITY NOT NULL, config_xml LONGTEXT, date_updated DATETIME default '1970-01-01 00:00:00', description LONGTEXT, pi VARCHAR NOT NULL, publication_text LONGTEXT, PRIMARY KEY (overview_page_id))
 Query: DataModifyQuery(sql="CREATE TABLE overview_pages (overview_page_id BIGINT IDENTITY NOT NULL, config_xml LONGTEXT, date_updated DATETIME default '1970-01-01 00:00:00', description LONGTEXT, pi VARCHAR NOT NULL, publication_text LONGTEXT, PRIMARY KEY (overview_page_id))")
-[EL Warning]: 2018-08-02 17:54:04.498--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.723--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "OVERVIEW_PAGE_UPDATES" already exists; SQL statement:
 CREATE TABLE overview_page_updates (overview_page_update_id BIGINT IDENTITY NOT NULL, config LONGTEXT, date_updated TIMESTAMP NOT NULL, descriptionChanged BOOLEAN NOT NULL, metadataChanged BOOLEAN NOT NULL, pi VARCHAR NOT NULL, publicationTextChanged BOOLEAN NOT NULL, updated_by BIGINT NOT NULL, PRIMARY KEY (overview_page_update_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE overview_page_updates (overview_page_update_id BIGINT IDENTITY NOT NULL, config LONGTEXT, date_updated TIMESTAMP NOT NULL, descriptionChanged BOOLEAN NOT NULL, metadataChanged BOOLEAN NOT NULL, pi VARCHAR NOT NULL, publicationTextChanged BOOLEAN NOT NULL, updated_by BIGINT NOT NULL, PRIMARY KEY (overview_page_update_id))
 Query: DataModifyQuery(sql="CREATE TABLE overview_page_updates (overview_page_update_id BIGINT IDENTITY NOT NULL, config LONGTEXT, date_updated TIMESTAMP NOT NULL, descriptionChanged BOOLEAN NOT NULL, metadataChanged BOOLEAN NOT NULL, pi VARCHAR NOT NULL, publicationTextChanged BOOLEAN NOT NULL, updated_by BIGINT NOT NULL, PRIMARY KEY (overview_page_update_id))")
-[EL Warning]: 2018-08-02 17:54:04.5--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.729--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "SEARCHES" already exists; SQL statement:
 CREATE TABLE searches (search_id BIGINT IDENTITY NOT NULL, date_updated TIMESTAMP NOT NULL, expand_query LONGTEXT, filter VARCHAR, collection VARCHAR, last_hits_count BIGINT, name VARCHAR NOT NULL, new_hits_notification BOOLEAN, page INTEGER NOT NULL, query LONGTEXT, search_filter VARCHAR, search_type INTEGER, sort_field VARCHAR, user_input VARCHAR, owner_id BIGINT NOT NULL, PRIMARY KEY (search_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE searches (search_id BIGINT IDENTITY NOT NULL, date_updated TIMESTAMP NOT NULL, expand_query LONGTEXT, filter VARCHAR, collection VARCHAR, last_hits_count BIGINT, name VARCHAR NOT NULL, new_hits_notification BOOLEAN, page INTEGER NOT NULL, query LONGTEXT, search_filter VARCHAR, search_type INTEGER, sort_field VARCHAR, user_input VARCHAR, owner_id BIGINT NOT NULL, PRIMARY KEY (search_id))
 Query: DataModifyQuery(sql="CREATE TABLE searches (search_id BIGINT IDENTITY NOT NULL, date_updated TIMESTAMP NOT NULL, expand_query LONGTEXT, filter VARCHAR, collection VARCHAR, last_hits_count BIGINT, name VARCHAR NOT NULL, new_hits_notification BOOLEAN, page INTEGER NOT NULL, query LONGTEXT, search_filter VARCHAR, search_type INTEGER, sort_field VARCHAR, user_input VARCHAR, owner_id BIGINT NOT NULL, PRIMARY KEY (search_id))")
-[EL Warning]: 2018-08-02 17:54:04.506--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.73--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "LICENSES" already exists; SQL statement:
 CREATE TABLE licenses (license_id BIGINT IDENTITY NOT NULL, conditions VARCHAR, description VARCHAR, date_end TIMESTAMP, date_start TIMESTAMP, ip_range_id BIGINT, user_id BIGINT, user_group_id BIGINT, license_type_id BIGINT NOT NULL, PRIMARY KEY (license_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE licenses (license_id BIGINT IDENTITY NOT NULL, conditions VARCHAR, description VARCHAR, date_end TIMESTAMP, date_start TIMESTAMP, ip_range_id BIGINT, user_id BIGINT, user_group_id BIGINT, license_type_id BIGINT NOT NULL, PRIMARY KEY (license_id))
 Query: DataModifyQuery(sql="CREATE TABLE licenses (license_id BIGINT IDENTITY NOT NULL, conditions VARCHAR, description VARCHAR, date_end TIMESTAMP, date_start TIMESTAMP, ip_range_id BIGINT, user_id BIGINT, user_group_id BIGINT, license_type_id BIGINT NOT NULL, PRIMARY KEY (license_id))")
-[EL Warning]: 2018-08-02 17:54:04.507--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.731--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "LICENSE_TYPES" already exists; SQL statement:
 CREATE TABLE license_types (license_type_id BIGINT IDENTITY NOT NULL, conditions VARCHAR, description LONGTEXT, name VARCHAR(180), open_access BOOLEAN, PRIMARY KEY (license_type_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE license_types (license_type_id BIGINT IDENTITY NOT NULL, conditions VARCHAR, description LONGTEXT, name VARCHAR(180), open_access BOOLEAN, PRIMARY KEY (license_type_id))
 Query: DataModifyQuery(sql="CREATE TABLE license_types (license_type_id BIGINT IDENTITY NOT NULL, conditions VARCHAR, description LONGTEXT, name VARCHAR(180), open_access BOOLEAN, PRIMARY KEY (license_type_id))")
-[EL Warning]: 2018-08-02 17:54:04.513--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.732--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "ROLES" already exists; SQL statement:
 CREATE TABLE roles (role_id BIGINT IDENTITY NOT NULL, description LONGTEXT, name VARCHAR(180), PRIMARY KEY (role_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE roles (role_id BIGINT IDENTITY NOT NULL, description LONGTEXT, name VARCHAR(180), PRIMARY KEY (role_id))
 Query: DataModifyQuery(sql="CREATE TABLE roles (role_id BIGINT IDENTITY NOT NULL, description LONGTEXT, name VARCHAR(180), PRIMARY KEY (role_id))")
-[EL Warning]: 2018-08-02 17:54:04.513--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.733--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "IP_RANGES" already exists; SQL statement:
 CREATE TABLE ip_ranges (ip_range_id BIGINT IDENTITY NOT NULL, description VARCHAR, name VARCHAR NOT NULL, subnet_mask VARCHAR NOT NULL, PRIMARY KEY (ip_range_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE ip_ranges (ip_range_id BIGINT IDENTITY NOT NULL, description VARCHAR, name VARCHAR NOT NULL, subnet_mask VARCHAR NOT NULL, PRIMARY KEY (ip_range_id))
 Query: DataModifyQuery(sql="CREATE TABLE ip_ranges (ip_range_id BIGINT IDENTITY NOT NULL, description VARCHAR, name VARCHAR NOT NULL, subnet_mask VARCHAR NOT NULL, PRIMARY KEY (ip_range_id))")
-[EL Warning]: 2018-08-02 17:54:04.514--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.734--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "USERS" already exists; SQL statement:
 CREATE TABLE users (user_id BIGINT IDENTITY NOT NULL, activation_key VARCHAR, active BOOLEAN NOT NULL, comments VARCHAR, email VARCHAR NOT NULL, first_name VARCHAR, last_login TIMESTAMP, last_name VARCHAR, nickname VARCHAR, password_hash VARCHAR, score BIGINT, superuser BOOLEAN NOT NULL, suspended BOOLEAN NOT NULL, use_gravatar BOOLEAN, PRIMARY KEY (user_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE users (user_id BIGINT IDENTITY NOT NULL, activation_key VARCHAR, active BOOLEAN NOT NULL, comments VARCHAR, email VARCHAR NOT NULL, first_name VARCHAR, last_login TIMESTAMP, last_name VARCHAR, nickname VARCHAR, password_hash VARCHAR, score BIGINT, superuser BOOLEAN NOT NULL, suspended BOOLEAN NOT NULL, use_gravatar BOOLEAN, PRIMARY KEY (user_id))
 Query: DataModifyQuery(sql="CREATE TABLE users (user_id BIGINT IDENTITY NOT NULL, activation_key VARCHAR, active BOOLEAN NOT NULL, comments VARCHAR, email VARCHAR NOT NULL, first_name VARCHAR, last_login TIMESTAMP, last_name VARCHAR, nickname VARCHAR, password_hash VARCHAR, score BIGINT, superuser BOOLEAN NOT NULL, suspended BOOLEAN NOT NULL, use_gravatar BOOLEAN, PRIMARY KEY (user_id))")
-[EL Warning]: 2018-08-02 17:54:04.516--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.743--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "USER_GROUPS" already exists; SQL statement:
 CREATE TABLE user_groups (user_group_id BIGINT IDENTITY NOT NULL, active BOOLEAN, description VARCHAR, name VARCHAR, owner_id BIGINT, PRIMARY KEY (user_group_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE user_groups (user_group_id BIGINT IDENTITY NOT NULL, active BOOLEAN, description VARCHAR, name VARCHAR, owner_id BIGINT, PRIMARY KEY (user_group_id))
 Query: DataModifyQuery(sql="CREATE TABLE user_groups (user_group_id BIGINT IDENTITY NOT NULL, active BOOLEAN, description VARCHAR, name VARCHAR, owner_id BIGINT, PRIMARY KEY (user_group_id))")
-[EL Warning]: 2018-08-02 17:54:04.518--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.744--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "USER_ROLE" already exists; SQL statement:
 CREATE TABLE user_role (user_role_id BIGINT IDENTITY NOT NULL, role_id BIGINT, user_id BIGINT, user_group_id BIGINT, PRIMARY KEY (user_role_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE user_role (user_role_id BIGINT IDENTITY NOT NULL, role_id BIGINT, user_id BIGINT, user_group_id BIGINT, PRIMARY KEY (user_role_id))
 Query: DataModifyQuery(sql="CREATE TABLE user_role (user_role_id BIGINT IDENTITY NOT NULL, role_id BIGINT, user_id BIGINT, user_group_id BIGINT, PRIMARY KEY (user_role_id))")
-[EL Warning]: 2018-08-02 17:54:04.519--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.745--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "TRANSKRIBUS_JOBS" already exists; SQL statement:
 CREATE TABLE transkribus_jobs (job_id BIGINT IDENTITY NOT NULL, type VARCHAR(31), date_created TIMESTAMP NOT NULL, description LONGTEXT, docId VARCHAR, jobId VARCHAR NOT NULL, message VARCHAR, owner_id VARCHAR NOT NULL, pi VARCHAR NOT NULL, status VARCHAR NOT NULL, user_collection_id VARCHAR NOT NULL, viewer_collection_id VARCHAR NOT NULL, PRIMARY KEY (job_id)) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE transkribus_jobs (job_id BIGINT IDENTITY NOT NULL, type VARCHAR(31), date_created TIMESTAMP NOT NULL, description LONGTEXT, docId VARCHAR, jobId VARCHAR NOT NULL, message VARCHAR, owner_id VARCHAR NOT NULL, pi VARCHAR NOT NULL, status VARCHAR NOT NULL, user_collection_id VARCHAR NOT NULL, viewer_collection_id VARCHAR NOT NULL, PRIMARY KEY (job_id))
 Query: DataModifyQuery(sql="CREATE TABLE transkribus_jobs (job_id BIGINT IDENTITY NOT NULL, type VARCHAR(31), date_created TIMESTAMP NOT NULL, description LONGTEXT, docId VARCHAR, jobId VARCHAR NOT NULL, message VARCHAR, owner_id VARCHAR NOT NULL, pi VARCHAR NOT NULL, status VARCHAR NOT NULL, user_collection_id VARCHAR NOT NULL, viewer_collection_id VARCHAR NOT NULL, PRIMARY KEY (job_id))")
-[EL Warning]: 2018-08-02 17:54:04.52--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.746--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_MEDIA_ITEM_METADATA" already exists; SQL statement:
 CREATE TABLE cms_media_item_metadata (description VARCHAR, language VARCHAR NOT NULL, name VARCHAR, owner_media_item_id BIGINT) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_media_item_metadata (description VARCHAR, language VARCHAR NOT NULL, name VARCHAR, owner_media_item_id BIGINT)
 Query: DataModifyQuery(sql="CREATE TABLE cms_media_item_metadata (description VARCHAR, language VARCHAR NOT NULL, name VARCHAR, owner_media_item_id BIGINT)")
-[EL Warning]: 2018-08-02 17:54:04.521--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.748--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_MEDIA_ITEM_TAGS" already exists; SQL statement:
 CREATE TABLE cms_media_item_tags (owner_media_item_id BIGINT, tag_name VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_media_item_tags (owner_media_item_id BIGINT, tag_name VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE cms_media_item_tags (owner_media_item_id BIGINT, tag_name VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.523--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.749--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "CMS_PAGE_CLASSIFICATIONS" already exists; SQL statement:
 CREATE TABLE cms_page_classifications (page_id BIGINT, classification VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE cms_page_classifications (page_id BIGINT, classification VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE cms_page_classifications (page_id BIGINT, classification VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.531--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.753--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "DOWNLOAD_JOB_OBSERVERS" already exists; SQL statement:
 CREATE TABLE download_job_observers (download_job_id BIGINT, observer VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE download_job_observers (download_job_id BIGINT, observer VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE download_job_observers (download_job_id BIGINT, observer VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.533--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.762--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "LICENSE_PRIVILEGES" already exists; SQL statement:
 CREATE TABLE license_privileges (license_id BIGINT, privilege_name VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE license_privileges (license_id BIGINT, privilege_name VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE license_privileges (license_id BIGINT, privilege_name VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.534--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.763--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "LICENSE_TYPE_PRIVILEGES" already exists; SQL statement:
 CREATE TABLE license_type_privileges (license_type_id BIGINT, privilege_name VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE license_type_privileges (license_type_id BIGINT, privilege_name VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE license_type_privileges (license_type_id BIGINT, privilege_name VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.535--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.764--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "ROLE_PRIVILEGES" already exists; SQL statement:
 CREATE TABLE role_privileges (role_id BIGINT, privilege_name VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE role_privileges (role_id BIGINT, privilege_name VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE role_privileges (role_id BIGINT, privilege_name VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.535--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.765--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "OPENID_ACCOUNTS" already exists; SQL statement:
 CREATE TABLE openid_accounts (user_id BIGINT, claimed_identifier VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE openid_accounts (user_id BIGINT, claimed_identifier VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE openid_accounts (user_id BIGINT, claimed_identifier VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.536--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.766--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Table "TRANSKRIBUS_JOB_OBSERVERS" already exists; SQL statement:
 CREATE TABLE transkribus_job_observers (job_id BIGINT, observer VARCHAR) [42101-193]
 Error Code: 42101
 Call: CREATE TABLE transkribus_job_observers (job_id BIGINT, observer VARCHAR)
 Query: DataModifyQuery(sql="CREATE TABLE transkribus_job_observers (job_id BIGINT, observer VARCHAR)")
-[EL Warning]: 2018-08-02 17:54:04.54--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.767--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_COMMENTS_OWNER_ID" already exists; SQL statement:
 ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.54--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.767--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_BOOKSHELVES_OWNER_ID" already exists; SQL statement:
 ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.54--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.767--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_BOOKSHELF_ITEMS_BOOKSHELF_ID" already exists; SQL statement:
 ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id)
 Query: DataModifyQuery(sql="ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id)")
-[EL Warning]: 2018-08-02 17:54:04.541--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.768--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "CMS_CONTENT_ITEMS_OWNER_PAGE_LANGUAGE_VERSION_ID" already exists; SQL statement:
 ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id)")
-[EL Warning]: 2018-08-02 17:54:04.541--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.768--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_NAVIGATION_ITEMS_PARENT_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id)")
-[EL Warning]: 2018-08-02 17:54:04.541--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.768--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PAGE_LANGUAGE_VERSIONS_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-08-02 17:54:04.541--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.768--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_SIDEBAR_ELEMENTS_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-08-02 17:54:04.544--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.769--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_COLLECTIONS_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-08-02 17:54:04.544--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.769--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_TRANSLATIONS_TRANSLATION_OWNER_ID" already exists; SQL statement:
 ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id)
 Query: DataModifyQuery(sql="ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id)")
-[EL Warning]: 2018-08-02 17:54:04.548--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.769--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_OVERVIEW_PAGE_UPDATES_UPDATED_BY" already exists; SQL statement:
 ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.548--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.769--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SEARCHES_OWNER_ID" already exists; SQL statement:
 ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.549--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.77--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSES_USER_ID" already exists; SQL statement:
 ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.549--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.77--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_USER_GROUPS_OWNER_ID" already exists; SQL statement:
 ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.549--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.77--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_USER_ROLE_USER_GROUP_ID" already exists; SQL statement:
 ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id)
 Query: DataModifyQuery(sql="ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id)")
-[EL Warning]: 2018-08-02 17:54:04.549--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.77--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_MEDIA_ITEM_METADATA_OWNER_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-08-02 17:54:04.549--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.77--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_MEDIA_ITEM_TAGS_OWNER_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-08-02 17:54:04.55--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.771--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PAGE_CLASSIFICATIONS_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-08-02 17:54:04.55--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.777--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_DOWNLOAD_JOB_OBSERVERS_DOWNLOAD_JOB_ID" already exists; SQL statement:
 ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id)
 Query: DataModifyQuery(sql="ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id)")
-[EL Warning]: 2018-08-02 17:54:04.55--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.778--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_PRIVILEGES_LICENSE_ID" already exists; SQL statement:
 ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id)")
-[EL Warning]: 2018-08-02 17:54:04.55--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.778--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_TYPE_PRIVILEGES_LICENSE_TYPE_ID" already exists; SQL statement:
 ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)")
-[EL Warning]: 2018-08-02 17:54:04.55--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.778--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_ROLE_PRIVILEGES_ROLE_ID" already exists; SQL statement:
 ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id)
 Query: DataModifyQuery(sql="ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id)")
-[EL Warning]: 2018-08-02 17:54:04.55--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.778--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_OPENID_ACCOUNTS_USER_ID" already exists; SQL statement:
 ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-08-02 17:54:04.551--ServerSession(812566406)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-08-03 09:59:15.778--ServerSession(465275898)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.2.v20180622-f627448): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_TRANSKRIBUS_JOB_OBSERVERS_JOB_ID" already exists; SQL statement:
 ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id)
 Query: DataModifyQuery(sql="ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id)")
-17:54:05.167 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-17:54:05.168 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.377 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+09:59:16.377 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -414,8 +414,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.187 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-17:54:05.187 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.395 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+09:59:16.395 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -486,8 +486,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.198 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-17:54:05.198 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.405 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+09:59:16.405 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -558,8 +558,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.213 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-17:54:05.213 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.411 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+09:59:16.411 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -630,8 +630,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.225 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-17:54:05.225 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.421 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+09:59:16.421 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -701,8 +701,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-17:54:05.233 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-17:54:05.233 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.429 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+09:59:16.429 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -773,8 +773,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.240 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-17:54:05.241 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.437 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+09:59:16.437 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -845,8 +845,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.245 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-17:54:05.245 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.441 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+09:59:16.441 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -916,8 +916,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-17:54:05.250 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-17:54:05.250 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.445 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+09:59:16.445 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -988,8 +988,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.264 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-17:54:05.264 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.452 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+09:59:16.452 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1059,8 +1059,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-17:54:05.334 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-17:54:05.334 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.525 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+09:59:16.525 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1131,8 +1131,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.339 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-17:54:05.339 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.529 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+09:59:16.529 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1203,8 +1203,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.341 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-17:54:05.342 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.532 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+09:59:16.533 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1274,8 +1274,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-17:54:05.347 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-17:54:05.347 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.538 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+09:59:16.538 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1346,8 +1346,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.352 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-17:54:05.352 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.542 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+09:59:16.542 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1417,8 +1417,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-17:54:05.355 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi2 AND LOGID:LOG_0004
-17:54:05.355 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.545 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi2 AND LOGID:LOG_0004
+09:59:16.545 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1488,8 +1488,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-17:54:05.357 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
-17:54:05.357 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.548 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
+09:59:16.548 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1560,8 +1560,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.360 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-17:54:05.360 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.550 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+09:59:16.550 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1632,8 +1632,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.362 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
-17:54:05.362 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.553 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
+09:59:16.553 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1704,8 +1704,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-17:54:05.365 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-17:54:05.365 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+09:59:16.556 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+09:59:16.556 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1775,7 +1775,7 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 53 more
-[EL Info]: connection: 2018-08-02 17:54:05.368--ServerSession(812566406)--/file:/tmp/viewer/_intranda_viewer_test logout successful
+[EL Info]: connection: 2018-08-03 09:59:16.56--ServerSession(465275898)--/file:/tmp/viewer/_intranda_viewer_test logout successful
 </pre>
 </body>
 </html>
