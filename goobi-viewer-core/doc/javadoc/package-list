@@ -18,6 +18,7 @@ de.intranda.digiverso.presentation.model.calendar
 de.intranda.digiverso.presentation.model.cms
 de.intranda.digiverso.presentation.model.cms.itemfunctionality
 de.intranda.digiverso.presentation.model.cms.tilegrid
+de.intranda.digiverso.presentation.model.crowdsourcing
 de.intranda.digiverso.presentation.model.download
 de.intranda.digiverso.presentation.model.glossary
 de.intranda.digiverso.presentation.model.iiif.presentation
