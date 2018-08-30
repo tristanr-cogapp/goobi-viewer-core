@@ -15,9 +15,19 @@
  */
 package de.intranda.digiverso.presentation.model.sitemap;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
+
 import org.jdom2.Element;
 import org.junit.Assert;
 import org.junit.Test;
+
+import de.intranda.digiverso.presentation.exceptions.DAOException;
+import de.intranda.digiverso.presentation.exceptions.IndexUnreachableException;
+import de.intranda.digiverso.presentation.exceptions.PresentationException;
 
 public class SitemapTest {
 
@@ -43,5 +53,48 @@ public class SitemapTest {
         Element eleUrl = sitemap.createUrlElement("https://foo.bar", "2018-08-21", null, null);
         Assert.assertNotNull(eleUrl);
         Assert.assertEquals("2018-08-21", eleUrl.getChildText("lastmod", Sitemap.nsSitemap));
+    }
+    
+    @Test
+    public void testSitemap() throws IOException, PresentationException, IndexUnreachableException, DAOException, InterruptedException {
+        
+        int timeout = 20; //minutes
+        
+        Sitemap sitemap = new Sitemap();
+        
+        
+        Path path = Paths.get("sitemap_temp");
+        if(!Files.isDirectory(path)) {            
+            Files.createDirectory(path); 
+        }
+        long start = System.nanoTime();
+        Thread thread = new Thread(() ->
+            {
+                try {
+                    sitemap.generate("https://viewer-demo01.intranda.com", path.toAbsolutePath().toString());
+                } catch (IOException | PresentationException | IndexUnreachableException | DAOException e) {
+                    e.printStackTrace();
+                    Thread.currentThread().interrupt();
+                }
+            }
+        );
+        thread.start();
+        thread.join(TimeUnit.MINUTES.toMillis(timeout));
+        if(thread.isAlive()) {
+            thread.interrupt();
+            thread.join();
+        }
+        long end = System.nanoTime();
+        System.out.println("Generating sitemap took " + toSeconds(end-start) + "s" );
+        System.out.println("Written sitemap files to " + path.toAbsolutePath());
+
+    }
+
+    /**
+     * @param l
+     * @return
+     */
+    private double toSeconds(long nano) {
+        return nano / 1E9;
     }
 }
