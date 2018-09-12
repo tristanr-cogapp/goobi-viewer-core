@@ -7,16 +7,21 @@
  */
 describe( 'ViewerJS Paginator Tests', function() {
     
-    var config;
+	var config;
+	var currentPage = 5;
     
+
         beforeEach(function() {
-            jasmine.getFixtures().load("paginatorTest.html");
+            $('<form id="paginatorForm"><nav><ul><li class="navigate_prev"><a onclick="setPage(currentPage-1)">&lt;&lt;</a></li><li class="navigate_first"><a onclick="setPage(1)">1</a></li><li><a onclick="setPage(2)">2</a></li><li><a onclick="setPage(3)">3</a></li><li><a onclick="setPage(4)">4</a></li><li><a onclick="setPage(5)">5</a></li><li><a onclick="setPage(6)">6</a></li><li><a onclick="setPage(7)">7</a></li><li><a onclick="setPage(8)">8</a></li><li><a onclick="setPage(9)">9</a></li><li class="navigate_last"><a onclick="setPage(10)">10</a></li><li class="navigate_next"><a onclick="setPage(currentPage+1)">&gt;&gt;</a></li></ul></nav> </form').appendTo('body');
+            
             config = {
                     previous: ".navigate_prev a",
                     next: ".navigate_next a",
                     first: ".navigate_first a",
                     last: ".navigate_last a"
             }
+            currentPage = 5;
+            setPage(5);
             
             viewerJS.paginator.init(config);
             
@@ -42,9 +47,10 @@ describe( 'ViewerJS Paginator Tests', function() {
         
         afterEach(function() {
             viewerJS.paginator.close();
+            $('#paginatorForm').remove()
         })
         
-        fit( 'should start with 12 elements with only the 6th element active', function() {
+        it( 'should start with 12 elements with only the 6th element active', function() {
             expect($("#paginatorForm li").length).toBe(12);
             expect("#paginatorForm li:eq(5)").toHaveClass(activeClass);
             expect("#paginatorForm li:lt(5)").not.toHaveClass(activeClass);
@@ -52,7 +58,7 @@ describe( 'ViewerJS Paginator Tests', function() {
 
         } );
     
-        fit( 'should should move one left on left arrow key press', function(done) {
+        it( 'should should move one left on left arrow key press', function(done) {
             expect("#paginatorForm li:eq(5)").toHaveClass(activeClass);
             expect("#paginatorForm li:eq(4)").not.toHaveClass(activeClass);
             
@@ -62,10 +68,10 @@ describe( 'ViewerJS Paginator Tests', function() {
                 expect("#paginatorForm li:eq(5)").not.toHaveClass(activeClass);
                 expect("#paginatorForm li:eq(4)").toHaveClass(activeClass);
                 done();
-            }, 0);
+            }, 500);
         } );
         
-        fit( 'should should move one right on right arrow key press', function(done) {
+        it( 'should should move one right on right arrow key press', function(done) {
             expect("#paginatorForm li:eq(5)").toHaveClass(activeClass);
             expect("#paginatorForm li:eq(6)").not.toHaveClass(activeClass);
             
@@ -75,10 +81,10 @@ describe( 'ViewerJS Paginator Tests', function() {
                 expect("#paginatorForm li:eq(5)").not.toHaveClass(activeClass);
                 expect("#paginatorForm li:eq(6)").toHaveClass(activeClass);
                 done();
-            }, 0);
+            }, 500);
         } );
         
-        fit( 'should should move to first element on double left key press', function(done) {
+        it( 'should should move to first element on double left key press', function(done) {
             expect("#paginatorForm li:eq(5)").toHaveClass(activeClass);
             expect("#paginatorForm li:eq(1)").not.toHaveClass(activeClass);
             
@@ -89,10 +95,10 @@ describe( 'ViewerJS Paginator Tests', function() {
                 expect("#paginatorForm li:eq(5)").not.toHaveClass(activeClass);
                 expect("#paginatorForm li:eq(1)").toHaveClass(activeClass);
                 done();
-            }, 0);
+            }, 500);
         } );
         
-        fit( 'should should move to last element on double right key press', function(done) {
+        it( 'should should move to last element on double right key press', function(done) {
             expect("#paginatorForm li:eq(5)").toHaveClass(activeClass);
             expect("#paginatorForm li:eq(10)").not.toHaveClass(activeClass);
             
@@ -103,17 +109,28 @@ describe( 'ViewerJS Paginator Tests', function() {
                 expect("#paginatorForm li:eq(5)").not.toHaveClass(activeClass);
                 expect("#paginatorForm li:eq(10)").toHaveClass(activeClass);
                 done();
-            }, 0);
+            }, 500);
         } );
 
 
         
-        function keyPress(key) {
-            console.log("press key " + key);
-            var press = jQuery.Event("keyup");
-            press.key = key;
-            press.keyCode = key;
-            $("body").trigger(press);
-          }
+
         
+
 } );
+
+var activeClass = "numeric-paginator__active";
+
+function setPage(no) {
+    currentPage = Math.max(Math.min(10,no),1);
+    $("#paginatorForm li").removeClass(activeClass);
+    $("#paginatorForm li:eq("+currentPage+")").addClass(activeClass);
+}
+
+function keyPress(key) {
+    var press = jQuery.Event("keyup");
+    press.key = key;
+    press.keyCode = key;
+    $("body").trigger(press);
+}
+
