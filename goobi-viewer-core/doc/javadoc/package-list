@@ -46,6 +46,7 @@ de.intranda.digiverso.presentation.model.viewer
 de.intranda.digiverso.presentation.model.viewer.object
 de.intranda.digiverso.presentation.model.viewer.pageloader
 de.intranda.digiverso.presentation.modules
+de.intranda.digiverso.presentation.modules.interfaces
 de.intranda.digiverso.presentation.servlets
 de.intranda.digiverso.presentation.servlets.download
 de.intranda.digiverso.presentation.servlets.openid
