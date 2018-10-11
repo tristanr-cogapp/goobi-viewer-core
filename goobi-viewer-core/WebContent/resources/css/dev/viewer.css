@@ -12,6 +12,7 @@
    ==============================================================*/
 /* FONTS */
 /* COLORS BASIC */
+/* MESSAGE COLORS */
 /* COLORS STATISTICS */
 /* COLORS NER */
 /* COLORS READING MODE */
@@ -98,13 +99,15 @@ h3,
   line-height: 1.75rem;
 }
 h4,
-h5,
-h6,
-.h4,
-.h5,
-.h6 {
+.h4 {
   font-size: 1.125rem;
   line-height: 1.5625rem;
+}
+h5,
+h6,
+.h5,
+.h6 {
+  font-size: 1rem;
 }
 p {
   margin: 0 0 1.3125rem 0;
@@ -1016,6 +1019,18 @@ input.btn .ui-button-text,
 .btn-inactive {
   cursor: default;
   opacity: 0.4;
+}
+.btn-hidden {
+  display: none !important;
+}
+.btn--link {
+  color: #507ebf;
+}
+.btn--link:hover,
+.btn--link:active,
+.btn--link:focus {
+  color: #1a1a1a;
+  text-decoration: underline;
 }
 /* BREAKPOINT FOR LARGE DESKTOPS */
 /* BREAKPOINT FOR DESKTOP */
@@ -3225,6 +3240,52 @@ input[id*="cmdMoveTo"] {
   margin: 5px 0 15px 0;
   padding: 10px;
   background-color: #eee;
+}
+/* BREAKPOINT FOR LARGE DESKTOPS */
+/* BREAKPOINT FOR DESKTOP */
+/* BREAKPOINT FOR TABLETS */
+/* BREAKPOINT FOR SMARTPHONES */
+/* ==============================================================
+   Simple Lightbox
+   style declarations for Simple Lightbox JS
+   ==============================================================*/
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.lightbox-modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  padding: 1em;
+  text-align: left;
+  background-color: #FFFFFF;
+}
+.lightbox-close {
+  position: relative;
+}
+.lightbox-close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+.lightbox-modal-box img {
+  display: block;
+  width: 100%;
+  margin: 1%;
 }
 /* BREAKPOINT FOR LARGE DESKTOPS */
 /* BREAKPOINT FOR DESKTOP */
@@ -8287,6 +8348,105 @@ div[id*="-Modal"] .email-form .form-group {
 /* BREAKPOINT FOR DESKTOP */
 /* BREAKPOINT FOR TABLETS */
 /* BREAKPOINT FOR SMARTPHONES */
+/* CMS MODULES */
+/* ==============================================================
+   CMS Module Options
+   ==============================================================*/
+/* OPTIONS */
+.cms-module {
+  /* OPTION GROUP */
+}
+.cms-module__option {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.cms-module__option-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cms-module__option-group:last-child {
+  margin: 0;
+}
+.cms-module__option-label {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  padding-top: 7px;
+  word-break: break-word;
+}
+.cms-module__option-label--fullwidth {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.cms-module__option-label--fullwidth + .cms-module__option-control {
+  -ms-flex-preferred-size: 95%;
+      flex-basis: 95%;
+  padding-left: 0;
+}
+.cms-module__option-control {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  padding-left: 10px;
+}
+.cms-module__option-control.in input,
+.cms-module__option-control.in .custom-control--select,
+.cms-module__option-control.in .cms-module__option-control-checkbox {
+  border-color: #468847 !important;
+}
+.cms-module__option-control.in .cms-module__option-control-checkbox {
+  padding: 7px;
+}
+.cms-module__option-control-checkbox {
+  display: inline-block;
+  padding: 7px 0;
+  border: 1px solid transparent;
+}
+.cms-module__option-control-helptext {
+  display: none;
+  color: #468847;
+}
+.cms-module__option-control-helptext.in {
+  display: inline;
+}
+.cms-module__option-help {
+  -ms-flex-preferred-size: 5%;
+      flex-basis: 5%;
+}
+.cms-module__option-help button {
+  display: block;
+  width: 100%;
+  padding: 7px 0;
+  text-align: right;
+}
+.cms-module__option-help button.in {
+  color: #468847;
+}
+.cms-module__option-action {
+  text-align: right;
+}
+/* BREAKPOINT FOR LARGE DESKTOPS */
+/* BREAKPOINT FOR DESKTOP */
+/* BREAKPOINT FOR TABLETS */
+/* BREAKPOINT FOR SMARTPHONES */
+@media screen and (max-width: 480px) {
+  .cms-module__option-control {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+  }
+  .cms-module__option-help {
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+  }
+  .cms-module__option-action {
+    padding-right: 10%;
+  }
+}
 /* CMS COMPONENTS */
 /* ==============================================================
    CMS Component "Collection Tiled"
@@ -9676,92 +9836,198 @@ div[id*="-Modal"] .email-form .form-group {
    CMS Menu Items
    style declarations for adminCmsMenuItems.xhtml
    ==============================================================*/
-#cmsMenuItems #addMenuItemWrapper {
+/* CMS MENU */
+.cms-menu {
+  /* HEADER */
+  /* SAVE */
+  /* SELECT THEME */
+  /* MENU EDITOR */
+  /* VISIBLE/AVAILABLE ITEMS */
+  /* AVAILABLE ITEMS */
+  /* PAGES */
+  /* ITEMS */
+}
+.cms-menu__header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.cms-menu__save {
   text-align: right;
-  margin-bottom: 1.3125rem;
+  padding-right: 15px;
 }
-#cmsMenuItems #menuEditor h3 {
-  font-size: 0.9rem;
-  font-weight: normal;
+.cms-menu__save.fixed {
+  position: fixed;
+  top: 0;
+  padding: 15px;
+  z-index: 999;
 }
-#cmsMenuItems #menuEditor .menu-editor-left .ui-sortable,
-#cmsMenuItems #menuEditor .menu-editor-right .ui-sortable {
-  list-style: none;
-  min-height: 100px;
+.cms-menu__select-theme {
+  margin-bottom: 15px;
+}
+.cms-menu__editor {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+  margin-top: 15px;
+}
+.cms-menu__visible-items h4,
+.cms-menu__available-items h4 {
+  margin-bottom: 10px;
+}
+.cms-menu__visible-items .cms-menu__available-item-level,
+.cms-menu__available-items .cms-menu__available-item-level {
+  visibility: visible;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  padding: 10px;
+}
+.cms-menu__visible-items-list {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
-#cmsMenuItems #saveMenuItemsWrapper .btn {
-  float: right;
-}
-#cmsMenuItems #addMenuItemModal .modal-header {
-  text-align: left;
-}
-#cmsMenuItems #addMenuItemModal .tooltip .tooltip-inner {
-  font-weight: normal;
-}
-.menu-item {
-  margin-bottom: 4px;
-  padding: 10px;
-  color: #1a1a1a;
+.cms-menu__visible-item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   background-color: #eee;
 }
-.menu-item__level,
-.menu-item__text,
-.menu-item__edit {
-  float: left;
-}
-.menu-item__level {
-  width: 15%;
-}
-.menu-item__text {
-  width: 70%;
-  padding: 0 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.menu-item__edit {
-  width: 15%;
-}
-.menu-item__edit a {
-  font-size: 1.1rem;
-  color: #1a1a1a;
-}
-.menu-item__edit a:hover,
-.menu-item__edit a:focus,
-.menu-item__edit a:active {
-  color: #1a1a1a;
-}
-.menu-item.unpublished {
+.cms-menu__visible-item.unpublished {
   opacity: 0.5;
 }
-.menu-item.deleted {
-  border: 1px solid #ff0000;
+.cms-menu__visible-item.deleted {
+  border: 1px solid red;
   opacity: 0.5;
 }
-#edit_navigationitem_wrapper {
+.cms-menu__visible-item-level {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  padding: 10px;
+  padding-right: 0;
+}
+.cms-menu__visible-item-label {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  padding: 10px;
+  word-break: break-word;
+}
+.cms-menu__visible-item-label small {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.cms-menu__visible-item-edit {
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+  padding: 10px;
+  padding-left: 0;
+}
+.cms-menu__visible-item-edit button {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+.cms-menu__visible-item-edit button .fa {
+  transition: all 0.2s linear;
+}
+.cms-menu__visible-item-edit button.in .fa {
+  transform: rotate(180deg);
+}
+.cms-menu__visible-item-edit-wrapper {
   display: none;
-  margin: 10px;
-  padding: 5px;
-  border-style: double;
-  border-width: medium;
-}
-#edit_navigationitem_wrapper dl {
-  margin-bottom: 5px;
-}
-#edit_navigationitem_wrapper dl dt {
-  clear: left;
-  float: left;
-  width: 120px;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
   margin: 0;
-  padding: 5px;
+  border: none;
+  border-top: 1px solid #ccc;
 }
-#edit_navigationitem_wrapper dl dd {
-  width: 500px;
+.cms-menu__visible-item-edit-wrapper .cms-module__option-label {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+}
+.cms-menu__visible-item-edit-wrapper .cms-module__option-control {
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
+}
+.cms-menu__visible-item-edit-wrapper .cms-module__option-action .btn--link {
+  color: #c7254e;
+}
+.cms-menu__available-items-list ul {
   margin: 0;
-  margin-left: 200px;
-  padding: 5px;
+  padding: 0;
+  list-style: none;
+}
+.cms-menu__available-items-list li {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background-color: #eee;
+}
+.cms-menu__available-items-list h5 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin: 0;
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+.cms-menu__available-items-list h5 .fa {
+  transition: all 0.2s linear;
+}
+.cms-menu__available-items-list h5.in .fa {
+  transform: rotate(180deg);
+}
+.cms-menu__available-items-toggle {
+  display: none;
+}
+.cms-menu__available-items-list-pages {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.cms-menu__available-item-page {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.cms-menu__available-item-page-checkbox input[type="checkbox"] {
+  margin: 0;
+}
+.cms-menu__available-item-page-label {
+  padding-left: 10px;
+}
+.cms-menu__available-item-page-add {
+  padding: 10px;
+  text-align: right;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+.cms-menu__available-items-list-add-item .cms-module__option {
+  margin: 0;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.cms-menu__available-items-list-add-item .cms-module__option-group:last-child {
+  margin: 0;
+}
+.cms-menu__available-items-list-add-item .cms-module__option-action {
+  margin-right: -15px;
+  margin-left: -15px;
+  padding: 10px;
+  padding-bottom: 0;
+  border-top: 1px solid #ccc;
 }
 /* BREAKPOINT FOR LARGE DESKTOPS */
 /* BREAKPOINT FOR DESKTOP */

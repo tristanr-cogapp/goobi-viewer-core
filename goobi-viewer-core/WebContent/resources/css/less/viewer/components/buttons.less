@@ -64,6 +64,20 @@ input.btn,
     opacity: 0.4;
 }
 
+.btn-hidden {
+	display: none !important;
+}
+
+.btn--link {
+	color: @blue;
+	&:hover,
+	&:active,
+	&:focus {
+		color: @black;
+		text-decoration: underline;
+	}
+}
+
 /* BREAKPOINT FOR LARGE DESKTOPS */
 @media screen and (max-width: @largeBreakpoint) {} 
 

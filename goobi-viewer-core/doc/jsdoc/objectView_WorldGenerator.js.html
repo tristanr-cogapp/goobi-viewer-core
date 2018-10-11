@@ -1,312 +1,34 @@
-/*!
- * This file is part of the Goobi viewer - a content presentation and management application for digitized objects.
- *
- * Visit these websites for more information.
- * - http://www.intranda.com
- * - http://digiverso.com
- *
- * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
- * Software Foundation; either version 2 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
- *//**
- * This loader loads a mesh from a ply file and adds a surface material of the
- * given color
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: objectView/WorldGenerator.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: objectView/WorldGenerator.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 
  */
-THREE.FBXMeshLoader = function(manager, color) {
-
-	this.color = color;
-	this.manager = (manager !== undefined) ? manager
-			: THREE.DefaultLoadingManager;
-
-};
-
-THREE.FBXMeshLoader.prototype = {
-
-	constructor : THREE.FBXMeshLoader,
-
-	load : function(url, onLoad, onProgress, onError) {
-
-		var loader = new THREE.FBXLoader(this.manager);
-		var color = this.color;
-		
-		Q($.getJSON(url)).then(function(info) {
-			console.log("loading object info = ", info);
-			var baseResourceUrl = info.uri.substring(0, info.uri.lastIndexOf("/"));
-			var objUrl = info.uri;
-
-			loader.load(objUrl, function(geometry) {
-				console.log("loaded mesh ", geometry);
-//				geometry.computeVertexNormals();
-//				var material = new THREE.MeshStandardMaterial({
-//					color : color,
-//					shading : THREE.FlatShading
-//				});
-//				var mesh = new THREE.Mesh(geometry, material);
-//				mesh.castShadow = true;
-//				mesh.receiveShadow = true;
-				onLoad(geometry);
-			}, function(status) {
-				console.log("loading ", status);
-			}, function(error) {
-				console.log("error ", error)
-			});
-		});
-	}
-}
-
-/**
- * This loader loads a mesh from a .gltf file which may point to a .bin file and a number of texture image files
- */
-THREE.GLTFDRACOLoader = function(manager) {
-
-	this.manager = (manager !== undefined) ? manager
-			: THREE.DefaultLoadingManager;
-
-};
-
-THREE.GLTFDRACOLoader.prototype = {
-
-	constructor : THREE.GLTFDRACOLoader,
-
-	load : function(url, onLoad, onProgress, onError) {
-
-		var gltfLoader = new THREE.GLTFLoader(this.manager);
-		THREE.DRACOLoader.setDecoderPath( '/../three/dependencies/draco' );
-		gltfLoader.setDRACOLoader( new THREE.DRACOLoader() );
-		
-		Q($.getJSON(url)).then(function(info) {
-			console.log("loading object info = ", info);
-			var baseResourceUrl = info.uri.substring(0, info.uri.lastIndexOf("/"));
-			var objUrl = info.uri;
-
-			gltfLoader.load(objUrl, function(gltf) {
-				console.log("loaded gltf ", gltf);
-//		        scene.add( gltf.scene );
-				onLoad(gltf.scene);
-			}, function(status) {
-				console.log("loading ", status);
-			}, function(error) {
-				console.log("error ", error)
-			});
-		});
-	}
-}
-/**
- * This loader loads a mesh and surface from an obj file and a mtl file. The
- * given url should be of the obj file and it is assumed the mtl url is the same
- * with .obj replaced by .mtl
- */
-THREE.OBJMTLLoader = function(manager) {
-
-	this.manager = (manager !== undefined) ? manager
-			: THREE.DefaultLoadingManager;
-
-};
-
-THREE.OBJMTLLoader.prototype = {
-
-	constructor : THREE.OBJMTLLoader,
-
-	load : function(url, onLoad, onProgress, onError) {
-
-		Q($.getJSON(url)).then(function(info) {
-			console.log("loading object info = ", info);
-			var baseResourceUrl = info.uri.substring(0, info.uri.lastIndexOf("/"));
-			var objUrl = info.uri;
-			var mtlUrl = info.resources.filter(function(resource) {
-				return resource.endsWith(".mtl");
-			}).shift();
-			var textureLoader = new THREE.MTLLoader(this.manager);
-			var objectLoader = new THREE.OBJLoader(this.manager);
-
-			textureLoader.setTexturePath(mtlUrl.substring(0, mtlUrl.lastIndexOf("/")) + "/");
-
-			var texture = textureLoader.load(mtlUrl, function(materials) {
-				materials.preload();
-				objectLoader.setMaterials(materials);
-				objectLoader.load(objUrl, onLoad, onProgress, onError);
-
-			}, onProgress, onError);
-		});
-	}
-}
-
-/**
- * This loader loads a mesh from a ply file and adds a surface material of the
- * given color
- */
-THREE.PLYMeshLoader = function(manager, color) {
-
-	this.color = color;
-	this.manager = (manager !== undefined) ? manager
-			: THREE.DefaultLoadingManager;
-
-};
-
-THREE.PLYMeshLoader.prototype = {
-
-	constructor : THREE.PLYMeshLoader,
-
-	load : function(url, onLoad, onProgress, onError) {
-
-		var loader = new THREE.PLYLoader(this.manager);
-		var color = this.color;
-		
-		Q($.getJSON(url)).then(function(info) {
-			console.log("loading object info = ", info);
-			var baseResourceUrl = info.uri.substring(0, info.uri.lastIndexOf("/"));
-			var objUrl = info.uri;
-		
-			loader.load(objUrl, function(geometry) {
-				geometry.computeVertexNormals();
-				var material = new THREE.MeshStandardMaterial({
-					color : color,
-					shading : THREE.FlatShading
-				});
-				var mesh = new THREE.Mesh(geometry, material);
-				mesh.castShadow = true;
-				mesh.receiveShadow = true;
-				onLoad(mesh);
-			}, onProgress, onError);
-		});
-	}
-}
-
-/**
- * This loader loads a mesh from a ply file and adds a surface material of the
- * given color
- */
-THREE.STLMeshLoader = function(manager, color) {
-
-	this.color = color;
-	this.manager = (manager !== undefined) ? manager
-			: THREE.DefaultLoadingManager;
-
-};
-
-THREE.STLMeshLoader.prototype = {
-
-	constructor : THREE.STLMeshLoader,
-
-	load : function(url, onLoad, onProgress, onError) {
-		var loader = new THREE.STLLoader(this.manager);
-		var color = this.color;
-
-		Q($.getJSON(url)).then(function(info) {
-			console.log("loading object info = ", info);
-			var baseResourceUrl = info.uri.substring(0, info.uri.lastIndexOf("/"));
-			var objUrl = info.uri;
-            console.log("loader ", loader);
-		
-    			loader.load(objUrl, function(geometry) {
-    				geometry.computeVertexNormals();
-    				var material = new THREE.MeshStandardMaterial({
-    					color : color,
-    					shading : THREE.FlatShading
-    				});
-    				var mesh = new THREE.Mesh(geometry, material);
-    				mesh.castShadow = true;
-    				mesh.receiveShadow = true;
-    				onLoad(mesh);
-    			}, onProgress, onError);
-
-		})
-		.catch(function(error) {
-		    onError(error);
-		});
-	}
-}
-
-/**
- * This loader loads a mesh from a ply file and adds a surface material of the
- * given color
- */
-THREE.TDSMeshLoader = function(manager, color) {
-
-	this.color = color;
-	this.manager = (manager !== undefined) ? manager
-			: THREE.DefaultLoadingManager;
-
-};
-
-THREE.TDSMeshLoader.prototype = {
-
-	constructor : THREE.TDSMeshLoader,
-
-	load : function(url, onLoad, onProgress, onError) {
-		
-		var geometryLoader = new THREE.TDSLoader(this.manager);
-		var textureLoader = new THREE.TextureLoader();
-		
-		Q($.getJSON(url))
-		.then(function(info) {
-			console.log("loading object info = ", info);
-			var objUrl = info.uri;
-			var textureUrls = info.resources.filter(function(resource) {
-				return resource.match(/je?pg|png$/i);
-			});
-
-		
-			geometryLoader.load(objUrl, function(object) {
-				console.log("LOADING 3DS OBJECT", object);
-				// geometry.computeVertexNormals();
-				
-				if(object instanceof THREE.Mesh) {
-					console.log("object is already a mesh");
-				}
-
-				var textures = textureUrls
-				.map(function(url) {
-					return textureLoader.load( url );
-				})
-				console.log("loaded textures ", textures);
-				
-				object.traverse( function ( child ) {
-	
-					if ( child instanceof THREE.Mesh ) {
-						var texture = textures.shift();
-						child.material.map = texture;
-					}
-	
-				} );
-				
-				object.castShadow = true;
-				object.receiveShadow = true;
-				onLoad(object);
-			}, onProgress, onError);
-
-		});
-	}
-}
-
-/**
- * This loader an object from an x3d file
- */
-X3DLoader = function() {
-};
-
-X3DLoader.prototype = {
-
-    constructor : X3DLoader,
-
-    load : function($image, url, onLoad, onProgress, onError) {
-
-        return Q($.getJSON(url)).then(function(info) {
-            console.log("Loading x3dom ", info);
-            var imageWidth = $image.width() + "px";
-            var imageHeight =  $image.height() + "px";
-            var x3d = '<x3d width="' + imageWidth + '" height="' + imageHeight + '"><scene><inline url="' + info.uri + '"></inline></scene></x3d>';
-            $image.get(0).innerHTML += x3d;
-//            $image.append($x3d);
-            x3dom.reload()
-            onLoad();
-        });
-    }
-}
 
 var WorldGenerator = (function() {
     var _lightIntensity = 0.7;
@@ -513,7 +235,7 @@ var WorldGenerator = (function() {
 				if(!$.isArray(lights)) {
 					lights = [lights];
 				}
-				for(var i=0; i < lights.length; i++) {		
+				for(var i=0; i &lt; lights.length; i++) {		
 					var lightConfig = lights[i];
 					var light = this.createShadowedLight(
 							lightConfig.position,
@@ -728,7 +450,7 @@ var WorldGenerator = (function() {
 		}
 	World.prototype.getBoundingSphere = function(object) {
 			var sphere;
-			if(object.geometry && object.geometry.computeBoundingSphere) {
+			if(object.geometry &amp;&amp; object.geometry.computeBoundingSphere) {
 				if(!object.geometry.boundingSphere) {				
 					object.geometry.computeBoundingSphere();
 				}
@@ -818,5 +540,26 @@ var WorldGenerator = (function() {
 	
 	return Generator;
 	
-})();
-//# sourceMappingURL=objectView.js.map
+})();</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="cmsJS.module_createPage.html">createPage</a></li><li><a href="cmsJS.module_geoLocations.html">geoLocations</a></li><li><a href="cmsJS.module_masonry.html">masonry</a></li><li><a href="cmsJS.module_rssFeed.html">rssFeed</a></li><li><a href="cmsJS.module_sortableList.html">sortableList</a></li><li><a href="cmsJS.module_stackedCollection.html">stackedCollection</a></li><li><a href="cmsJS.module_staticGrid.html">staticGrid</a></li><li><a href="cmsJS.module_tagList.html">tagList</a></li><li><a href="cmsJS.module_tileGrid.html">tileGrid</a></li><li><a href="module-cmsJS.html">cmsJS</a></li><li><a href="module-viewerJS.html">viewerJS</a></li><li><a href="viewerJS.module_bookshelvesSession.html">bookshelvesSession</a></li><li><a href="viewerJS.module_bookshelvesUser.html">bookshelvesUser</a></li><li><a href="viewerJS.module_calendarPopover.html">calendarPopover</a></li><li><a href="viewerJS.module_changeFontSize.html">changeFontSize</a></li><li><a href="viewerJS.module_chronoSlider.html">chronoSlider</a></li><li><a href="viewerJS.module_dataTable.html">dataTable</a></li><li><a href="viewerJS.module_dateSortedFeed.html">dateSortedFeed</a></li><li><a href="viewerJS.module_download.html">download</a></li><li><a href="viewerJS.module_downloadModal.html">downloadModal</a></li><li><a href="viewerJS.module_helper.html">helper</a></li><li><a href="viewerJS.module_mirador.html">mirador</a></li><li><a href="viewerJS.module_navigation.html">navigation</a></li><li><a href="viewerJS.module_nerFacetting.html">nerFacetting</a></li><li><a href="viewerJS.module_nerFulltext.html">nerFulltext</a></li><li><a href="viewerJS.module_normdata.html">normdata</a></li><li><a href="viewerJS.module_pageScroll.html">pageScroll</a></li><li><a href="viewerJS.module_paginator.html">paginator</a></li><li><a href="viewerJS.module_responsiveColumnGallery.html">responsiveColumnGallery</a></li><li><a href="viewerJS.module_searchAdvanced.html">searchAdvanced</a></li><li><a href="viewerJS.module_searchList.html">searchList</a></li><li><a href="viewerJS.module_searchSortingDropdown.html">searchSortingDropdown</a></li><li><a href="viewerJS.module_simpleLightbox.html">simpleLightbox</a></li><li><a href="viewerJS.module_stackedThumbnails.html">stackedThumbnails</a></li><li><a href="viewerJS.module_timematrix.html">timematrix</a></li><li><a href="viewerJS.module_tinyMce.html">tinyMce</a></li><li><a href="viewerJS.module_userComments.html">userComments</a></li><li><a href="viewerJS.module_userDropdown.html">userDropdown</a></li><li><a href="viewerJS.module_versionHistory.html">versionHistory</a></li><li><a href="viewImage.controls.module_persistence.html">persistence</a></li><li><a href="viewImage.module_controls.html">controls</a></li><li><a href="viewImage.module_drawRect.html">drawRect</a></li><li><a href="viewImage.module_Measures.html">Measures</a></li><li><a href="viewImage.module_overlays.html">overlays</a></li><li><a href="viewImage.module_readingMode.html">readingMode</a></li><li><a href="viewImage.module_tileSourceResolver.html">tileSourceResolver</a></li><li><a href="viewImage.module_transformRect.html">transformRect</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ImageView">ImageView</a></li><li><a href="global.html#Statistics">Statistics</a></li><li><a href="global.html#WorldGenerator">WorldGenerator</a></li><li><a href="global.html#X3DLoader">X3DLoader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Oct 11 2018 09:43:10 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
