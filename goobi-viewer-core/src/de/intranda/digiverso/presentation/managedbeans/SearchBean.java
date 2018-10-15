@@ -18,6 +18,7 @@ package de.intranda.digiverso.presentation.managedbeans;
 import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ import de.intranda.digiverso.presentation.controller.DataManager;
 import de.intranda.digiverso.presentation.controller.DateTools;
 import de.intranda.digiverso.presentation.controller.Helper;
 import de.intranda.digiverso.presentation.controller.SolrConstants;
+import de.intranda.digiverso.presentation.controller.StringTools;
 import de.intranda.digiverso.presentation.exceptions.DAOException;
 import de.intranda.digiverso.presentation.exceptions.IndexUnreachableException;
 import de.intranda.digiverso.presentation.exceptions.PresentationException;
@@ -81,6 +83,7 @@ import de.intranda.digiverso.presentation.model.search.SearchQueryItem;
 import de.intranda.digiverso.presentation.model.search.SearchQueryItem.SearchItemOperator;
 import de.intranda.digiverso.presentation.model.urlresolution.ViewHistory;
 import de.intranda.digiverso.presentation.model.urlresolution.ViewerPath;
+import de.intranda.digiverso.presentation.model.urlresolution.ViewerPathBuilder;
 import de.intranda.digiverso.presentation.model.viewer.BrowseDcElement;
 import de.intranda.digiverso.presentation.model.viewer.BrowsingMenuFieldConfig;
 import de.intranda.digiverso.presentation.model.viewer.LabeledLink;
@@ -1993,5 +1996,48 @@ public class SearchBean implements Serializable {
                 .append(facets.getCurrentFacetString())
                 .append('/')
                 .toString();
+    }
+    
+    public void updateFacetItem(String field, boolean hierarchical) {
+        getFacets().updateFacetItem(field, hierarchical);
+        String url = getCurrentSearchUrl();
+        redirectToURL(url);
+    }
+
+    /**
+     * @return
+     */
+    private String getCurrentSearchUrl() {
+       Optional<ViewerPath> oCurrentPath = ViewHistory.getCurrentView(BeanUtils.getRequest());
+       if(oCurrentPath.isPresent()) {
+           ViewerPath currentPath = oCurrentPath.get();
+           StringBuilder sb = new StringBuilder();
+           sb.append(currentPath.getApplicationUrl()).append("/").append(currentPath.getPrettifiedPagePath());
+           URI uri = URI.create(sb.toString());
+           uri = getParameterPath(uri);
+           return uri.toString() + "/";
+       } else {
+           //fallback
+           return "pretty:search5";
+       }
+    }
+    
+    private URI getParameterPath(URI basePath) {
+        //        path = ViewerPathBuilder.resolve(path, getCollection());
+        basePath = ViewerPathBuilder.resolve(basePath, "-");
+        basePath = ViewerPathBuilder.resolve(basePath, getExactSearchString());
+        basePath = ViewerPathBuilder.resolve(basePath, Integer.toString(getCurrentPage()));
+        basePath = ViewerPathBuilder.resolve(basePath, getSortString());
+        basePath = ViewerPathBuilder.resolve(basePath, StringTools.encodeUrl(getFacets().getCurrentFacetString()));
+        return basePath;
+    }
+
+    private void redirectToURL(String url) {
+        final FacesContext context = FacesContext.getCurrentInstance();
+        try {
+            context.getExternalContext().redirect(url);
+        } catch (IOException e) {
+            logger.error("Failed to redirect to url", e);
+        }
     }
 }
