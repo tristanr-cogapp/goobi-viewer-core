@@ -53,7 +53,6 @@ import de.unigoettingen.sub.commons.contentlib.servlet.rest.ContentServerImageIn
 
 @Provider
 @ContentServerImageBinding
-@ContentServerImageInfoBinding
 public class ImageRequestFilter implements ContainerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(ImageRequestFilter.class);
@@ -90,7 +89,7 @@ public class ImageRequestFilter implements ContainerRequestFilter {
             if (forwardToCanonicalUrl(pi, imageName, servletRequest, servletResponse)) {
                 //if page order is given for image filename, forward to url with correct filename
                 return;
-            } else if (pathSegments.size() > 3) {
+            } else {
                 //only for actual image requests, no info requests
                 boolean isThumb = getIsThumbnail(request, size, region);
                 if (!BeanUtils.getImageDeliveryBean().isExternalUrl(imageName) && !BeanUtils.getImageDeliveryBean().isCmsUrl(imageName)
