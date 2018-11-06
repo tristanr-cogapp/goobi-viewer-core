@@ -4,154 +4,154 @@
 <title>Standard Output from BookshelfResourceTest</title>
 </head>
 <body>
-<pre>[EL Info]: 2018-11-05 15:46:46.843--ServerSession(803432936)--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
-[EL Info]: connection: 2018-11-05 15:46:46.856--ServerSession(803432936)--/file:/tmp/viewer/_intranda_viewer_test login successful
-[EL Warning]: 2018-11-05 15:46:46.9--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+<pre>[EL Info]: 2018-11-06 08:34:25.837--ServerSession(325983014)--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Info]: connection: 2018-11-06 08:34:25.861--ServerSession(325983014)--/file:/tmp/viewer/_intranda_viewer_test login successful
+[EL Warning]: 2018-11-06 08:34:25.906--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_COMMENTS_OWNER_ID" already exists; SQL statement:
 ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.901--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.907--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_BOOKSHELVES_OWNER_ID" already exists; SQL statement:
 ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.901--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.911--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_BOOKSHELF_ITEMS_BOOKSHELF_ID" already exists; SQL statement:
 ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id)
 Query: DataModifyQuery(sql="ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id)")
-[EL Warning]: 2018-11-05 15:46:46.901--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.911--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "CMS_CONTENT_ITEMS_OWNER_PAGE_LANGUAGE_VERSION_ID" already exists; SQL statement:
 ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id)")
-[EL Warning]: 2018-11-05 15:46:46.901--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.911--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_NAVIGATION_ITEMS_PARENT_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id)")
-[EL Warning]: 2018-11-05 15:46:46.901--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.912--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PAGE_LANGUAGE_VERSIONS_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-05 15:46:46.902--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.912--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_SIDEBAR_ELEMENTS_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-05 15:46:46.902--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.912--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_COLLECTIONS_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-11-05 15:46:46.902--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.912--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PROPERTIES_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_properties ADD CONSTRAINT FK_cms_properties_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_properties ADD CONSTRAINT FK_cms_properties_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_properties ADD CONSTRAINT FK_cms_properties_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-05 15:46:46.902--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.913--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_TRANSLATIONS_TRANSLATION_OWNER_ID" already exists; SQL statement:
 ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id)
 Query: DataModifyQuery(sql="ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id)")
-[EL Warning]: 2018-11-05 15:46:46.903--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.913--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_OVERVIEW_PAGE_UPDATES_UPDATED_BY" already exists; SQL statement:
 ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.903--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.913--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SEARCHES_OWNER_ID" already exists; SQL statement:
 ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.903--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.913--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSES_USER_ID" already exists; SQL statement:
 ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.904--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.914--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_USER_GROUPS_OWNER_ID" already exists; SQL statement:
 ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.904--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.914--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_USER_ROLE_USER_GROUP_ID" already exists; SQL statement:
 ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id)
 Query: DataModifyQuery(sql="ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id)")
-[EL Warning]: 2018-11-05 15:46:46.904--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.914--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_MEDIA_ITEM_METADATA_OWNER_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-11-05 15:46:46.904--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.914--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_MEDIA_ITEM_TAGS_OWNER_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-11-05 15:46:46.904--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.914--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PAGE_CLASSIFICATIONS_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-05 15:46:46.905--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.915--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_DOWNLOAD_JOB_OBSERVERS_DOWNLOAD_JOB_ID" already exists; SQL statement:
 ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id)
 Query: DataModifyQuery(sql="ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id)")
-[EL Warning]: 2018-11-05 15:46:46.905--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.915--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_PRIVILEGES_LICENSE_ID" already exists; SQL statement:
 ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id)")
-[EL Warning]: 2018-11-05 15:46:46.905--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.915--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_TYPE_PRIVILEGES_LICENSE_TYPE_ID" already exists; SQL statement:
 ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)")
-[EL Warning]: 2018-11-05 15:46:46.905--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.915--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_ROLE_PRIVILEGES_ROLE_ID" already exists; SQL statement:
 ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id)
 Query: DataModifyQuery(sql="ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id)")
-[EL Warning]: 2018-11-05 15:46:46.905--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.915--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_OPENID_ACCOUNTS_USER_ID" already exists; SQL statement:
 ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-05 15:46:46.905--ServerSession(803432936)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-06 08:34:25.916--ServerSession(325983014)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_TRANSKRIBUS_JOB_OBSERVERS_JOB_ID" already exists; SQL statement:
 ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id)
 Query: DataModifyQuery(sql="ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id)")
-15:46:47.476 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-15:46:47.477 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.502 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+08:34:26.503 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -222,8 +222,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.489 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-15:46:47.489 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.521 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+08:34:26.522 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -294,8 +294,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.493 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-15:46:47.493 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.531 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+08:34:26.531 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -366,8 +366,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.497 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-15:46:47.497 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.537 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+08:34:26.537 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -438,8 +438,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.501 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-15:46:47.501 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.546 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+08:34:26.546 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -510,8 +510,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.506 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-15:46:47.506 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.554 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+08:34:26.554 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -582,8 +582,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.509 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-15:46:47.509 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.559 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+08:34:26.559 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -654,8 +654,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.512 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-15:46:47.512 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.563 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+08:34:26.563 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -726,8 +726,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.514 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-15:46:47.514 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.566 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+08:34:26.566 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -798,8 +798,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.518 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-15:46:47.518 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.573 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+08:34:26.573 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -870,8 +870,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.566 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
-15:46:47.566 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.714 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi1
+08:34:26.714 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -942,8 +942,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.569 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-15:46:47.570 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.718 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+08:34:26.718 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1014,8 +1014,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.572 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-15:46:47.572 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.720 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+08:34:26.720 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1086,8 +1086,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.574 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-15:46:47.574 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.723 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+08:34:26.723 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1158,8 +1158,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.577 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-15:46:47.577 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.725 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+08:34:26.726 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1230,8 +1230,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.579 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi2 AND LOGID:LOG_0004
-15:46:47.579 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.735 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi2 AND LOGID:LOG_0004
+08:34:26.735 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1302,8 +1302,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.581 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
-15:46:47.581 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.738 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
+08:34:26.738 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1374,8 +1374,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.583 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
-15:46:47.583 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.740 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi2
+08:34:26.740 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1446,8 +1446,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.586 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
-15:46:47.586 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.748 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI:pi3
+08:34:26.748 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1518,8 +1518,8 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-15:46:47.591 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
-15:46:47.591 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
+08:34:26.751 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Bad query: PI_TOPSTRUCT:pi3 AND LOGID:LOG_0004
+08:34:26.751 [main] ERROR de.intranda.digiverso.presentation.controller.SolrSearchIndex - Error executing query
 org.apache.solr.client.solrj.SolrServerException: Error executing query
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:100) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.SolrServer.query(SolrServer.java:301) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
@@ -1590,7 +1590,7 @@ Caused by: java.lang.IllegalStateException: Target host is null
 	at org.apache.solr.client.solrj.impl.HttpSolrServer.request(HttpSolrServer.java:206) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	at org.apache.solr.client.solrj.request.QueryRequest.process(QueryRequest.java:91) ~[solr-solrj-4.10.4.jar:4.10.4 1662817 - mike - 2015-02-27 16:43:08]
 	... 54 more
-[EL Info]: connection: 2018-11-05 15:46:47.593--ServerSession(803432936)--/file:/tmp/viewer/_intranda_viewer_test logout successful
+[EL Info]: connection: 2018-11-06 08:34:26.753--ServerSession(325983014)--/file:/tmp/viewer/_intranda_viewer_test logout successful
 </pre>
 </body>
 </html>
