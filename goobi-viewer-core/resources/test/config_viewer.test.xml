@@ -510,7 +510,9 @@
 				of -1 means all levels are being displayed, this is also the default -->
 			<displayDepthForSearch>5</displayDepthForSearch>
 		</collection>
-        <collection field="MD_KNOWLEDGEFIELD"/>
+        <collection field="MD_KNOWLEDGEFIELD">
+                    <splittingCharacter>/</splittingCharacter>
+        </collection>
         <collection field="MD_HIERARCHICALFIELD"/>
 	</collections>
 

@@ -4,159 +4,159 @@
 <title>Standard Output from IpRangeTest</title>
 </head>
 <body>
-<pre>[EL Info]: 2018-11-29 08:30:05.478--ServerSession(1344780827)--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
-[EL Info]: connection: 2018-11-29 08:30:05.492--ServerSession(1344780827)--/file:/tmp/viewer/_intranda_viewer_test login successful
-[EL Warning]: 2018-11-29 08:30:05.531--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+<pre>[EL Info]: 2018-11-29 10:01:45.537--ServerSession(1157576737)--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Info]: connection: 2018-11-29 10:01:45.555--ServerSession(1157576737)--/file:/tmp/viewer/_intranda_viewer_test login successful
+[EL Warning]: 2018-11-29 10:01:45.616--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_COMMENTS_OWNER_ID" already exists; SQL statement:
 ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE comments ADD CONSTRAINT FK_comments_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.531--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.616--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_BOOKSHELVES_OWNER_ID" already exists; SQL statement:
 ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE bookshelves ADD CONSTRAINT FK_bookshelves_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.616--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_BOOKSHELF_ITEMS_BOOKSHELF_ID" already exists; SQL statement:
 ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id)
 Query: DataModifyQuery(sql="ALTER TABLE bookshelf_items ADD CONSTRAINT FK_bookshelf_items_bookshelf_id FOREIGN KEY (bookshelf_id) REFERENCES bookshelves (bookshelf_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.617--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "CMS_CONTENT_ITEMS_OWNER_PAGE_LANGUAGE_VERSION_ID" already exists; SQL statement:
 ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_content_items ADD CONSTRAINT cms_content_items_owner_page_language_version_id FOREIGN KEY (owner_page_language_version_id) REFERENCES cms_page_language_versions (cms_page_language_version_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.617--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_NAVIGATION_ITEMS_PARENT_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_navigation_items ADD CONSTRAINT FK_cms_navigation_items_parent_item_id FOREIGN KEY (parent_item_id) REFERENCES cms_navigation_items (cms_navigation_item_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.617--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PAGE_LANGUAGE_VERSIONS_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_page_language_versions ADD CONSTRAINT FK_cms_page_language_versions_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.617--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_SIDEBAR_ELEMENTS_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_sidebar_elements ADD CONSTRAINT FK_cms_sidebar_elements_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.618--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_COLLECTIONS_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_collections ADD CONSTRAINT FK_cms_collections_media_item_id FOREIGN KEY (media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-11-29 08:30:05.532--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.618--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PROPERTIES_OWNER_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_properties ADD CONSTRAINT FK_cms_properties_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_properties ADD CONSTRAINT FK_cms_properties_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_properties ADD CONSTRAINT FK_cms_properties_owner_page_id FOREIGN KEY (owner_page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-29 08:30:05.533--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.618--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_TRANSLATIONS_TRANSLATION_OWNER_ID" already exists; SQL statement:
 ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id)
 Query: DataModifyQuery(sql="ALTER TABLE translations ADD CONSTRAINT FK_translations_translation_owner_id FOREIGN KEY (translation_owner_id) REFERENCES cms_collections (cms_collection_id)")
-[EL Warning]: 2018-11-29 08:30:05.533--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.618--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_OVERVIEW_PAGE_UPDATES_UPDATED_BY" already exists; SQL statement:
 ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE overview_page_updates ADD CONSTRAINT FK_overview_page_updates_updated_by FOREIGN KEY (updated_by) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.533--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.618--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_SEARCHES_OWNER_ID" already exists; SQL statement:
 ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE searches ADD CONSTRAINT FK_searches_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.533--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.619--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSES_USER_ID" already exists; SQL statement:
 ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE licenses ADD CONSTRAINT FK_licenses_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.533--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.619--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_USER_GROUPS_OWNER_ID" already exists; SQL statement:
 ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE user_groups ADD CONSTRAINT FK_user_groups_owner_id FOREIGN KEY (owner_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.533--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.619--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_USER_ROLE_USER_GROUP_ID" already exists; SQL statement:
 ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id)
 Query: DataModifyQuery(sql="ALTER TABLE user_role ADD CONSTRAINT FK_user_role_user_group_id FOREIGN KEY (user_group_id) REFERENCES user_groups (user_group_id)")
-[EL Warning]: 2018-11-29 08:30:05.541--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.619--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_MEDIA_ITEM_METADATA_OWNER_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_media_item_metadata ADD CONSTRAINT FK_cms_media_item_metadata_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-11-29 08:30:05.542--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.62--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_MEDIA_ITEM_TAGS_OWNER_MEDIA_ITEM_ID" already exists; SQL statement:
 ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_media_item_tags ADD CONSTRAINT FK_cms_media_item_tags_owner_media_item_id FOREIGN KEY (owner_media_item_id) REFERENCES cms_media_items (cms_media_item_id)")
-[EL Warning]: 2018-11-29 08:30:05.542--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.62--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_CMS_PAGE_CLASSIFICATIONS_PAGE_ID" already exists; SQL statement:
 ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id)
 Query: DataModifyQuery(sql="ALTER TABLE cms_page_classifications ADD CONSTRAINT FK_cms_page_classifications_page_id FOREIGN KEY (page_id) REFERENCES cms_pages (cms_page_id)")
-[EL Warning]: 2018-11-29 08:30:05.542--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.62--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_DOWNLOAD_JOB_OBSERVERS_DOWNLOAD_JOB_ID" already exists; SQL statement:
 ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id)
 Query: DataModifyQuery(sql="ALTER TABLE download_job_observers ADD CONSTRAINT FK_download_job_observers_download_job_id FOREIGN KEY (download_job_id) REFERENCES download_jobs (download_job_id)")
-[EL Warning]: 2018-11-29 08:30:05.542--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.62--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_PRIVILEGES_LICENSE_ID" already exists; SQL statement:
 ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_privileges ADD CONSTRAINT FK_license_privileges_license_id FOREIGN KEY (license_id) REFERENCES licenses (license_id)")
-[EL Warning]: 2018-11-29 08:30:05.542--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.621--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_TYPE_PRIVILEGES_LICENSE_TYPE_ID" already exists; SQL statement:
 ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_type_privileges ADD CONSTRAINT FK_license_type_privileges_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)")
-[EL Warning]: 2018-11-29 08:30:05.542--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.621--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_LICENSE_TYPES_OVERRIDING_LICENSE_TYPE_ID" already exists; SQL statement:
 ALTER TABLE license_types_overriding ADD CONSTRAINT FK_license_types_overriding_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE license_types_overriding ADD CONSTRAINT FK_license_types_overriding_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)
 Query: DataModifyQuery(sql="ALTER TABLE license_types_overriding ADD CONSTRAINT FK_license_types_overriding_license_type_id FOREIGN KEY (license_type_id) REFERENCES license_types (license_type_id)")
-[EL Warning]: 2018-11-29 08:30:05.543--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.621--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_ROLE_PRIVILEGES_ROLE_ID" already exists; SQL statement:
 ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id)
 Query: DataModifyQuery(sql="ALTER TABLE role_privileges ADD CONSTRAINT FK_role_privileges_role_id FOREIGN KEY (role_id) REFERENCES roles (role_id)")
-[EL Warning]: 2018-11-29 08:30:05.543--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.621--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_OPENID_ACCOUNTS_USER_ID" already exists; SQL statement:
 ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 Query: DataModifyQuery(sql="ALTER TABLE openid_accounts ADD CONSTRAINT FK_openid_accounts_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)")
-[EL Warning]: 2018-11-29 08:30:05.543--ServerSession(1344780827)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-11-29 10:01:45.621--ServerSession(1157576737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Constraint "FK_TRANSKRIBUS_JOB_OBSERVERS_JOB_ID" already exists; SQL statement:
 ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id) [90045-193]
 Error Code: 90045
 Call: ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id)
 Query: DataModifyQuery(sql="ALTER TABLE transkribus_job_observers ADD CONSTRAINT FK_transkribus_job_observers_job_id FOREIGN KEY (job_id) REFERENCES transkribus_jobs (job_id)")
-[EL Info]: connection: 2018-11-29 08:30:05.698--ServerSession(1344780827)--/file:/tmp/viewer/_intranda_viewer_test logout successful
+[EL Info]: connection: 2018-11-29 10:01:45.787--ServerSession(1157576737)--/file:/tmp/viewer/_intranda_viewer_test logout successful
 </pre>
 </body>
 </html>
