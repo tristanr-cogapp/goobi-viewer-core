@@ -93,6 +93,7 @@ public class ContentBean implements Serializable {
             logger.debug("page is null, cannot load");
             return;
         }
+        pi = page.getPi();
         currentPage = page.getOrder();
         userGeneratedContentsForDisplay = new ArrayList<>();
         for (DisplayUserGeneratedContent ugcContent : DataManager.getInstance().getSearchIndex().getDisplayUserGeneratedContentsForPage(page.getPi(),
