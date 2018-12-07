@@ -1553,24 +1553,6 @@ public final class Configuration extends AbstractConfiguration {
      * @return
      * @should return correct value
      */
-    public boolean isSidebarDfgLinkVisible() {
-        return getLocalBoolean("sidebar.dfg.visible", true);
-    }
-
-    /**
-     * 
-     * @return
-     * @should return correct value
-     */
-    public boolean isSidebarOpacLinkVisible() {
-        return getLocalBoolean("sidebar.opac.visible", true);
-    }
-
-    /**
-     * 
-     * @return
-     * @should return correct value
-     */
     public boolean isSidebarTocVisible() {
         return this.getLocalBoolean("sidebar.sidebarToc.visible", true);
     }

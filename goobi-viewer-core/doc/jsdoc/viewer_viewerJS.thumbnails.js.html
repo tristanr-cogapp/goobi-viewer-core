@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: calendarPopover</title>
+    <title>JSDoc: Source: viewer/viewerJS.thumbnails.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,306 +17,113 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: calendarPopover</h1>
+    <h1 class="page-title">Source: viewer/viewerJS.thumbnails.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-</header>
-
-<article>
-    <div class="container-overview">
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>                
+/**
+ * This file is part of the Goobi viewer - a content presentation and management
+ * application for digitized objects.
+ * 
+ * Visit these websites for more information. - http://www.intranda.com -
+ * http://digiverso.com
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU General Public License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this
+ * program. If not, see &lt;http://www.gnu.org/licenses/>.
+ * 
+ * Module to respond to errors loading thumbnail images
+ * 
+ * @version 3.2.0
+ * @module viewerJS.thumbnails
+ * @requires jQuery
+ */
+var viewerJS = ( function( viewer ) {
+    'use strict';
     
-        
-            <div class="description">This file is part of the Goobi viewer - a content presentation and management
-application for digitized objects.
-
-Visit these websites for more information. - http://www.intranda.com -
-http://digiverso.com
-
-This program is free software; you can redistribute it and/or modify it under the terms
-of the GNU General Public License as published by the Free Software Foundation; either
-version 2 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this
-program. If not, see <http://www.gnu.org/licenses/>.
-
-<Short Module Description></div>
-        
-
-        
-
-
-<dl class="details">
-
+    var _notFound;
+    var _accessDenied
     
-    <dt class="tag-version">Version:</dt>
-    <dd class="tag-version"><ul class="dummy"><li>3.2.0</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="viewer_viewerJS.calendarPopover.js.html">viewer/viewerJS.calendarPopover.js</a>, <a href="viewer_viewerJS.calendarPopover.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-        <h3 class="subsection-title">Requires</h3>
-
-        <ul>
-            <li>module:jQuery</li>
-        </ul>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~_getPopoverContent"><span class="type-signature">(inner) </span>_getPopoverContent<span class="signature">(data, config)</span><span class="type-signature"> &rarr; {String}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Method to render the popover content.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
+    // load images with error handling
+    viewer.loadThumbnails = function() {
         
 
-        <th>Type</th>
-
+        _notFound = currentPath + '/resources/themes/' + viewer.theme + '/images/image_not_found.png';
+        _accessDenied = currentPath + '/resources/themes/' + viewer.theme + '/images/access_denied.png';
         
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+        $('.viewer-thumbnail').each(function() {
+            var element = this;
+            var source = element.src
+            var dataSource = element.dataset.src; 
+            if(dataSource &amp;&amp; !source) { 
+                 _loadImage(element, dataSource);                
+            }else if (source) {                   
+                   var onErrorCallback = function() {
+                       _loadImage(element, element.src)
+                   }
+                   //reload image if error event occurs
+                   $(element).one("error", onErrorCallback)
+                   //if image is already loaded but has not width, assume error and also reload
+                   if(element.complete &amp;&amp; element.naturalWidth === 0) {
+                       $(element).off("error", onErrorCallback);
+                       _loadImage(element, element.src)
+                   }
+            }
+        });
+    }
     
+    function _loadImage(element, source) {
 
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
+        $.ajax({
+            url: source,
+            cache: true,
+            xhrFields: {
+                responseType: 'blob'
+            },
+        })
+        .done(function(blob) {
+            var url = window.URL || window.webkitURL;
+            element.src = url.createObjectURL(blob);
+        })
+        .fail(function(error) {
+            console.log("loading image failed with  error ", error, error.status);
+            var status = error.status;
+                switch(status) {
+                    case 403:
+                        element.src = _accessDenied;
+                        break;
+                    case 500:
+                    case 404:
+                        element.src = _notFound;
+                        break;
+                    default:
+                         element.src = source;
+//                        element.src = _notFound;
+                }
+            });  
+    }
+    
+    return viewer;
+    
+})( viewerJS || {}, jQuery );
                 
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A JSON-Object which contains the necessary data.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
                 
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The config object of the module.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="viewer_viewerJS.calendarPopover.js.html">viewer/viewerJS.calendarPopover.js</a>, <a href="viewer_viewerJS.calendarPopover.js.html#line90">line 90</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The HTML-String of the popover content.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">String</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
+                </code></pre>
+        </article>
+    </section>
 
 
 
