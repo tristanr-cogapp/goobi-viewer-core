@@ -11,8 +11,43 @@
 	<composite:implementation>
 		<!-- THIS COMPONENT MUSST BE WRAPPED IN AN DIV WITH THE CLASS ".search-list"! -->
 	
+        <ui:param name="search" value="#{searchParam != null ? searchParam : searchBean}"></ui:param>
+    
 		<!-- SEARCH LIST HITS -->
 		<div class="search-list__hits">
+        
+                    <!-- SEARCH LIST SORTING -->
+                    <h:panelGroup rendered="#{search.hitsCount > 1}">
+                        <div class="search-list__sorting">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4">
+                                    <span class="search-list__label">#{msg.sortBy}:</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-8">
+                                    <div class="custom-control custom-control--select">
+                                        <select id="sortSelect">
+                                            <option value="#" data-sortField="">#{msg.searchSortingDropdown_plsSelect}</option>
+                                            <ui:repeat var="sortField" value="#{configurationBean.sortFields}">
+                                                <option
+                                                    value="#{search.currentSearchUrlRoot}/-/#{search.exactSearchString}/#{search.currentPage}/#{sortField}/#{search.facets.currentFacetString}/"
+                                                    data-sortField="#{msg[sortField]} #{msg.searchSortingDropdown_ascending}">
+                                                    <h:outputText value="#{msg[sortField]}" /> #{msg.searchSortingDropdown_ascending}
+                                                </option>
+                                                <option
+                                                    value="#{search.currentSearchUrlRoot}/-/#{search.exactSearchString}/#{search.currentPage}/!#{sortField}/#{search.facets.currentFacetString}/"
+                                                    data-sortField="#{msg[sortField]} #{msg.searchSortingDropdown_descending}">
+                                                    <h:outputText value="#{msg[sortField]}" /> #{msg.searchSortingDropdown_descending}
+                                                </option>
+                                            </ui:repeat>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="clearfix"></div>
+                    </h:panelGroup>
+        
 			<h:form id="searchListHitsForm" prependId="false">
 				<ui:repeat value="#{searchBean.currentSearch.hits}" var="hit" varStatus="status">
 					<div class="search-list__hit">
