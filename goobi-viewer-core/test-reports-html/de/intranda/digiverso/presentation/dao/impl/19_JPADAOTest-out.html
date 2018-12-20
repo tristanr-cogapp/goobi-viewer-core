@@ -4,9 +4,9 @@
 <title>Standard Output from JPADAOTest</title>
 </head>
 <body>
-<pre>[EL Info]: 2018-12-20 15:47:07.71--ServerSession(937958958)--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
-[EL Info]: connection: 2018-12-20 15:47:07.741--ServerSession(937958958)--/file:/tmp/viewer/_intranda_viewer_test login successful
-[EL Warning]: 2018-12-20 15:47:11.187--UnitOfWork(1432739412)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+<pre>[EL Info]: 2018-12-20 15:50:34.409--ServerSession(1823221163)--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Info]: connection: 2018-12-20 15:50:34.427--ServerSession(1823221163)--/file:/tmp/viewer/_intranda_viewer_test login successful
+[EL Warning]: 2018-12-20 15:50:38.011--UnitOfWork(917306031)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: "FK_LICENSES_LICENSE_TYPE_ID: PUBLIC.LICENSES FOREIGN KEY(LICENSE_TYPE_ID) REFERENCES PUBLIC.LICENSE_TYPES(LICENSE_TYPE_ID) (1)"; SQL statement:
 DELETE FROM license_types WHERE (license_type_id = ?) [23503-193]
 Error Code: 23503
@@ -14,21 +14,21 @@ Call: DELETE FROM license_types WHERE (license_type_id = ?)
 	bind =&gt; [1 parameter bound]
 Query: DeleteObjectQuery(license type 1 name:	openaccess: false	conditions: YEAR:[* TO 3000]
 	Privileges: license type 1 priv 1)
-[EL Warning]: 2018-12-20 15:47:12.767--UnitOfWork(1844217308)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-12-20 15:50:39.854--UnitOfWork(600573610)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: "FK_CMS_CONTENT_ITEMS_MEDIA_ITEM_ID: PUBLIC.CMS_CONTENT_ITEMS FOREIGN KEY(MEDIA_ITEM_ID) REFERENCES PUBLIC.CMS_MEDIA_ITEMS(CMS_MEDIA_ITEM_ID) (1)"; SQL statement:
 DELETE FROM cms_media_items WHERE (cms_media_item_id = ?) [23503-193]
 Error Code: 23503
 Call: DELETE FROM cms_media_items WHERE (cms_media_item_id = ?)
 	bind =&gt; [1 parameter bound]
 Query: DeleteObjectQuery(ID=1 (FILE=image1.jpg))
-[EL Warning]: 2018-12-20 15:47:15.042--UnitOfWork(2065872495)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
+[EL Warning]: 2018-12-20 15:50:42.243--UnitOfWork(1587009400)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: org.h2.jdbc.JdbcSQLException: Referential integrity constraint violation: "FK_USER_ROLE_USER_GROUP_ID: PUBLIC.USER_ROLE FOREIGN KEY(USER_GROUP_ID) REFERENCES PUBLIC.USER_GROUPS(USER_GROUP_ID) (1)"; SQL statement:
 DELETE FROM user_groups WHERE (user_group_id = ?) [23503-193]
 Error Code: 23503
 Call: DELETE FROM user_groups WHERE (user_group_id = ?)
 	bind =&gt; [1 parameter bound]
 Query: DeleteObjectQuery(de.intranda.digiverso.presentation.model.security.user.UserGroup@852d7ff0)
-[EL Info]: connection: 2018-12-20 15:47:17.481--ServerSession(937958958)--/file:/tmp/viewer/_intranda_viewer_test logout successful
+[EL Info]: connection: 2018-12-20 15:50:44.798--ServerSession(1823221163)--/file:/tmp/viewer/_intranda_viewer_test logout successful
 </pre>
 </body>
 </html>
